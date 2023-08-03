@@ -3,10 +3,12 @@ package com.ChickenTest.demoChickenTest.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-//import javax.persistence.*;
 import jakarta.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
 
 @Entity
 @Table(name = "GRANJAS")
@@ -28,9 +30,9 @@ public class Farm {
 
     @OneToMany(mappedBy = "farm")
     @JsonIgnore
-    private Set<Chicken> listChickens = new HashSet<>();
+    private List<Chicken> listChickens = new ArrayList<>();
 
     @OneToMany(mappedBy = "farm")
     @JsonIgnore
-    private Set<Egg> listEggs = new HashSet<>();
+    private List<Egg> listEggs = new ArrayList<>();
 }

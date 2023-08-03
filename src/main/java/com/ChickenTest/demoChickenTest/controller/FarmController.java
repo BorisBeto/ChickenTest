@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @Controller
+@RequestMapping("/")
 public class FarmController {
     private static final Logger logger = Logger.getLogger(FarmController.class);
     @Autowired
     FarmService farmService;
 
-    @GetMapping("/")
+    @GetMapping
     public String getDashboardProperties(Model model){
         FarmDashboardDto farmDashboardDto = farmService.getPropertiesDashboard();
         model.addAttribute("farm", farmDashboardDto);
@@ -30,25 +31,40 @@ public class FarmController {
     }
 
     @PostMapping("/buy/chicken/{cantidad}")
-    public String buyChicken(Model model,@PathVariable int cantidad){
-        FarmDashboardDto farmDashboardDto = farmService.getPropertiesDashboard();
+    public String buyChicken(@PathVariable int cantidad){
         try {
             logger.info(farmService.getPropertiesDashboard());
             farmService.buy("chicken", cantidad);
-            model.addAttribute("farm", farmDashboardDto);
         }catch (Exception e){
             logger.error("No se pudo realizar la compra: " + e.getMessage());
         }
 
-        return "index";
+        return "redirect:/";
     }
 
     @PostMapping("/buy/egg/{cantidad}")
-    public String buyEgg(Model model,@PathVariable int cantidad){
-        FarmDashboardDto farmDashboardDto = farmService.getPropertiesDashboard();
-        farmService.buy("egg", cantidad);
-        model.addAttribute("farm", farmDashboardDto);
-        return "index";
+    public String buyEgg(@PathVariable int cantidad){
+
+        try {
+            logger.info(farmService.getPropertiesDashboard());
+            farmService.buy("egg", cantidad);
+        }catch (Exception e){
+            logger.error("No se pudo realizar la compra: " + e.getMessage());
+        }
+
+        return "redirect:/";
     }
 
+    @PostMapping("/sell/chicken/{cantidad}")
+    public String sellChicken(@PathVariable int cantidad){
+
+        try {
+            logger.info(farmService.getPropertiesDashboard());
+            farmService.sell("chicken", cantidad);
+        }catch (Exception e){
+            logger.error("No se pudo realizar la venta: " + e.getMessage());
+        }
+
+        return "redirect:/";
+    }
 }

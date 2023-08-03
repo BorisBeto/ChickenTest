@@ -22,7 +22,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
             integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
             crossorigin="anonymous"></script>
-
     <!--
     <script src="js/dashboard.js"></script>
     -->
@@ -79,7 +78,7 @@
             <div class="row">
                 <!-- Card Comprar Pollo -->
                 <div class="col">
-                    <form action="" method="post">
+                    <form action="" method="post" id="fromBuyChicken">
                     <div class="card" style="width: 18rem;">
                         <img src="img/chickenForBuy.jpg" class="card-img-top" alt="eggForBuy" height="50%">
                         <div class="card-body">
@@ -88,12 +87,12 @@
                                 <p class="card-text">$ <span >0</span></p>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-primary"><i class="bi bi-dash-circle-fill"></i></button>
-                                    <input type="number" name="cantidad" value="1" class="form-control" style="width:50px;">
+                                    <input type="number" name="cantidad" value="1" class="form-control" id="cantidad-buy-chicken" style="width:50px;">
                                     <button type="button" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i></button>
                                 </div>
                             </div>
                             <div class="d-grid gap-2 col-6 mx-auto mt-3">
-                                <button class="btn btn-primary" id="btn-buyChicken" type="button">Comprar</button>
+                                <button class="btn btn-primary" id="btn-buyChicken" type="submit">Comprar</button>
                             </div>
                         </div>
                     </div>
@@ -113,12 +112,12 @@
                                 <p class="card-text">$ <span >0</span></p>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-primary"><i class="bi bi-dash-circle-fill"></i></button>
-                                    <input type="number" name="cantidad" value="1" class="form-control" style="width:50px;">
+                                    <input type="number" name="cantidad" value="1" class="form-control" id="cantidad-buy-egg" style="width:50px;">
                                     <button type="button" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i></button>
                                 </div>
                             </div>
                             <div class="d-grid gap-2 col-6 mx-auto mt-3">
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">Comprar</button>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">Comprar</button>
                             </div>
                         </div>
                     </div>
@@ -137,12 +136,12 @@
                                 <p class="card-text">$ <span >0</span></p>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-primary"><i class="bi bi-dash-circle-fill"></i></button>
-                                    <input type="number" name="cantidad" value="1" class="form-control" style="width:50px;">
+                                    <input type="number" name="cantidad" value="1" class="form-control" id="cantidad-sell-egg" style="width:50px;">
                                     <button type="button" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i></button>
                                 </div>
                             </div>
                             <div class="d-grid gap-2 col-6 mx-auto mt-3">
-                                <button class="btn btn-primary" type="button">Vender</button>
+                                <button class="btn btn-primary" type="submit">Vender</button>
                             </div>
                         </div>
                     </div>
@@ -161,12 +160,12 @@
                                 <p class="card-text">$ <span >0</span></p>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-primary"><i class="bi bi-dash-circle-fill"></i></button>
-                                    <input type="number" name="cantidad" value="1" class="form-control" style="width:50px;">
+                                    <input type="number" name="cantidad" value="1" class="form-control" id="cantidad-sell-chicken" style="width:50px;">
                                     <button type="button" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i></button>
                                 </div>
                             </div>
                             <div class="d-grid gap-2 col-6 mx-auto mt-3">
-                                <button class="btn btn-primary" type="button">Vender</button>
+                                <button class="btn btn-primary" type="submit">Vender</button>
                             </div>
                         </div>
                     </div>

@@ -6,10 +6,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//import javax.persistence.*;
 import jakarta.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "POLLOS")
@@ -25,7 +25,7 @@ public class Chicken {
 
     @OneToMany(mappedBy = "chicken")
     @JsonIgnore
-    private Set<Egg> listEggs = new HashSet<>(); // nroHuevosProducidos
+    private List<Egg> listEggs = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "farm_id")

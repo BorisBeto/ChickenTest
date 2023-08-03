@@ -10,20 +10,20 @@ import com.ChickenTest.demoChickenTest.entity.Tienda;
 import com.ChickenTest.demoChickenTest.repository.IChickenRepository;
 import com.ChickenTest.demoChickenTest.repository.IEggRepository;
 import com.ChickenTest.demoChickenTest.repository.IFarmRepository;
-import com.ChickenTest.demoChickenTest.service.IFarmService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import org.apache.catalina.valves.rewrite.InternalRewriteMap;
+
 import org.apache.log4j.Logger;
+
+import org.hibernate.collection.spi.PersistentSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.HashSet;
+
 import java.util.List;
 import java.util.Set;
+
 
 @Service
 @AllArgsConstructor
@@ -83,7 +83,7 @@ public class FarmService {
                     /*  4. Verificar dinero disponible del granjero */
                     if (dineroDisponible > (cantidad * precioChicken)){
                         for (int i = 0; i < cantidad; i++){
-                            chickenRepository.save(new Chicken(null,20,5,precioChicken,null, new WeakReference<>(farm).get())); // Creación de nuevos Chicken [pasar paramtros]
+                            chickenRepository.save(new Chicken(null,20,5,precioChicken,null, farm)); // new WeakReference<>(farm).get())
                             logger.info("Chicken comprado.");
                         }
                         logger.info("Actualizando datos de la granja ...");
@@ -140,4 +140,36 @@ public class FarmService {
 
     }
 
+    public void sell(String tipo, int cantidad){
+        /*  1. Obtener los datos de la granja.  */
+        Farm farm = farmRepository.findAll().stream().findFirst().get();
+        double dineroDisponible = farm.getDinero();
+
+        if (farm != null){
+            if (tipo == "chicken"){
+                /*  2. Obtener la lista de Pollos que posee la granaja. */
+                List<Chicken> listChicken = farm.getListChickens();
+
+                /*  3. Verificar la cantidad de Pollos disponibles para vender  */
+                if (cantidad <= listChicken.size()){
+                    for(int i = 0; i < cantidad; i++){
+                        chickenRepository.deleteById(listChicken.get(i).getId());
+                        farm.getListChickens().remove(listChicken.get(i));
+                    }
+
+                    logger.info("Granja: " + farm);
+
+                    farm.setDinero(dineroDisponible + (Tienda.PRECIO_VENTA_CHICKEN * cantidad));
+                    farm.setCantPollos(farm.getCantPollos() - cantidad);
+                    logger.info("Granja actualizado: " + farm);
+
+                    farmRepository.save(farm);
+
+
+                }else {
+                    throw new RuntimeException("La cantidad de pollos a vender debe ser menor o igual a la cantidad actual que posee en la granja");
+                }
+            }
+        }
+    }
 }
