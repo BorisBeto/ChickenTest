@@ -79,4 +79,17 @@ public class FarmController {
 
         return "redirect:/";
     }
+
+    @PostMapping("/dias/{cantidad}")
+    public String pasarDias(@PathVariable int cantidad){
+
+        try {
+            logger.info(farmService.getPropertiesDashboard());
+            farmService.pasarDias(cantidad);
+        }catch (Exception e){
+            logger.error("No se pudo realizar la venta: " + e.getMessage());
+        }
+
+        return "redirect:/";
+    }
 }
