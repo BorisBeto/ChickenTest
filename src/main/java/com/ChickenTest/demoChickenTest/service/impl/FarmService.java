@@ -157,11 +157,9 @@ public class FarmService {
                         farm.getListChickens().remove(listChicken.get(i));
                     }
 
-                    logger.info("Granja: " + farm);
-
                     farm.setDinero(dineroDisponible + (Tienda.PRECIO_VENTA_CHICKEN * cantidad));
                     farm.setCantPollos(farm.getCantPollos() - cantidad);
-                    logger.info("Granja actualizado: " + farm);
+                    logger.info("Granja: " + farm);
 
                     farmRepository.save(farm);
 
@@ -169,7 +167,31 @@ public class FarmService {
                 }else {
                     throw new RuntimeException("La cantidad de pollos a vender debe ser menor o igual a la cantidad actual que posee en la granja");
                 }
+            }else if (tipo == "egg"){
+                /*  2. Obtener lista de Huevos que posee la granja. */
+                List<Egg> listEgg = farm.getListEggs();
+
+                /*  3. Verificar la cantidad de Pollos disponibles para vender  */
+                if (cantidad <= listEgg.size()){
+                    for (int i = 0; i < cantidad; i++){
+                        eggRepository.deleteById(listEgg.get(i).getId());
+                        farm.getListEggs().remove(listEgg.get(i));
+                    }
+
+                    farm.setDinero(dineroDisponible + (Tienda.PRECIO_VENTA_EGG * cantidad));
+                    farm.setCantPollos(farm.getCantHuevos() - cantidad);
+                    logger.info("Granja: " + farm);
+
+                    farmRepository.save(farm);
+                }else{
+                    throw new RuntimeException("La cantidad de Huevos a vender debe ser menor o igual a la cantidad actual que posee en la granja");
+                }
+            }else {
+                throw new RuntimeException("Solicitud denegada. Debe seleccionar 'chicken' o 'egg'.");
             }
+        }else {
+            logger.error("No es posible comprar Huevos ni Pollos. No hay granja registrada");
+            throw new RuntimeException("No hay ninguna granaja registrada");
         }
     }
 }

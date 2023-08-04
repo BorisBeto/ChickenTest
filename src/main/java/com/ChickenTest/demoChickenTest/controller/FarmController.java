@@ -67,4 +67,16 @@ public class FarmController {
 
         return "redirect:/";
     }
+    @PostMapping("/sell/egg/{cantidad}")
+    public String sellEgg(@PathVariable int cantidad){
+
+        try {
+            logger.info(farmService.getPropertiesDashboard());
+            farmService.sell("egg", cantidad);
+        }catch (Exception e){
+            logger.error("No se pudo realizar la venta: " + e.getMessage());
+        }
+
+        return "redirect:/";
+    }
 }
