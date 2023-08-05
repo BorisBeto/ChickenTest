@@ -1,12 +1,17 @@
-[2023-08-0323:31:10] [ INFO ] [FarmService:52] obteniendo datos propiedades Dashboard ...
-[2023-08-0323:31:10] [ INFO ] [FarmController:87] FarmDashboardDto(id=1, dinero=230.0, cantHuevos=0, cantPollos=3)
-[2023-08-0323:31:10] [ INFO ] [FarmService:210] Pollo0: 20
-[2023-08-0323:31:10] [ INFO ] [FarmService:210] Pollo1: 20
-[2023-08-0323:31:10] [ INFO ] [FarmService:210] Pollo2: 20
-[2023-08-0323:31:10] [ ERROR] [FarmController:90] No se pudo realizar la venta: Index 3 out of bounds for length 3
-[2023-08-0323:31:10] [ INFO ] [FarmService:52] obteniendo datos propiedades Dashboard ...
-[2023-08-0323:31:10] [ INFO ] [FarmController:29] Farm properties: {}
-FarmDashboardDto(id=1, dinero=230.0, cantHuevos=0, cantPollos=3)
+[2023-08-0500:58:43] [ INFO ] [FarmService:52] obteniendo datos propiedades Dashboard ...
+[2023-08-0500:58:43] [ INFO ] [FarmController:36] FarmDashboardDto(id=1, dinero=500.0, cantHuevos=0, cantPollos=0)
+[2023-08-0500:58:43] [ INFO ] [FarmService:68] Verificando Chicken Stock ...
+[2023-08-0500:58:43] [ INFO ] [FarmService:74] Verificando Cash disponible ...
+[2023-08-0500:58:43] [ INFO ] [FarmService:80] Chicken comprado.
+[2023-08-0500:58:43] [ INFO ] [FarmService:80] Chicken comprado.
+[2023-08-0500:58:43] [ INFO ] [FarmService:80] Chicken comprado.
+[2023-08-0500:58:44] [ INFO ] [FarmService:80] Chicken comprado.
+[2023-08-0500:58:44] [ INFO ] [FarmService:80] Chicken comprado.
+[2023-08-0500:58:44] [ INFO ] [FarmService:82] Actualizando datos de la granja ...
+[2023-08-0500:58:44] [ INFO ] [FarmService:87] Granja actualizado: Farm(id=1, nombre=SUPER FARM, granjero=Brian Duran, dinero=50.0, dias=100, limiteHuevos=10, limitePollos=10, cantHuevos=0, cantPollos=5, listChickens=[], listEggs=[])
+[2023-08-0500:58:44] [ INFO ] [FarmService:52] obteniendo datos propiedades Dashboard ...
+[2023-08-0500:58:44] [ INFO ] [FarmController:29] Farm properties: {}
+FarmDashboardDto(id=1, dinero=50.0, cantHuevos=0, cantPollos=5)
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
@@ -17,6 +22,507 @@ FarmDashboardDto(id=1, dinero=230.0, cantHuevos=0, cantPollos=3)
 	at com.fasterxml.jackson.databind.ObjectMapper._convert(ObjectMapper.java:4539)
 	at com.fasterxml.jackson.databind.ObjectMapper.convertValue(ObjectMapper.java:4475)
 	at com.ChickenTest.demoChickenTest.service.impl.FarmService.getPropertiesDashboard(FarmService.java:47)
+	at com.ChickenTest.demoChickenTest.controller.FarmController.getDashboardProperties(FarmController.java:26)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+[2023-08-0500:58:52] [ INFO ] [FarmService:52] obteniendo datos propiedades Dashboard ...
+[2023-08-0500:58:52] [ INFO ] [FarmController:87] FarmDashboardDto(id=1, dinero=50.0, cantHuevos=0, cantPollos=5)
+[2023-08-0500:59:05] [ INFO ] [FarmService:198] Dia 0
+[2023-08-0500:59:07] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 19
+[2023-08-0500:59:07] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 19
+[2023-08-0500:59:07] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 19
+[2023-08-0500:59:07] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 19
+[2023-08-0500:59:07] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 19
+[2023-08-0500:59:08] [ INFO ] [FarmService:198] Dia 1
+[2023-08-0500:59:08] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 18
+[2023-08-0500:59:08] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 18
+[2023-08-0500:59:08] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 18
+[2023-08-0500:59:08] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 18
+[2023-08-0500:59:08] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 18
+[2023-08-0500:59:08] [ INFO ] [FarmService:198] Dia 2
+[2023-08-0500:59:08] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 17
+[2023-08-0500:59:08] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 17
+[2023-08-0500:59:08] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 17
+[2023-08-0500:59:08] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 17
+[2023-08-0500:59:08] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 17
+[2023-08-0500:59:09] [ INFO ] [FarmService:198] Dia 3
+[2023-08-0500:59:09] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 16
+[2023-08-0500:59:09] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 16
+[2023-08-0500:59:09] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 16
+[2023-08-0500:59:09] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 16
+[2023-08-0500:59:09] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 16
+[2023-08-0500:59:10] [ INFO ] [FarmService:198] Dia 4
+[2023-08-0500:59:10] [ INFO ] [FarmService:223] Pollo: 0 ha puesto un huevo
+[2023-08-0500:59:10] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 15
+[2023-08-0500:59:10] [ INFO ] [FarmService:223] Pollo: 1 ha puesto un huevo
+[2023-08-0500:59:10] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 15
+[2023-08-0500:59:10] [ INFO ] [FarmService:223] Pollo: 2 ha puesto un huevo
+[2023-08-0500:59:10] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 15
+[2023-08-0500:59:10] [ INFO ] [FarmService:223] Pollo: 3 ha puesto un huevo
+[2023-08-0500:59:10] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 15
+[2023-08-0500:59:10] [ INFO ] [FarmService:223] Pollo: 4 ha puesto un huevo
+[2023-08-0500:59:10] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 15
+[2023-08-0500:59:11] [ INFO ] [FarmService:198] Dia 5
+[2023-08-0500:59:11] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 14
+[2023-08-0500:59:11] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 14
+[2023-08-0500:59:11] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 14
+[2023-08-0500:59:11] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 14
+[2023-08-0500:59:11] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 14
+[2023-08-0500:59:11] [ INFO ] [FarmService:198] Dia 6
+[2023-08-0500:59:11] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 13
+[2023-08-0500:59:11] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 13
+[2023-08-0500:59:11] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 13
+[2023-08-0500:59:11] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 13
+[2023-08-0500:59:11] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 13
+[2023-08-0500:59:12] [ INFO ] [FarmService:198] Dia 7
+[2023-08-0500:59:12] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 12
+[2023-08-0500:59:12] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 12
+[2023-08-0500:59:12] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 12
+[2023-08-0500:59:12] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 12
+[2023-08-0500:59:12] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 12
+[2023-08-0500:59:12] [ INFO ] [FarmService:198] Dia 8
+[2023-08-0500:59:12] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 11
+[2023-08-0500:59:12] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 11
+[2023-08-0500:59:12] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 11
+[2023-08-0500:59:12] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 11
+[2023-08-0500:59:12] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 11
+[2023-08-0500:59:13] [ INFO ] [FarmService:198] Dia 9
+[2023-08-0500:59:13] [ INFO ] [FarmService:223] Pollo: 0 ha puesto un huevo
+[2023-08-0500:59:13] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 10
+[2023-08-0500:59:13] [ INFO ] [FarmService:223] Pollo: 1 ha puesto un huevo
+[2023-08-0500:59:13] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 10
+[2023-08-0500:59:13] [ INFO ] [FarmService:223] Pollo: 2 ha puesto un huevo
+[2023-08-0500:59:13] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 10
+[2023-08-0500:59:13] [ INFO ] [FarmService:223] Pollo: 3 ha puesto un huevo
+[2023-08-0500:59:13] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 10
+[2023-08-0500:59:13] [ INFO ] [FarmService:223] Pollo: 4 ha puesto un huevo
+[2023-08-0500:59:13] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 10
+[2023-08-0500:59:14] [ INFO ] [FarmService:198] Dia 10
+[2023-08-0500:59:14] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 9
+[2023-08-0500:59:14] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 9
+[2023-08-0500:59:14] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 9
+[2023-08-0500:59:14] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 9
+[2023-08-0500:59:14] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 9
+[2023-08-0500:59:14] [ INFO ] [FarmService:198] Dia 11
+[2023-08-0500:59:14] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 8
+[2023-08-0500:59:14] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 8
+[2023-08-0500:59:14] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 8
+[2023-08-0500:59:14] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 8
+[2023-08-0500:59:14] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 8
+[2023-08-0500:59:15] [ INFO ] [FarmService:198] Dia 12
+[2023-08-0500:59:15] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 7
+[2023-08-0500:59:15] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 7
+[2023-08-0500:59:15] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 7
+[2023-08-0500:59:15] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 7
+[2023-08-0500:59:15] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 7
+[2023-08-0500:59:15] [ INFO ] [FarmService:198] Dia 13
+[2023-08-0500:59:15] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 6
+[2023-08-0500:59:15] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 6
+[2023-08-0500:59:15] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 6
+[2023-08-0500:59:15] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 6
+[2023-08-0500:59:15] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 6
+[2023-08-0500:59:16] [ INFO ] [FarmService:198] Dia 14
+[2023-08-0500:59:16] [ INFO ] [FarmService:223] Pollo: 0 ha puesto un huevo
+[2023-08-0500:59:16] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 5
+[2023-08-0500:59:16] [ INFO ] [FarmService:223] Pollo: 1 ha puesto un huevo
+[2023-08-0500:59:16] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 5
+[2023-08-0500:59:16] [ INFO ] [FarmService:223] Pollo: 2 ha puesto un huevo
+[2023-08-0500:59:16] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 5
+[2023-08-0500:59:16] [ INFO ] [FarmService:223] Pollo: 3 ha puesto un huevo
+[2023-08-0500:59:16] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 5
+[2023-08-0500:59:16] [ INFO ] [FarmService:223] Pollo: 4 ha puesto un huevo
+[2023-08-0500:59:16] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 5
+[2023-08-0500:59:16] [ INFO ] [FarmService:198] Dia 15
+[2023-08-0500:59:16] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 4
+[2023-08-0500:59:16] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 4
+[2023-08-0500:59:16] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 4
+[2023-08-0500:59:16] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 4
+[2023-08-0500:59:16] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 4
+[2023-08-0500:59:17] [ INFO ] [FarmService:198] Dia 16
+[2023-08-0500:59:17] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 3
+[2023-08-0500:59:17] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 3
+[2023-08-0500:59:17] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 3
+[2023-08-0500:59:17] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 3
+[2023-08-0500:59:17] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 3
+[2023-08-0500:59:17] [ INFO ] [FarmService:198] Dia 17
+[2023-08-0500:59:17] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 2
+[2023-08-0500:59:17] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 2
+[2023-08-0500:59:17] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 2
+[2023-08-0500:59:17] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 2
+[2023-08-0500:59:17] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 2
+[2023-08-0500:59:18] [ INFO ] [FarmService:198] Dia 18
+[2023-08-0500:59:18] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 1
+[2023-08-0500:59:18] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 1
+[2023-08-0500:59:18] [ INFO ] [FarmService:228] Pollo 2, Dias de Vida: 1
+[2023-08-0500:59:18] [ INFO ] [FarmService:228] Pollo 3, Dias de Vida: 1
+[2023-08-0500:59:18] [ INFO ] [FarmService:228] Pollo 4, Dias de Vida: 1
+[2023-08-0500:59:35] [ INFO ] [FarmService:198] Dia 19
+[2023-08-0500:59:40] [ INFO ] [FarmService:211] Desvinculando huevo de Pollo.
+[2023-08-0500:59:41] [ INFO ] [FarmService:211] Desvinculando huevo de Pollo.
+[2023-08-0500:59:43] [ INFO ] [FarmService:211] Desvinculando huevo de Pollo.
+[2023-08-0500:59:52] [ INFO ] [FarmService:217] chicken muerto.
+[2023-08-0501:00:22] [ INFO ] [FarmService:228] Pollo 0, Dias de Vida: 1
+[2023-08-0501:02:03] [ INFO ] [FarmService:211] Desvinculando huevo de Pollo.
+[2023-08-0501:02:04] [ INFO ] [FarmService:211] Desvinculando huevo de Pollo.
+[2023-08-0501:02:05] [ INFO ] [FarmService:211] Desvinculando huevo de Pollo.
+[2023-08-0501:02:30] [ INFO ] [FarmService:217] chicken muerto.
+[2023-08-0501:02:32] [ INFO ] [FarmService:228] Pollo 1, Dias de Vida: 1
+[2023-08-0501:02:45] [ INFO ] [FarmService:211] Desvinculando huevo de Pollo.
+[2023-08-0501:02:45] [ INFO ] [FarmService:211] Desvinculando huevo de Pollo.
+[2023-08-0501:02:45] [ INFO ] [FarmService:211] Desvinculando huevo de Pollo.
+[2023-08-0501:02:45] [ INFO ] [FarmService:217] chicken muerto.
+[2023-08-0501:02:45] [ ERROR] [FarmController:90] No se pudo realizar la venta: Index 2 out of bounds for length 2
+[2023-08-0501:02:46] [ INFO ] [FarmService:52] obteniendo datos propiedades Dashboard ...
+[2023-08-0501:02:46] [ INFO ] [FarmController:29] Farm properties: {}
+FarmDashboardDto(id=1, dinero=50.0, cantHuevos=15, cantPollos=2)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at com.fasterxml.jackson.databind.introspect.AnnotatedConstructor.call(AnnotatedConstructor.java:123)
+	at com.fasterxml.jackson.databind.deser.std.StdValueInstantiator.createUsingDefault(StdValueInstantiator.java:278)
+	at com.fasterxml.jackson.databind.deser.std.ThrowableDeserializer.deserializeFromObject(ThrowableDeserializer.java:174)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:185)
+	at com.fasterxml.jackson.databind.ObjectMapper._convert(ObjectMapper.java:4539)
+	at com.fasterxml.jackson.databind.ObjectMapper.convertValue(ObjectMapper.java:4475)
+	at com.ChickenTest.demoChickenTest.service.impl.FarmService.getPropertiesDashboard(FarmService.java:47)
+	at com.ChickenTest.demoChickenTest.controller.FarmController.getDashboardProperties(FarmController.java:26)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+[2023-08-0501:20:19] [ INFO ] [FarmService:53] obteniendo datos propiedades Dashboard ...
+[2023-08-0501:20:19] [ INFO ] [FarmController:36] FarmDashboardDto(id=1, dinero=500.0, cantHuevos=0, cantPollos=0)
+[2023-08-0501:20:19] [ INFO ] [FarmService:69] Verificando Chicken Stock ...
+[2023-08-0501:20:19] [ INFO ] [FarmService:75] Verificando Cash disponible ...
+[2023-08-0501:20:19] [ INFO ] [FarmService:81] Chicken comprado.
+[2023-08-0501:20:19] [ INFO ] [FarmService:81] Chicken comprado.
+[2023-08-0501:20:19] [ INFO ] [FarmService:81] Chicken comprado.
+[2023-08-0501:20:20] [ INFO ] [FarmService:81] Chicken comprado.
+[2023-08-0501:20:20] [ INFO ] [FarmService:81] Chicken comprado.
+[2023-08-0501:20:20] [ INFO ] [FarmService:83] Actualizando datos de la granja ...
+[2023-08-0501:20:20] [ INFO ] [FarmService:88] Granja actualizado: Farm(id=1, nombre=SUPER FARM, granjero=Brian Duran, dinero=50.0, dias=100, limiteHuevos=10, limitePollos=10, cantHuevos=0, cantPollos=5, listChickens=[], listEggs=[])
+[2023-08-0501:20:20] [ INFO ] [FarmService:53] obteniendo datos propiedades Dashboard ...
+[2023-08-0501:20:20] [ INFO ] [FarmController:29] Farm properties: {}
+FarmDashboardDto(id=1, dinero=50.0, cantHuevos=0, cantPollos=5)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at com.fasterxml.jackson.databind.introspect.AnnotatedConstructor.call(AnnotatedConstructor.java:123)
+	at com.fasterxml.jackson.databind.deser.std.StdValueInstantiator.createUsingDefault(StdValueInstantiator.java:278)
+	at com.fasterxml.jackson.databind.deser.std.ThrowableDeserializer.deserializeFromObject(ThrowableDeserializer.java:174)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:185)
+	at com.fasterxml.jackson.databind.ObjectMapper._convert(ObjectMapper.java:4539)
+	at com.fasterxml.jackson.databind.ObjectMapper.convertValue(ObjectMapper.java:4475)
+	at com.ChickenTest.demoChickenTest.service.impl.FarmService.getPropertiesDashboard(FarmService.java:48)
+	at com.ChickenTest.demoChickenTest.controller.FarmController.getDashboardProperties(FarmController.java:26)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+[2023-08-0501:20:38] [ INFO ] [FarmService:53] obteniendo datos propiedades Dashboard ...
+[2023-08-0501:20:38] [ INFO ] [FarmController:87] FarmDashboardDto(id=1, dinero=50.0, cantHuevos=0, cantPollos=5)
+[2023-08-0501:20:46] [ INFO ] [FarmService:201] Dia 0
+[2023-08-0501:20:57] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 19
+[2023-08-0501:21:21] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 19
+[2023-08-0501:21:24] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 19
+[2023-08-0501:21:26] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 19
+[2023-08-0501:21:29] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 19
+[2023-08-0501:21:35] [ INFO ] [FarmService:201] Dia 1
+[2023-08-0501:21:37] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 18
+[2023-08-0501:21:37] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 18
+[2023-08-0501:21:37] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 18
+[2023-08-0501:21:37] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 18
+[2023-08-0501:21:37] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 18
+[2023-08-0501:21:38] [ INFO ] [FarmService:201] Dia 2
+[2023-08-0501:21:38] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 17
+[2023-08-0501:21:38] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 17
+[2023-08-0501:21:38] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 17
+[2023-08-0501:21:38] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 17
+[2023-08-0501:21:38] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 17
+[2023-08-0501:21:39] [ INFO ] [FarmService:201] Dia 3
+[2023-08-0501:21:39] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 16
+[2023-08-0501:21:39] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 16
+[2023-08-0501:21:39] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 16
+[2023-08-0501:21:39] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 16
+[2023-08-0501:21:39] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 16
+[2023-08-0501:21:40] [ INFO ] [FarmService:201] Dia 4
+[2023-08-0501:21:40] [ INFO ] [FarmService:227] Pollo: 0 ha puesto un huevo
+[2023-08-0501:21:40] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 15
+[2023-08-0501:21:40] [ INFO ] [FarmService:227] Pollo: 1 ha puesto un huevo
+[2023-08-0501:21:40] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 15
+[2023-08-0501:21:40] [ INFO ] [FarmService:227] Pollo: 2 ha puesto un huevo
+[2023-08-0501:21:40] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 15
+[2023-08-0501:21:40] [ INFO ] [FarmService:227] Pollo: 3 ha puesto un huevo
+[2023-08-0501:21:40] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 15
+[2023-08-0501:21:40] [ INFO ] [FarmService:227] Pollo: 4 ha puesto un huevo
+[2023-08-0501:21:40] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 15
+[2023-08-0501:21:42] [ INFO ] [FarmService:201] Dia 5
+[2023-08-0501:21:42] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 14
+[2023-08-0501:21:42] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 14
+[2023-08-0501:21:42] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 14
+[2023-08-0501:21:42] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 14
+[2023-08-0501:21:42] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 14
+[2023-08-0501:21:43] [ INFO ] [FarmService:201] Dia 6
+[2023-08-0501:21:43] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 13
+[2023-08-0501:21:43] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 13
+[2023-08-0501:21:43] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 13
+[2023-08-0501:21:43] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 13
+[2023-08-0501:21:43] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 13
+[2023-08-0501:21:43] [ INFO ] [FarmService:201] Dia 7
+[2023-08-0501:21:43] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 12
+[2023-08-0501:21:43] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 12
+[2023-08-0501:21:43] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 12
+[2023-08-0501:21:43] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 12
+[2023-08-0501:21:43] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 12
+[2023-08-0501:21:44] [ INFO ] [FarmService:201] Dia 8
+[2023-08-0501:21:44] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 11
+[2023-08-0501:21:44] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 11
+[2023-08-0501:21:44] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 11
+[2023-08-0501:21:44] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 11
+[2023-08-0501:21:44] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 11
+[2023-08-0501:21:45] [ INFO ] [FarmService:201] Dia 9
+[2023-08-0501:21:45] [ INFO ] [FarmService:227] Pollo: 0 ha puesto un huevo
+[2023-08-0501:21:45] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 10
+[2023-08-0501:21:45] [ INFO ] [FarmService:227] Pollo: 1 ha puesto un huevo
+[2023-08-0501:21:45] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 10
+[2023-08-0501:21:45] [ INFO ] [FarmService:227] Pollo: 2 ha puesto un huevo
+[2023-08-0501:21:45] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 10
+[2023-08-0501:21:45] [ INFO ] [FarmService:227] Pollo: 3 ha puesto un huevo
+[2023-08-0501:21:45] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 10
+[2023-08-0501:21:45] [ INFO ] [FarmService:227] Pollo: 4 ha puesto un huevo
+[2023-08-0501:21:45] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 10
+[2023-08-0501:21:46] [ INFO ] [FarmService:201] Dia 10
+[2023-08-0501:21:46] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 9
+[2023-08-0501:21:46] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 9
+[2023-08-0501:21:46] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 9
+[2023-08-0501:21:46] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 9
+[2023-08-0501:21:46] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 9
+[2023-08-0501:21:46] [ INFO ] [FarmService:201] Dia 11
+[2023-08-0501:21:46] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 8
+[2023-08-0501:21:46] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 8
+[2023-08-0501:21:46] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 8
+[2023-08-0501:21:46] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 8
+[2023-08-0501:21:46] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 8
+[2023-08-0501:21:47] [ INFO ] [FarmService:201] Dia 12
+[2023-08-0501:21:47] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 7
+[2023-08-0501:21:47] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 7
+[2023-08-0501:21:47] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 7
+[2023-08-0501:21:47] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 7
+[2023-08-0501:21:47] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 7
+[2023-08-0501:21:47] [ INFO ] [FarmService:201] Dia 13
+[2023-08-0501:21:47] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 6
+[2023-08-0501:21:47] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 6
+[2023-08-0501:21:47] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 6
+[2023-08-0501:21:47] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 6
+[2023-08-0501:21:47] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 6
+[2023-08-0501:21:48] [ INFO ] [FarmService:201] Dia 14
+[2023-08-0501:21:48] [ INFO ] [FarmService:227] Pollo: 0 ha puesto un huevo
+[2023-08-0501:21:48] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 5
+[2023-08-0501:21:48] [ INFO ] [FarmService:227] Pollo: 1 ha puesto un huevo
+[2023-08-0501:21:48] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 5
+[2023-08-0501:21:48] [ INFO ] [FarmService:227] Pollo: 2 ha puesto un huevo
+[2023-08-0501:21:48] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 5
+[2023-08-0501:21:48] [ INFO ] [FarmService:227] Pollo: 3 ha puesto un huevo
+[2023-08-0501:21:48] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 5
+[2023-08-0501:21:48] [ INFO ] [FarmService:227] Pollo: 4 ha puesto un huevo
+[2023-08-0501:21:48] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 5
+[2023-08-0501:21:49] [ INFO ] [FarmService:201] Dia 15
+[2023-08-0501:21:49] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 4
+[2023-08-0501:21:49] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 4
+[2023-08-0501:21:49] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 4
+[2023-08-0501:21:49] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 4
+[2023-08-0501:21:49] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 4
+[2023-08-0501:21:49] [ INFO ] [FarmService:201] Dia 16
+[2023-08-0501:21:49] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 3
+[2023-08-0501:21:49] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 3
+[2023-08-0501:21:49] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 3
+[2023-08-0501:21:49] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 3
+[2023-08-0501:21:49] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 3
+[2023-08-0501:21:50] [ INFO ] [FarmService:201] Dia 17
+[2023-08-0501:21:50] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 2
+[2023-08-0501:21:50] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 2
+[2023-08-0501:21:50] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 2
+[2023-08-0501:21:50] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 2
+[2023-08-0501:21:50] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 2
+[2023-08-0501:21:50] [ INFO ] [FarmService:201] Dia 18
+[2023-08-0501:21:50] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 1
+[2023-08-0501:21:50] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 1
+[2023-08-0501:21:50] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 1
+[2023-08-0501:21:50] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 1
+[2023-08-0501:21:50] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 1
+[2023-08-0501:21:52] [ INFO ] [FarmService:201] Dia 19
+[2023-08-0501:22:18] [ INFO ] [FarmService:214] Desvinculando huevo de Pollo.
+[2023-08-0501:22:20] [ INFO ] [FarmService:214] Desvinculando huevo de Pollo.
+[2023-08-0501:22:22] [ INFO ] [FarmService:214] Desvinculando huevo de Pollo.
+[2023-08-0501:22:40] [ INFO ] [FarmService:221] chicken muerto.
+[2023-08-0501:22:45] [ INFO ] [FarmService:232] Pollo 0, Dias de Vida: 0
+[2023-08-0501:22:55] [ INFO ] [FarmService:214] Desvinculando huevo de Pollo.
+[2023-08-0501:22:56] [ INFO ] [FarmService:214] Desvinculando huevo de Pollo.
+[2023-08-0501:23:00] [ INFO ] [FarmService:214] Desvinculando huevo de Pollo.
+[2023-08-0501:23:22] [ INFO ] [FarmService:221] chicken muerto.
+[2023-08-0501:23:24] [ INFO ] [FarmService:232] Pollo 1, Dias de Vida: 0
+[2023-08-0501:23:27] [ INFO ] [FarmService:214] Desvinculando huevo de Pollo.
+[2023-08-0501:23:29] [ INFO ] [FarmService:214] Desvinculando huevo de Pollo.
+[2023-08-0501:23:30] [ INFO ] [FarmService:214] Desvinculando huevo de Pollo.
+[2023-08-0501:23:34] [ INFO ] [FarmService:221] chicken muerto.
+[2023-08-0501:23:35] [ INFO ] [FarmService:232] Pollo 2, Dias de Vida: 0
+[2023-08-0501:23:39] [ INFO ] [FarmService:214] Desvinculando huevo de Pollo.
+[2023-08-0501:23:40] [ INFO ] [FarmService:214] Desvinculando huevo de Pollo.
+[2023-08-0501:23:42] [ INFO ] [FarmService:214] Desvinculando huevo de Pollo.
+[2023-08-0501:23:45] [ INFO ] [FarmService:221] chicken muerto.
+[2023-08-0501:23:46] [ INFO ] [FarmService:232] Pollo 3, Dias de Vida: 0
+[2023-08-0501:23:50] [ INFO ] [FarmService:214] Desvinculando huevo de Pollo.
+[2023-08-0501:23:55] [ INFO ] [FarmService:214] Desvinculando huevo de Pollo.
+[2023-08-0501:23:57] [ INFO ] [FarmService:214] Desvinculando huevo de Pollo.
+[2023-08-0501:23:59] [ INFO ] [FarmService:221] chicken muerto.
+[2023-08-0501:24:00] [ INFO ] [FarmService:232] Pollo 4, Dias de Vida: 0
+[2023-08-0501:25:40] [ INFO ] [FarmService:53] obteniendo datos propiedades Dashboard ...
+[2023-08-0501:25:40] [ INFO ] [FarmController:29] Farm properties: {}
+FarmDashboardDto(id=1, dinero=50.0, cantHuevos=15, cantPollos=0)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at com.fasterxml.jackson.databind.introspect.AnnotatedConstructor.call(AnnotatedConstructor.java:123)
+	at com.fasterxml.jackson.databind.deser.std.StdValueInstantiator.createUsingDefault(StdValueInstantiator.java:278)
+	at com.fasterxml.jackson.databind.deser.std.ThrowableDeserializer.deserializeFromObject(ThrowableDeserializer.java:174)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:185)
+	at com.fasterxml.jackson.databind.ObjectMapper._convert(ObjectMapper.java:4539)
+	at com.fasterxml.jackson.databind.ObjectMapper.convertValue(ObjectMapper.java:4475)
+	at com.ChickenTest.demoChickenTest.service.impl.FarmService.getPropertiesDashboard(FarmService.java:48)
 	at com.ChickenTest.demoChickenTest.controller.FarmController.getDashboardProperties(FarmController.java:26)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)

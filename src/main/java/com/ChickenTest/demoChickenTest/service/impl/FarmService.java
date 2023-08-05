@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -76,7 +77,7 @@ public class FarmService {
                     /*  4. Verificar dinero disponible del granjero */
                     if (dineroDisponible > (cantidad * precioChicken)){
                         for (int i = 0; i < cantidad; i++){
-                            chickenRepository.save(new Chicken(null,20,5,precioChicken,null, farm)); // new WeakReference<>(farm).get())
+                            chickenRepository.save(new Chicken(null,LifeCycle.DAY_OF_LIFE_CHICKEN,LifeCycle.DAY_TO_LAY_EGGS,precioChicken,null, farm)); // new WeakReference<>(farm).get())
                             logger.info("Chicken comprado.");
                         }
                         logger.info("Actualizando datos de la granja ...");
@@ -108,7 +109,7 @@ public class FarmService {
                     /*  4. Validar dinero disponible del granjero   */
                     if (dineroDisponible > (cantidad * precioEgg)){
                         for (int i = 0; i < cantidad; i++){
-                            eggRepository.save(new Egg(null,20,50,null,farm));  // Creación de nuevos Egg [pasar paramtros]
+                            eggRepository.save(new Egg(null,LifeCycle.DAY_BECOME_CHICKEN,precioEgg,null,farm));  // Creación de nuevos Egg [pasar paramtros]
                             logger.info("Egg comprado.");
                         }
                         logger.info("Actualizando datos de la granja ...");
@@ -152,8 +153,8 @@ public class FarmService {
 
                     farm.setDinero(dineroDisponible + (Store.PRECIO_VENTA_CHICKEN * cantidad));
                     farm.setCantPollos(farm.getCantPollos() - cantidad);
-                    logger.info("Granja: " + farm);
 
+                    logger.info("Granja: " + farm);
                     farmRepository.save(farm);
 
 
@@ -192,33 +193,59 @@ public class FarmService {
         /*  1. Obtener datos de la Granja.  */
         Farm farm = farmRepository.findAll().stream().findFirst().get();
         List<Chicken> listChicken = farm.getListChickens();
+        int diasDeVidaGranja = farm.getDias();
 
+        List<Chicken> pollosAEliminar = new ArrayList<>();
 
+        for (int i = 0; i < cantidad; i++){
+            logger.info("Dia " + i);
+            if (cantidad < diasDeVidaGranja){
+                /*  Verificar si hubo muertos o si pusieron huevos. */
+                for (int j = 0; j < listChicken.size(); j++){   // En la ejecucion del pograma, al eliminar pollos, la lista de pollos cambia su valor.
 
-        if (farm != null){
-            for (int i = 0; i < cantidad; i++){ //Recorriendo días ...
+                    listChicken.get(j).setDiasDeVida( listChicken.get(j).getDiasDeVida() - 1 );
 
-                /*  Verificar si hubo muertos*/
-                for (int j = 0; j < listChicken.size(); j++){
                     if (listChicken.get(j).getDiasDeVida() <= 0){
+                        //Elimar la relacion huevos y pollos.
+                        Chicken chicken = listChicken.get(j);
+
+                        for (Egg egg : chicken.getListEggs()){
+                            egg.setChicken(null);
+                            logger.info("Desvinculando huevo de Pollo.");
+                        }
+
+                        eggRepository.saveAll(chicken.getListEggs());
+
+                        pollosAEliminar.add(chicken);
+                        //chickenRepository.delete(chicken);
                         logger.info("chicken muerto.");
-                        chickenRepository.deleteById(listChicken.get(j).getId());
-                        farm.getListChickens().remove(listChicken.get(j));  //  Elimino el Chicken de la granja, de mi lista de Chickens.
+                        //farm.getListChickens().remove(chicken);
 
-                    }else{
+                    } else if (listChicken.get(j).getDiasDeVida() < LifeCycle.DAY_OF_LIFE_CHICKEN){
 
-                        logger.info("Pollo" + j + ": " + listChicken.get(j).getDiasDeVida());
-                        listChicken.get(j).setDiasDeVida( listChicken.get(j).getDiasDeVida() - 1 ); // Actualizo los dias de vida de cada Chicken.
-
+                        if ( (listChicken.get(j).getDiasDeVida() % listChicken.get(j).getDiasParaPonerHuevos()) == 0){  //  Si es múltiplo de 5 (chicken.diasParaPonerHuevos)
+                            logger.info("Pollo: " + j + " ha puesto un huevo");
+                            eggRepository.save( new Egg(null, LifeCycle.DAY_BECOME_CHICKEN, Store.PRECIO_COMPRA_EGG, listChicken.get(j), farm) );
+                        }
                     }
+
+                    logger.info("Pollo " + j + ", Dias de Vida: " + listChicken.get(j).getDiasDeVida());    //Pollo: 0 DiasVida: 17
                 }
 
-                logger.info("Paso Dia" + i);
-            }
-            logger.info("Cantidad Pollos en la granja: " + farm.getCantPollos() + " | " + "Lista de Pollos: " + listChicken.size());
+                for (Chicken chicken : pollosAEliminar){
+                    farm.getListChickens().remove(chicken);
+                    chickenRepository.delete(chicken);
+                }
 
-            farm.setCantPollos(listChicken.size());
-            farmRepository.save(farm);
+            }else{
+                throw new RuntimeException("Los días de la granja han experidado. El dueño de la granja acaba de irse");
+            }
         }
+
+
+        farm.setCantHuevos(eggRepository.findAll().size());
+        farm.setDias(diasDeVidaGranja - cantidad);
+        farm.setCantPollos(listChicken.size());
+        farmRepository.save(farm);
     }
 }

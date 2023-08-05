@@ -1,6 +1,7 @@
 package com.ChickenTest.demoChickenTest;
 
 import com.ChickenTest.demoChickenTest.entity.Farm;
+import com.ChickenTest.demoChickenTest.entity.LifeCycle;
 import com.ChickenTest.demoChickenTest.repository.IFarmRepository;
 import org.apache.log4j.PropertyConfigurator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class DemoChickenTestApplication implements CommandLineRunner {
 		farm.setCantHuevos(0);
 		farm.setLimitePollos(10);
 		farm.setLimiteHuevos(10);
-
+		farm.setDias(LifeCycle.DAY_OF_LIFE_FARMER);
 		farmRepository.save(farm);
 	}
 }
