@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import org.apache.log4j.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.Repository;
 import org.springframework.stereotype.Service;
 
 
@@ -199,6 +200,8 @@ public class FarmService {
 
         for (int i = 0; i < cantidad; i++){
             logger.info("Dia " + i);
+
+
             if (cantidad < diasDeVidaGranja){
                 /*  Verificar si hubo muertos o si pusieron huevos. */
                 for (int j = 0; j < listChicken.size(); j++){   // En la ejecucion del pograma, al eliminar pollos, la lista de pollos cambia su valor.
@@ -225,7 +228,7 @@ public class FarmService {
 
                         if ( (listChicken.get(j).getDiasDeVida() % listChicken.get(j).getDiasParaPonerHuevos()) == 0){  //  Si es múltiplo de 5 (chicken.diasParaPonerHuevos)
                             logger.info("Pollo: " + j + " ha puesto un huevo");
-                            eggRepository.save( new Egg(null, LifeCycle.DAY_BECOME_CHICKEN, Store.PRECIO_COMPRA_EGG, listChicken.get(j), farm) );
+                            eggRepository.save( new Egg(null, (LifeCycle.DAY_BECOME_CHICKEN + 1), Store.PRECIO_COMPRA_EGG, listChicken.get(j), farm) );
                         }
                     }
 
@@ -240,12 +243,53 @@ public class FarmService {
             }else{
                 throw new RuntimeException("Los días de la granja han experidado. El dueño de la granja acaba de irse");
             }
+
+            diasEnConvertirseEnPollo(i);
         }
 
-
+        logger.info("Datos de la granja vieja: " + farm);
         farm.setCantHuevos(eggRepository.findAll().size());
         farm.setDias(diasDeVidaGranja - cantidad);
-        farm.setCantPollos(listChicken.size());
+        farm.setCantPollos(chickenRepository.findAll().size()); //listChicken.size()
+        logger.info("Datos de la granja actualizada: " + farm);
         farmRepository.save(farm);
     }
+
+    public void diasEnConvertirseEnPollo(int dias){
+
+        Farm farm = farmRepository.findAll().stream().findFirst().get();
+        List<Egg> listEgg = eggRepository.findAll();
+        List<Egg> listEggAEliminar = new ArrayList<>();
+
+        int contadorPollos = 1;
+        for (int i = 0; i < listEgg.size(); i++){
+
+            Egg egg = listEgg.get(i);
+
+            logger.info("Dia: " + dias + " Cantidad dias en convertirse en Pollo: " + egg.getDiasEnConvertirseEnPollo());
+
+            if (egg.getDiasEnConvertirseEnPollo() <= 1){
+                listEggAEliminar.add(egg);
+                //  Crear Pollo
+                chickenRepository.save(new Chicken(null,LifeCycle.DAY_OF_LIFE_CHICKEN,LifeCycle.DAY_TO_LAY_EGGS,Store.PRECIO_COMPRA_CHICKEN,null, farm));
+                logger.info("Huevo se ha convertido en Pollo.");
+
+                farm.getListEggs().remove(listEgg.get(i));
+                //farm.setCantPollos(farm.getCantPollos() + contadorPollos);
+                contadorPollos++;
+            }
+
+            egg.setDiasEnConvertirseEnPollo( egg.getDiasEnConvertirseEnPollo() - 1);
+
+
+            //  Comparar(numero, numero a comparar): bool . ¿Que pasa si días de vida del pollo es Mayor a los dias en que se convierte en pollo?
+
+            //  DeleteList(list, Repository): bool
+
+        }
+        eggRepository.deleteAll(listEggAEliminar);
+
+    }
+
+
 }
