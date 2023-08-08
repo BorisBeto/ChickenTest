@@ -59,17 +59,17 @@
     <section class="container mt-5">
 
         <!-- Section Dias Transcurridos -->
-        <form class="row g-3 container text-center d-flex justify-content-center">
+        <form class="row g-3 container text-center d-flex justify-content-center" th:action="@{/dias}" method="post">
             <div class="col-auto">
                 <label for="staticEmail2" class="visually-hidden">Dias</label>
                 <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Días Transcurridos">
             </div>
             <div class="col-auto">
-                <label for="inputNumber" class="visually-hidden">dias</label>
-                <input type="number" class="form-control" id="inputNumber" placeholder="Días transcurridos">
+                <label for="cantidad" class="visually-hidden">dias</label>
+                <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Días transcurridos" required>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-primary mb-3">Confirmar</button>
+                <button type="submit" class="btn btn-primary mb-3">Confirmar</button>
             </div>
         </form>
         <!-- End Dias Transcurridos -->

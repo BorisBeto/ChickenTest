@@ -112,8 +112,8 @@ public class FarmController {
         return "redirect:/";
     }
 
-    @PostMapping("/dias/{cantidad}")
-    public String pasarDias(@PathVariable int cantidad){
+    @PostMapping("/dias")    //url:/dias/{cantidad}
+    public String pasarDias(@RequestParam int cantidad){
 
         try {
             logger.info(farmService.getPropertiesDashboard());
