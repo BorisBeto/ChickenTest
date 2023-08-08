@@ -45,11 +45,11 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mx-5">
                     <p class="card-text mb-0">Dinero disponible: $ <span th:text="${farm.dinero}">0</span></p>
-                    <a href="farmReport.html" class="btn btn-outline-success">Ver Informe <i class="bi bi-arrow-right"></i></a>
+                    <a th:href="@{/farm}" class="btn btn-outline-success">Ver Informe <i class="bi bi-arrow-right"></i></a>
                 </div>
                 <div class="d-flex justify-content-between mt-5">
-                    <a href="eggReport.html">Huevos Totales: <span th:text="${farm.cantHuevos}">0</span></a>
-                    <a href="chickenReport.html">Pollos Totales: <span th:text="${farm.cantPollos}">0</span></a>
+                    <a th:href="@{/egg}">Huevos Totales: <span th:text="${farm.cantHuevos}">0</span></a>
+                    <a th:href="@{/chicken}">Pollos Totales: <span th:text="${farm.cantPollos}">0</span></a>
                 </div>
             </div>
         </div>

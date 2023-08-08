@@ -1,9 +1,9 @@
 package com.ChickenTest.demoChickenTest.service;
 
-
-import com.ChickenTest.demoChickenTest.dto.TransaccionDto;
+import com.ChickenTest.demoChickenTest.entity.Farm;
 
 public interface ITransaction {
-    boolean buyProduct(TransaccionDto transaccionDto);
-    void sellProduct(TransaccionDto transaccionDto);
+    void buy(Farm farm, int cantidad);
+    void sell(Farm farm, int cantidad);
+    void sellExcedent(Farm farm, int cantidad, double precio);
 }

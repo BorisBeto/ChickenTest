@@ -15,13 +15,13 @@
         <h5 class="text-center">Estado de la Granja</h5>
         <ul class="nav justify-content-center">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="chickenReport.html">Chickens</a>
+                <a class="nav-link active" aria-current="page" th:href="@{/chicken}">Chickens</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="eggReport.html">Eggs</a>
+                <a class="nav-link" th:href="@{/egg}">Egg</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" th:href="@{/}">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" aria-disabled="true">Farm</a>
@@ -30,7 +30,7 @@
     </div>
 
     <table class="table">
-        <thead class="table-light">
+        <thead class="table-success">
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
@@ -39,14 +39,21 @@
                 <th>Dias Transcurridos</th>
                 <th>Capacidad Max.Huevos</th>
                 <th>Capacidad Max.Pollos</th>
-                <th>Cantidad de Pollos</th>
                 <th>Cantidad de Huevos</th>
+                <th>Cantidad de Pollos</th>
             </tr>
         </thead>
         <tbody>
-            <th>1</th>
-            <td>Super Farm</td>
-            <td>Brian Durán</td>
+            <tr th:each="farm : ${farmTable}">
+                <td th:text="${farm.id}"></td>
+                <td th:text="${farm.nombre}"></td>
+                <td th:text="${farm.granjero}"></td>
+                <td th:text="${farm.dinero}"></td>
+                <td th:text="${farm.dias}"></td>
+                <td th:text="${farm.limiteHuevos}"></td>
+                <td th:text="${farm.limitePollos}"></td>
+                <td th:text="${farm.cantHuevos}"></td>
+                <td th:text="${farm.cantPollos}"></td>
         </tbody>
     </table>
 </body>
