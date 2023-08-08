@@ -25,7 +25,7 @@ public class DemoChickenTestApplication implements CommandLineRunner {
 
 		farm.setNombre("SUPER FARM");
 		farm.setGranjero("Brian Duran");
-		farm.setDinero(500);
+		farm.setDinero(5000);
 		farm.setCantPollos(0);
 		farm.setCantHuevos(0);
 		farm.setLimitePollos(10);
