@@ -1538,3 +1538,45 @@ FarmDashboardDto(id=1, dinero=20.0, cantHuevos=0, cantPollos=0)
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
+[2023-08-0800:56:46] [ INFO ] [FarmController:69] FarmDashboardDto(id=1, dinero=500.0, cantHuevos=0, cantPollos=0)
+[2023-08-0801:01:03] [ INFO ] [FarmController:69] FarmDashboardDto(id=1, dinero=500.0, cantHuevos=0, cantPollos=0)
+[2023-08-0801:01:07] [ INFO ] [FarmController:69] FarmDashboardDto(id=1, dinero=410.0, cantHuevos=0, cantPollos=1)
+[2023-08-0801:01:09] [ INFO ] [FarmController:69] FarmDashboardDto(id=1, dinero=320.0, cantHuevos=0, cantPollos=2)
+[2023-08-0801:01:13] [ INFO ] [FarmController:95] FarmDashboardDto(id=1, dinero=230.0, cantHuevos=0, cantPollos=3)
+[2023-08-0801:01:13] [ INFO ] [ChickenService:100] Cantidad de pollos a Eliminar: 3
+[2023-08-0801:01:13] [ INFO ] [ChickenService:103] Pollo 1: com.ChickenTest.demoChickenTest.entity.Chicken@7ccbe883
+[2023-08-0801:01:13] [ INFO ] [ChickenService:116] Datos de la granja: Farm(id=1, nombre=SUPER FARM, granjero=Brian Duran, dinero=330.0, dias=30, limiteHuevos=10, limitePollos=10, cantHuevos=0, cantPollos=2, listChickens=[com.ChickenTest.demoChickenTest.entity.Chicken@6df247ab, com.ChickenTest.demoChickenTest.entity.Chicken@5037bb0], listEggs=[])
+[2023-08-0801:01:16] [ INFO ] [FarmController:95] FarmDashboardDto(id=1, dinero=330.0, cantHuevos=0, cantPollos=2)
+[2023-08-0801:01:16] [ INFO ] [ChickenService:100] Cantidad de pollos a Eliminar: 2
+[2023-08-0801:01:16] [ INFO ] [ChickenService:103] Pollo 1: com.ChickenTest.demoChickenTest.entity.Chicken@2d07efd1
+[2023-08-0801:01:16] [ INFO ] [ChickenService:116] Datos de la granja: Farm(id=1, nombre=SUPER FARM, granjero=Brian Duran, dinero=430.0, dias=30, limiteHuevos=10, limitePollos=10, cantHuevos=0, cantPollos=1, listChickens=[com.ChickenTest.demoChickenTest.entity.Chicken@28a6e083], listEggs=[])
+[2023-08-0801:01:19] [ INFO ] [FarmController:95] FarmDashboardDto(id=1, dinero=430.0, cantHuevos=0, cantPollos=1)
+[2023-08-0801:01:19] [ INFO ] [ChickenService:100] Cantidad de pollos a Eliminar: 1
+[2023-08-0801:01:19] [ INFO ] [ChickenService:103] Pollo 1: com.ChickenTest.demoChickenTest.entity.Chicken@63ad41f5
+[2023-08-0801:01:19] [ INFO ] [ChickenService:116] Datos de la granja: Farm(id=1, nombre=SUPER FARM, granjero=Brian Duran, dinero=530.0, dias=30, limiteHuevos=10, limitePollos=10, cantHuevos=0, cantPollos=0, listChickens=[], listEggs=[])
+[2023-08-0801:01:21] [ INFO ] [FarmController:95] FarmDashboardDto(id=1, dinero=530.0, cantHuevos=0, cantPollos=0)
+[2023-08-0801:01:21] [ ERROR] [FarmController:98] No se pudo realizar la venta: No tiene suficientes Pollos para vender.
+[2023-08-0801:01:27] [ INFO ] [FarmController:95] FarmDashboardDto(id=1, dinero=530.0, cantHuevos=0, cantPollos=0)
+[2023-08-0801:01:27] [ ERROR] [FarmController:98] No se pudo realizar la venta: No tiene suficientes Pollos para vender.
+[2023-08-0801:01:39] [ INFO ] [FarmController:69] FarmDashboardDto(id=1, dinero=530.0, cantHuevos=0, cantPollos=0)
+[2023-08-0801:01:43] [ INFO ] [FarmController:69] FarmDashboardDto(id=1, dinero=440.0, cantHuevos=0, cantPollos=1)
+[2023-08-0801:01:58] [ INFO ] [FarmController:82] FarmDashboardDto(id=1, dinero=170.0, cantHuevos=0, cantPollos=4)
+[2023-08-0801:02:10] [ INFO ] [FarmController:69] FarmDashboardDto(id=1, dinero=140.0, cantHuevos=3, cantPollos=4)
+[2023-08-0801:02:16] [ INFO ] [FarmController:82] FarmDashboardDto(id=1, dinero=50.0, cantHuevos=3, cantPollos=5)
+[2023-08-0801:02:44] [ INFO ] [FarmController:120] FarmDashboardDto(id=1, dinero=30.0, cantHuevos=5, cantPollos=5)
+[2023-08-0801:02:49] [ INFO ] [FarmController:120] FarmDashboardDto(id=1, dinero=30.0, cantHuevos=10, cantPollos=5)
+[2023-08-0801:03:44] [ INFO ] [FarmController:120] FarmDashboardDto(id=1, dinero=30.0, cantHuevos=15, cantPollos=5)
+[2023-08-0801:03:44] [ INFO ] [FarmController:120] FarmDashboardDto(id=1, dinero=30.0, cantHuevos=15, cantPollos=5)
+[2023-08-0801:03:46] [ ERROR] [FarmController:123] Se ha producido un error: Row was updated or deleted by another transaction (or unsaved-value mapping was incorrect) : [com.ChickenTest.demoChickenTest.entity.Chicken#4]
+[2023-08-0801:03:55] [ INFO ] [FarmController:120] FarmDashboardDto(id=1, dinero=30.0, cantHuevos=30, cantPollos=5)
+[2023-08-0801:04:07] [ INFO ] [FarmController:120] FarmDashboardDto(id=1, dinero=30.0, cantHuevos=30, cantPollos=10)
+[2023-08-0801:04:15] [ INFO ] [FarmController:120] FarmDashboardDto(id=1, dinero=30.0, cantHuevos=35, cantPollos=15)
+[2023-08-0801:04:16] [ ERROR] [FarmController:123] Se ha producido un error: El dueño de la granja acaba de irse.
+[2023-08-0801:05:18] [ INFO ] [FarmController:120] FarmDashboardDto(id=1, dinero=30.0, cantHuevos=0, cantPollos=0)
+[2023-08-0801:05:18] [ ERROR] [FarmController:123] Se ha producido un error: El dueño de la granja acaba de irse.
+[2023-08-0801:05:23] [ INFO ] [FarmController:120] FarmDashboardDto(id=1, dinero=30.0, cantHuevos=0, cantPollos=0)
+[2023-08-0801:05:23] [ ERROR] [FarmController:123] Se ha producido un error: El dueño de la granja acaba de irse.
+[2023-08-0801:05:45] [ INFO ] [FarmController:120] FarmDashboardDto(id=1, dinero=30.0, cantHuevos=0, cantPollos=0)
+[2023-08-0801:05:45] [ ERROR] [FarmController:123] Se ha producido un error: El dueño de la granja acaba de irse.
+[2023-08-0801:05:59] [ INFO ] [FarmController:120] FarmDashboardDto(id=1, dinero=30.0, cantHuevos=0, cantPollos=0)
+[2023-08-0801:05:59] [ ERROR] [FarmController:123] Se ha producido un error: El dueño de la granja acaba de irse.

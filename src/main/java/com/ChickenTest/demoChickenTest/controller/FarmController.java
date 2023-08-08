@@ -63,8 +63,8 @@ public class FarmController {
         return "eggReport";
     }
 
-    @PostMapping("/buy/chicken/{cantidad}")
-    public String buyChicken(@PathVariable int cantidad){
+    @PostMapping("/buy/chicken")
+    public String buyChicken(@RequestParam int cantidad){
         try {
             logger.info(farmService.getPropertiesDashboard());
             farmService.buy("chicken", cantidad);
@@ -75,8 +75,8 @@ public class FarmController {
         return "redirect:/";
     }
 
-    @PostMapping("/buy/egg/{cantidad}")
-    public String buyEgg(@PathVariable int cantidad){
+    @PostMapping("/buy/egg")
+    public String buyEgg(@RequestParam int cantidad){
 
         try {
             logger.info(farmService.getPropertiesDashboard());
@@ -88,8 +88,8 @@ public class FarmController {
         return "redirect:/";
     }
 
-    @PostMapping("/sell/chicken/{cantidad}")
-    public String sellChicken(@PathVariable int cantidad){
+    @PostMapping("/sell/chicken")
+    public String sellChicken(@RequestParam int cantidad){
 
         try {
             logger.info(farmService.getPropertiesDashboard());
@@ -100,8 +100,8 @@ public class FarmController {
 
         return "redirect:/";
     }
-    @PostMapping("/sell/egg/{cantidad}")
-    public String sellEgg(@PathVariable int cantidad){
+    @PostMapping("/sell/egg")
+    public String sellEgg(@RequestParam int cantidad){
 
         try {
             logger.info(farmService.getPropertiesDashboard());
