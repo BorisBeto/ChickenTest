@@ -3,6 +3,7 @@ package com.ChickenTest.demoChickenTest.controller;
 import com.ChickenTest.demoChickenTest.GlobalExceptionHandler;
 import com.ChickenTest.demoChickenTest.dto.*;
 import com.ChickenTest.demoChickenTest.entity.Chicken;
+import com.ChickenTest.demoChickenTest.entity.Store;
 import com.ChickenTest.demoChickenTest.service.impl.ChickenService;
 import com.ChickenTest.demoChickenTest.service.impl.EggService;
 import com.ChickenTest.demoChickenTest.service.impl.FarmService;
@@ -27,14 +28,14 @@ public class FarmController {
     ChickenService chickenService;
     @Autowired
     EggService eggService;
-
+    @Autowired
+    Store store;
     @GetMapping
     public String getDashboardProperties(Model model){
         FarmDashboardDto farmDashboardDto = farmService.getPropertiesDashboard();
 
         model.addAttribute("farm", farmDashboardDto);
-
-        logger.info("Farm properties: {}", farmDashboardDto);
+        model.addAttribute("store", store);
 
         return "index";
     }
@@ -124,4 +125,7 @@ public class FarmController {
 
         return "redirect:/";
     }
+
+
+
 }

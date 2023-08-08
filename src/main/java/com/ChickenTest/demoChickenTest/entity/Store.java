@@ -1,5 +1,8 @@
 package com.ChickenTest.demoChickenTest.entity;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Store {
     public static double PRECIO_COMPRA_CHICKEN = 90;
     public static double PRECIO_VENTA_CHICKEN = 100;

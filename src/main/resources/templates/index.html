@@ -84,7 +84,7 @@
                         <div class="card-body">
                             <h5 class="card-title mt-3">Comprar Pollos</h5>
                             <div class="d-flex justify-content-between mt-3">
-                                <p class="card-text">$ <span >0</span></p>
+                                <p class="card-text">$ <span th:text="${store.PRECIO_COMPRA_CHICKEN}">0</span></p>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-primary"><i class="bi bi-dash-circle-fill"></i></button>
                                     <input type="number" name="cantidad" value="1" class="form-control" id="cantidad-buy-chicken" style="width:50px;">
@@ -109,7 +109,7 @@
                         <div class="card-body">
                             <h5 class="card-title mt-3">Comprar Huevos</h5>
                             <div class="d-flex justify-content-between mt-3">
-                                <p class="card-text">$ <span >0</span></p>
+                                <p class="card-text">$ <span th:text="${store.PRECIO_COMPRA_EGG}">0</span></p>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-primary"><i class="bi bi-dash-circle-fill"></i></button>
                                     <input type="number" name="cantidad" value="1" class="form-control" id="cantidad-buy-egg" style="width:50px;">
@@ -133,7 +133,7 @@
                         <div class="card-body">
                             <h5 class="card-title mt-3">Vender Huevos</h5>
                             <div class="d-flex justify-content-between mt-3">
-                                <p class="card-text">$ <span >0</span></p>
+                                <p class="card-text">$ <span th:text="${store.PRECIO_VENTA_EGG}">0</span></p>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-primary"><i class="bi bi-dash-circle-fill"></i></button>
                                     <input type="number" name="cantidad" value="1" class="form-control" id="cantidad-sell-egg" style="width:50px;">
@@ -157,7 +157,7 @@
                         <div class="card-body">
                             <h5 class="card-title mt-3">Vender Pollos</h5>
                             <div class="d-flex justify-content-between mt-3">
-                                <p class="card-text">$ <span >0</span></p>
+                                <p class="card-text">$ <span th:text="${store.PRECIO_VENTA_CHICKEN}">0</span></p>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-primary"><i class="bi bi-dash-circle-fill"></i></button>
                                     <input type="number" name="cantidad" value="1" class="form-control" id="cantidad-sell-chicken" style="width:50px;">
