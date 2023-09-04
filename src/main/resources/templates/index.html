@@ -2,91 +2,135 @@
 <html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css}" rel="stylesheet"
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js}"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    <script th:src="@{https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js}"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
             crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js}"
             integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css}">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
     <!--
     <script src="js/dashboard.js"></script>
     -->
-    <title>Farm APP</title>
+    <title th:text="${farmApp.nombre}"></title>
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand">Farm App</a>
-            <button class="btn btn-outline-success navbar-toggler" type="submit" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"><i class="bi bi-person-circle"></i> Brian Duran</button>
-
-
-
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Administrar</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Cambiar Precios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Cambiar Limite de Stock</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <div th:replace="templates.html::navBar"></div>
     <!-- End navbar -->
 
     <!-- Dashboard -->
-    <section class="container mt-3 col-md-6">
-        <div class="card">
-            <div class="card-header">Información General.</div>
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center mx-5">
-                    <p class="card-text mb-0">Dinero disponible: $ <span th:text="${farm.dinero}">0</span></p>
-                    <a th:href="@{/farm}" class="btn btn-outline-success">Ver Informe <i class="bi bi-arrow-right"></i></a>
+    <section class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-3">
+                <div class="card" style="width: 100%;">
+                    <div class="card-body d-flex">
+                        <img src="img/diasVida.png" alt="Vidas del granjero" style="width: 15%;height:auto;max-width: 20%">
+                        <div class="container-progress ms-3" style="width:100%">
+                            <p class="pb-1" style="font-size:13px; margin-bottom:0px;text-align:center;">Vidas del Granjero</p>
+                            <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated overflow-visible text-dark"
+                                     th:classappend="${progressFarm.porcentajeDiasVida > 50 ? 'bg-success' : progressFarm.porcentajeDiasVida <= 25 ? 'bg-danger' : ''}"
+                                     th:style="${progressFarm.diasVida != null && progressFarm.diasVida > 0 ? 'width: ' + progressFarm.porcentajeDiasVida + '%' : 'width: 0%'}"
+                                     th:text="${progressFarm.diasTranscurridos} + ' de ' + ${progressFarm.diasVida}">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body d-flex">
+                        <img src="img/eggs.png" alt="Capacidad Maxima de Huevos" style="width: 15%;height:auto;max-width: 20%">
+                        <div class="container-progress ms-3" style="width:100%">
+                            <p class="pb-1" style="font-size:13px; margin-bottom:0px;text-align:center;">Cantidad de Huevos</p>
+                            <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated overflow-visible text-dark"
+                                     th:classappend="${progressFarm.porcentajeHuevos < 50 ? 'bg-success' : progressFarm.porcentajeHuevos >= 75 ? 'bg-danger' : ''}"
+                                     th:style="${'width: ' + progressFarm.porcentajeHuevos + '%'}"
+                                     th:text="${progressFarm.cantHuevos + ' de ' + progressFarm.limiteHuevos}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body d-flex">
+                        <img src="img/chickens.png" alt="Capacidad Maxima de Pollos" style="width: 15%;height:auto;max-width: 20%">
+                        <div class="container-progress ms-3" style="width:100%">
+                            <p class="pb-1" style="font-size:13px; margin-bottom:0px;text-align:center;">Cantidad de Chickens</p>
+                            <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated overflow-visible text-dark"
+                                     th:classappend="${progressFarm.porcentajePollos < 50 ? 'bg-success' : progressFarm.porcentajePollos >= 75 ? 'bg-danger' : ''}"
+                                     th:style="${'width: ' + progressFarm.porcentajePollos + '%'}"
+                                     th:text="${progressFarm.cantPollos + ' de ' + progressFarm.limitePollos}">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="d-flex justify-content-between mt-5">
-                    <a th:href="@{/egg}">Huevos Totales: <span th:text="${farm.cantHuevos}">0</span></a>
-                    <a th:href="@{/chicken}">Pollos Totales: <span th:text="${farm.cantPollos}">0</span></a>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between px-4">Información General. <span th:text="${farm.fecha}"></span></div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mx-5">
+                            <p class="card-text mb-0">Dinero disponible: $ <span th:text="${farm.dinero}">0</span></p>
+                            <a th:href="@{/farm}" class="btn btn-outline-success">Ver Informe <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                        <div class="d-flex justify-content-between mt-5">
+                            <a th:href="@{/egg}">Huevos Totales: <span th:text="${farm.cantHuevos}">0</span></a>
+                            <a th:href="@{/chicken}">Pollos Totales: <span th:text="${farm.cantPollos}">0</span></a>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="col-3">
+                        <div class="card" style="height:100%">
+                            <div class="row" style="margin-right: 0px; margin-left:0px;">
+                                <div class="col" style="margin-top: 10px">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <div class="container-title" style="height: 35px;">
+                                                <h6 class="card-subtitle mb-2 text-body-secondary" style="font-size:13px;">Break Eggs</h6>
+                                            </div>
+                                            <div class="conatainer-img my-2">
+                                                <img src="img/breakEggs.png" alt="Break Eggs" style="max-width: 60%; width:50%;">
+                                            </div>
+                                            <div class="container-value">
+                                                <p class="card-text"
+                                                   style="font-size:18px; font-weight:bold;"
+                                                   th:text="${cardChickenStatus.countBreakEggs}"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col" style="margin-top:10px">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <div class="container-title" style="height: 35px;">
+                                                <h6 class="card-subtitle mb-2 text-body-secondary" style="font-size:13px;">Chickens Dead</h6>
+                                            </div>
+                                            <div class="container-img my-2">
+                                                <img src="img/chickenDead.png" alt="Chickens Dead" style="max-width:60%; width:50%;">
+                                            </div>
+                                            <div class="container-value">
+                                                <p class="card-text"
+                                                   style="font-size:18px; font-weight:bold;"
+                                                   th:text="${cardChickenStatus.countChickensDead}"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
             </div>
         </div>
     </section>
@@ -110,13 +154,17 @@
         </form>
         <!-- End Dias Transcurridos -->
 
+        <!-- Section Alerts -->
+        <div th:replace="templates.html::seccionAlertas"></div>
+        <!-- End Section Alerts -->
+
         <div class="container text-center mt-5">
             <div class="row">
                 <!-- Card Comprar Pollo -->
                 <div class="col">
                     <form th:action="@{/buy/chicken}" method="post" id="fromBuyChicken">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img/chickenForBuy.jpg" class="card-img-top" alt="eggForBuy" height="50%">
+                    <div class="card" style="width: 14rem;">
+                        <img src="img/chickenForBuy.jpg" class="card-img-top" alt="eggForBuy">
                         <div class="card-body">
                             <h5 class="card-title mt-3">Comprar Pollos</h5>
                             <div class="d-flex justify-content-between mt-3">
@@ -127,7 +175,7 @@
                                     <button type="button" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i></button>
                                 </div>
                             </div>
-                            <div class="d-grid gap-2 col-6 mx-auto mt-3">
+                            <div class="d-grid gap-2 col-12 mx-auto mt-3">
                                 <button class="btn btn-primary" id="btn-buyChicken" type="submit">Comprar</button>
                             </div>
                         </div>
@@ -136,12 +184,11 @@
                 </div>
                 <!-- End Card Comprar Pollo -->
 
-
                 <!-- Card Comprar Huevo -->
                 <div class="col">
                     <form th:action="@{/buy/egg}" method="post">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img/eggForBuy.jpg" class="card-img-top" alt="eggForBuy" height="50%">
+                    <div class="card" style="width: 14rem;">
+                        <img src="img/eggForBuy.jpg" class="card-img-top" alt="eggForBuy">
                         <div class="card-body">
                             <h5 class="card-title mt-3">Comprar Huevos</h5>
                             <div class="d-flex justify-content-between mt-3">
@@ -152,7 +199,7 @@
                                     <button type="button" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i></button>
                                 </div>
                             </div>
-                            <div class="d-grid gap-2 col-6 mx-auto mt-3">
+                            <div class="d-grid gap-2 col-12 mx-auto mt-3">
                                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit">Comprar</button>
                             </div>
                         </div>
@@ -164,8 +211,8 @@
                 <!-- Card Vender Huevo -->
                 <div class="col">
                     <form th:action="@{/sell/egg}" method="post">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img/eggForSale.jpg" class="card-img-top" alt="eggForBuy" height="50%">
+                    <div class="card" style="width: 14rem;">
+                        <img src="img/eggForSale.jpg" class="card-img-top" alt="eggForBuy">
                         <div class="card-body">
                             <h5 class="card-title mt-3">Vender Huevos</h5>
                             <div class="d-flex justify-content-between mt-3">
@@ -176,7 +223,7 @@
                                     <button type="button" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i></button>
                                 </div>
                             </div>
-                            <div class="d-grid gap-2 col-6 mx-auto mt-3">
+                            <div class="d-grid gap-2 col-12 mx-auto mt-3">
                                 <button class="btn btn-primary" type="submit">Vender</button>
                             </div>
                         </div>
@@ -188,8 +235,8 @@
                 <!-- Card Vender Pollo -->
                 <div class="col">
                     <form th:action="@{/sell/chicken}" method="post">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img/chickenForSale.jpg" class="card-img-top" alt="eggForBuy" height="50%">
+                    <div class="card" style="width: 14rem;">
+                        <img src="img/chickenForSale.jpg" class="card-img-top" alt="eggForBuy">
                         <div class="card-body">
                             <h5 class="card-title mt-3">Vender Pollos</h5>
                             <div class="d-flex justify-content-between mt-3">
@@ -200,7 +247,7 @@
                                     <button type="button" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i></button>
                                 </div>
                             </div>
-                            <div class="d-grid gap-2 col-6 mx-auto mt-3">
+                            <div class="d-grid gap-2 col-12 mx-auto mt-3">
                                 <button class="btn btn-primary" type="submit">Vender</button>
                             </div>
                         </div>
@@ -212,24 +259,7 @@
         </div>
     </section>
 
-    <footer class="bg-dark text-light">
-        <div class="container py-4">
-            <div class="row">
-                <div class="col-md-6">
-                    <h4 class="fw-bold mb-0">ChickenTest</h4>
-                </div>
-                <div class="col-md-6">
-                    <p class="text-center mb-1">Developed with ❤️ by Brian Duran</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <p class="me-1 mb-0">Contact</p>
-                        <a th:href="@{https://www.linkedin.com/in/brian-duran/}"><i class="bi bi-linkedin"></i></a>
-                        <a href="@{https://github.com/Nairb-code}"><i class="bi bi-github"></i></a>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div th:replace="templates.html :: footer"></div>
 
 
 

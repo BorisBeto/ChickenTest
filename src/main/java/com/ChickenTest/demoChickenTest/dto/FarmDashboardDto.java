@@ -11,4 +11,7 @@ public class FarmDashboardDto extends Throwable {
     private double dinero;
     private int cantHuevos;   //cantidad
     private int cantPollos;       //cantidad
+    private int limiteHuevos;
+    private int limitePollos;
+    private String fecha;
 }

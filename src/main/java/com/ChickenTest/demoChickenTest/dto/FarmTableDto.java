@@ -15,4 +15,6 @@ public class FarmTableDto {
     private int limitePollos;
     private int cantHuevos;
     private int cantPollos;
+    private int cantHuevosVendidos;
+    private int cantPollosVendidos;
 }

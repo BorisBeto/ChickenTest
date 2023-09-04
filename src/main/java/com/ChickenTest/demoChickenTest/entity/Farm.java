@@ -22,11 +22,14 @@ public class Farm {
     private String nombre;
     private String granjero;
     private double dinero;
+    private double gastos;
     private int dias;
     private int limiteHuevos;
     private int limitePollos;
     private int cantHuevos;
     private int cantPollos;
+    private int cantHuevosVendidos;
+    private int cantPollosVendidos;
 
     @OneToMany(mappedBy = "farm")
     @JsonIgnore

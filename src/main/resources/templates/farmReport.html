@@ -32,20 +32,20 @@
     <table class="table">
         <thead class="table-success">
             <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Granjero</th>
-                <th>Dinero disponible</th>
-                <th>Dias Transcurridos</th>
-                <th>Capacidad Max.Huevos</th>
-                <th>Capacidad Max.Pollos</th>
-                <th>Cantidad de Huevos</th>
-                <th>Cantidad de Pollos</th>
+                <th>Farm Name</th>
+                <th>Username</th>
+                <th>Cash Available</th>
+                <th>Days</th>
+                <th>Eggs Capacity</th>
+                <th>Chickens Capacity</th>
+                <th>Eggs' Available</th>
+                <th>Chickens' Available</th>
+                <th>Eggs Sold</th>
+                <th>Chickens' Sold</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="farm : ${farmTable}">
-                <td th:text="${farm.id}"></td>
                 <td th:text="${farm.nombre}"></td>
                 <td th:text="${farm.granjero}"></td>
                 <td th:text="${farm.dinero}"></td>
@@ -54,6 +54,8 @@
                 <td th:text="${farm.limitePollos}"></td>
                 <td th:text="${farm.cantHuevos}"></td>
                 <td th:text="${farm.cantPollos}"></td>
+                <td th:text="${farm.cantHuevosVendidos}"></td>
+                <td th:text="${farm.cantPollosVendidos}"></td>
         </tbody>
     </table>
 </body>

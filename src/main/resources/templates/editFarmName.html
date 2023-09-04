@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Farm App | My Account - edit FarmName</title>
+</head>
+<body>
+<div th:replace="templates.html :: navBar"></div>
+<main class="container mt-3">
+    <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="true" th:href="@{/editUsername}">Username</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" th:href="@{/editFarmName}">Farm name</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/editPrices}">Change Prices</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">New Farm Name</h5>
+            <form th:action="@{/edit/FarmName}" method="post">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="farmName" placeholder="New Farm Name">
+                    <label for="floatingInput">Farm Name</label>
+                </div>
+                <button type="submit" class="btn btn-primary d-block">Change</button>
+            </form>
+        </div>
+    </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

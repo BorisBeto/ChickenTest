@@ -40,6 +40,12 @@ public class EggService implements ITransaction {
         return eggDtos;
     }
 
+    private void verifyCantidadPositiva(int cantidad){
+        if (cantidad <= 0){
+            throw new RuntimeException("La cantidad ingresada debe ser Entero positivo.");
+        }
+    }
+
     public void verifyStock(int cantidad, int stockActual, int limiteStock){
         if ((stockActual + cantidad) > limiteStock){
             throw new RuntimeException("Supero la capacidad Máxima de Huevos");
@@ -72,9 +78,10 @@ public class EggService implements ITransaction {
         int cantidadEgg = farm.getCantHuevos();
         int limiteEgg = farm.getLimiteHuevos();
 
+        /*  Velidación de Cantidad a comprar   */
+        verifyCantidadPositiva(cantidad);
         /*  Verificando Egg Stock   */
         verifyStock(cantidad, cantidadEgg, limiteEgg);
-
         /*  Verificando Cash Disponible */
         verifyDineroDisponible(farm.getDinero(), cantidad * Store.PRECIO_COMPRA_EGG);
 
@@ -85,7 +92,9 @@ public class EggService implements ITransaction {
 
         /*  Actualizando datos de la Farm.  */
         farm.setDinero(farm.getDinero() - (cantidad * Store.PRECIO_COMPRA_EGG));
+        farm.setGastos(farm.getGastos() + (cantidad * Store.PRECIO_COMPRA_EGG));
         farm.setCantHuevos(farm.getCantHuevos() + cantidad);
+
         farmRepository.save(farm);
     }
 
@@ -93,15 +102,15 @@ public class EggService implements ITransaction {
     public void sell(Farm farm, int cantidad) {
         List<Egg> listEgg = farm.getListEggs();
         List<Egg> listEggAEliminar = new ArrayList<>();
+
+        /*  Velidación de Cantidad positiva   */
+        verifyCantidadPositiva(cantidad);
         /*  Verificando Egg Stock   */
         verifyStockForSell(cantidad, listEgg.size());
-
         /*  Vendiendo huevos.   */
         for (int i = 0; i < cantidad; i++){
             Egg egg = listEgg.get(i);
             listEggAEliminar.add(egg);
-            //eggRepository.deleteById(egg.getId());
-            //farm.getListEggs().remove(egg);
         }
 
         eggRepository.deleteAll(listEggAEliminar);
@@ -110,6 +119,7 @@ public class EggService implements ITransaction {
         /*  Actualizando los datos de la Farm.  */
         farm.setDinero(farm.getDinero() + (cantidad * Store.PRECIO_VENTA_EGG));
         farm.setCantHuevos(farm.getCantHuevos() - cantidad);
+        farm.setCantHuevosVendidos(farm.getCantHuevosVendidos() + cantidad);
         farmRepository.save(farm);
     }
 
