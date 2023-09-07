@@ -1,9 +1,6 @@
 package com.ChickenTest.demoChickenTest.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import jakarta.persistence.*;
 
@@ -11,12 +8,13 @@ import jakarta.persistence.*;
 @Table(name = "HUEVOS")
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
+@ToString(exclude = {"farm"})
 public class Egg {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int diasEnConvertirseEnPollo = 5;
-    private double precio = 50;
+    private int diasEnConvertirseEnPollo;
+    private double precio;
 
     @ManyToOne
     @JoinColumn(name = "chiken_id")

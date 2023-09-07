@@ -77,3 +77,4 @@
 [2023-09-0122:20:22] [ ERROR] [GlobalExceptionHandler:15] Request method 'GET' is not supported
 [2023-09-0123:44:18] [ ERROR] [GlobalExceptionHandler:15] Required request parameter 'farmName' for method parameter type String is not present
 [2023-09-0200:37:51] [ ERROR] [GlobalExceptionHandler:15] Required request parameter 'price' for method parameter type double is not present
+[2023-09-0720:37:58] [ ERROR] [GlobalExceptionHandler:15] Failed to convert value of type 'java.lang.String' to required type 'int'; For input string: ""

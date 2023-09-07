@@ -1,10 +1,12 @@
 package com.ChickenTest.demoChickenTest.dto;
 
 import com.ChickenTest.demoChickenTest.entity.Farm;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class ChickenDto {
     private Long id;
     private int diasDeVida;

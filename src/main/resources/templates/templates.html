@@ -1,5 +1,5 @@
 <!--  NavBar  -->
-<nav class="navbar bg-body-tertiary" th:fragment="navBar">
+<nav class="navbar bg-body-tertiary" th:fragment="navBar" style="margin-top:-15px;">
         <div class="container-fluid">
             <a class="navbar-brand" th:href="@{/}" th:text="${farmApp.nombre}"></a>
             <button class="btn btn-outline-success navbar-toggler" type="submit" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"><i class="bi bi-person-circle"></i> <span th:text="${farmApp.granjero}"></span></button>

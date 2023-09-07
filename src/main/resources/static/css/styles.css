@@ -1,0 +1,19 @@
+/* En tu archivo CSS personalizado o en la etiqueta <style> en el encabezado */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px; /* Ajusta el espaciado según sea necesario */
+    min-height: calc(100vh - 120px);
+}
+
+
+/* Estilos adicionales para tu footer */
+footer {
+    padding: 15px;
+}

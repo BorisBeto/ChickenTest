@@ -7,9 +7,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Datos Farm</title>
 </head>
 <body>
+<div class="content">
     <div class="container">
         <h1 class="text-center">Report General</h1>
         <h5 class="text-center">Estado de la Granja</h5>
@@ -31,32 +33,34 @@
 
     <table class="table">
         <thead class="table-success">
-            <tr>
-                <th>Farm Name</th>
-                <th>Username</th>
-                <th>Cash Available</th>
-                <th>Days</th>
-                <th>Eggs Capacity</th>
-                <th>Chickens Capacity</th>
-                <th>Eggs' Available</th>
-                <th>Chickens' Available</th>
-                <th>Eggs Sold</th>
-                <th>Chickens' Sold</th>
-            </tr>
+        <tr>
+            <th>Farm Name</th>
+            <th>Username</th>
+            <th>Cash Available</th>
+            <th>Days</th>
+            <th>Eggs Capacity</th>
+            <th>Chickens Capacity</th>
+            <th>Eggs' Available</th>
+            <th>Chickens' Available</th>
+            <th>Eggs Sold</th>
+            <th>Chickens' Sold</th>
+        </tr>
         </thead>
         <tbody>
-            <tr th:each="farm : ${farmTable}">
-                <td th:text="${farm.nombre}"></td>
-                <td th:text="${farm.granjero}"></td>
-                <td th:text="${farm.dinero}"></td>
-                <td th:text="${farm.dias}"></td>
-                <td th:text="${farm.limiteHuevos}"></td>
-                <td th:text="${farm.limitePollos}"></td>
-                <td th:text="${farm.cantHuevos}"></td>
-                <td th:text="${farm.cantPollos}"></td>
-                <td th:text="${farm.cantHuevosVendidos}"></td>
-                <td th:text="${farm.cantPollosVendidos}"></td>
+        <tr th:each="farm : ${farmTable}">
+            <td th:text="${farm.nombre}"></td>
+            <td th:text="${farm.granjero}"></td>
+            <td th:text="${farm.dinero}"></td>
+            <td th:text="${farm.dias}"></td>
+            <td th:text="${farm.limiteHuevos}"></td>
+            <td th:text="${farm.limitePollos}"></td>
+            <td th:text="${farm.cantHuevos}"></td>
+            <td th:text="${farm.cantPollos}"></td>
+            <td th:text="${farm.cantHuevosVendidos}"></td>
+            <td th:text="${farm.cantPollosVendidos}"></td>
         </tbody>
     </table>
+</div>
+<div th:replace="templates.html :: footer"></div>
 </body>
 </html>

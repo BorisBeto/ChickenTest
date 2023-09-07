@@ -1,0 +1,262 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ChickenService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.ChickenTest.demoChickenTest.service.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: ChickenService (com.ChickenTest.demoChickenTest.service.impl)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ChickenService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (9/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    43.1%
+  </span>
+  <span class="absValue">
+    (28/65)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.ChickenTest.demoChickenTest.service.impl;
+&nbsp;
+&nbsp;import com.ChickenTest.demoChickenTest.dto.ChickenDto;
+&nbsp;import com.ChickenTest.demoChickenTest.dto.TransaccionDto;
+&nbsp;import com.ChickenTest.demoChickenTest.entity.*;
+&nbsp;import com.ChickenTest.demoChickenTest.repository.IChickenRepository;
+&nbsp;import com.ChickenTest.demoChickenTest.repository.IEggRepository;
+&nbsp;import com.ChickenTest.demoChickenTest.repository.IFarmRepository;
+&nbsp;import com.ChickenTest.demoChickenTest.service.ITransaction;
+&nbsp;import com.fasterxml.jackson.databind.ObjectMapper;
+&nbsp;import lombok.AllArgsConstructor;
+&nbsp;import lombok.NoArgsConstructor;
+&nbsp;import org.apache.log4j.Logger;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;@Service
+<b class="fc">&nbsp;@AllArgsConstructor</b>
+<b class="fc">&nbsp;@NoArgsConstructor</b>
+&nbsp;public class ChickenService implements ITransaction{
+<b class="fc">&nbsp;    private static final Logger logger = Logger.getLogger(ChickenService.class);</b>
+&nbsp;    @Autowired
+&nbsp;    IEggRepository eggRepository;
+&nbsp;    @Autowired
+&nbsp;    IChickenRepository chickenRepository;
+&nbsp;    @Autowired
+&nbsp;    private IFarmRepository farmRepository;
+&nbsp;    @Autowired
+&nbsp;    ObjectMapper mapper;
+&nbsp;
+&nbsp;    public List&lt;ChickenDto&gt; getDataTableChicken(){
+&nbsp;
+<b class="fc">&nbsp;        List&lt;Chicken&gt; chickens = chickenRepository.findAll();</b>
+<b class="fc">&nbsp;        List&lt;ChickenDto&gt; chickenDtos = new ArrayList&lt;&gt;();</b>
+&nbsp;
+<b class="fc">&nbsp;        for (Chicken chicken : chickens){</b>
+<b class="fc">&nbsp;            ChickenDto chickenDto = mapper.convertValue(chicken, ChickenDto.class);</b>
+<b class="fc">&nbsp;            chickenDtos.add(chickenDto);</b>
+<b class="fc">&nbsp;        }</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        return chickenDtos;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    protected void verifyStock(int cantidad, int stockActual, int limiteStock){
+<b class="fc">&nbsp;        if ((stockActual + cantidad) &gt; limiteStock){</b>
+<b class="fc">&nbsp;            throw new RuntimeException(&quot;Supero la cantidad Máxima de Pollos.&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    protected boolean isLimiteStock(int cantidad, int stockActual, int limiteStock){
+<b class="fc">&nbsp;        if ((stockActual + cantidad) &gt; limiteStock){</b>
+<b class="fc">&nbsp;            return true;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;    private void verifyCantidadPositiva(int cantidad){
+<b class="fc">&nbsp;        if (cantidad &lt;= 0){</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;La cantidad ingresada debe ser Entero positivo.&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void verifyDineroDisponible(double dineroDisponible, double costoTotal){
+<b class="fc">&nbsp;        if (dineroDisponible &lt; costoTotal){</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;Dinero disponible insuficiente.&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void verifyStockSell(int cantidad, int stockActual){
+<b class="nc">&nbsp;        if (stockActual &lt;= 0){</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;Actualmente no posee Pollos en su granja.&quot;);</b>
+<b class="nc">&nbsp;        } else if (cantidad &gt; stockActual) {</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;No tiene suficientes Pollos para vender.&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public void buy(Farm farm, int cantidad) {
+<b class="fc">&nbsp;        int cantidadChicken = farm.getCantPollos();</b>
+<b class="fc">&nbsp;        int limiteChicken = farm.getLimitePollos();</b>
+&nbsp;
+&nbsp;        /*  Velidación de Cantidad a comprar   */
+<b class="fc">&nbsp;        verifyCantidadPositiva(cantidad);</b>
+&nbsp;        /*  Verificando Chicken Stock   */
+<b class="fc">&nbsp;        verifyStock(cantidad, cantidadChicken, limiteChicken);</b>
+&nbsp;        /*  Verificando Cash disponible */
+<b class="fc">&nbsp;        verifyDineroDisponible(farm.getDinero(), cantidad * Store.PRECIO_COMPRA_CHICKEN);</b>
+&nbsp;
+&nbsp;        /*  Comprando N Chickens.   */
+<b class="fc">&nbsp;        for (int i = 0; i &lt; cantidad; i++){</b>
+<b class="fc">&nbsp;            chickenRepository.save(new Chicken(null, LifeCycle.DAY_OF_LIFE_CHICKEN, LifeCycle.DAY_TO_LAY_EGGS, Store.PRECIO_COMPRA_CHICKEN, null, farm));</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        /*  Actulizando datos de la Farm.   */
+<b class="fc">&nbsp;        farm.setDinero(farm.getDinero() - (cantidad * Store.PRECIO_COMPRA_CHICKEN));</b>
+<b class="fc">&nbsp;        farm.setGastos(farm.getGastos() + (cantidad * Store.PRECIO_COMPRA_CHICKEN));</b>
+<b class="fc">&nbsp;        farm.setCantPollos(farm.getCantPollos() + cantidad);</b>
+&nbsp;
+<b class="fc">&nbsp;        farmRepository.save(farm);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void sell(Farm farm, int cantidad) {
+<b class="nc">&nbsp;        List&lt;Chicken&gt; listChicken = farm.getListChickens();</b>
+<b class="nc">&nbsp;        List&lt;Chicken&gt; listChickenAEliminar = new ArrayList&lt;&gt;();</b>
+&nbsp;
+<b class="nc">&nbsp;        verifyCantidadPositiva(cantidad);</b>
+<b class="nc">&nbsp;        verifyStockSell(cantidad, listChicken.size());</b>
+&nbsp;
+&nbsp;        /*  Vendiendo huevos.   */
+<b class="nc">&nbsp;        for (int i = 0; i &lt; cantidad; i++){</b>
+<b class="nc">&nbsp;            Chicken chicken = listChicken.get(i);</b>
+&nbsp;            // Desvincular los huevos relacionados del pollo
+<b class="nc">&nbsp;            for (Egg egg : chicken.getListEggs()) {</b>
+<b class="nc">&nbsp;                egg.setChicken(null);</b>
+<b class="nc">&nbsp;                eggRepository.save(egg);</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;            listChickenAEliminar.add(chicken);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        chickenRepository.deleteAll(listChickenAEliminar);</b>
+<b class="nc">&nbsp;        farm.getListChickens().removeAll(listChickenAEliminar);</b>
+&nbsp;
+&nbsp;        /*  Actualizando datos de la Farm.  */
+<b class="nc">&nbsp;        farm.setDinero(farm.getDinero() + (Store.PRECIO_VENTA_CHICKEN * cantidad));</b>
+<b class="nc">&nbsp;        farm.setCantPollos(farm.getCantPollos() - cantidad);</b>
+<b class="nc">&nbsp;        farm.setCantPollosVendidos(farm.getCantPollosVendidos() + cantidad);</b>
+<b class="nc">&nbsp;        farmRepository.save(farm);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void sellExcedent(Farm farm, int cantidad, double precio) {
+<b class="nc">&nbsp;        List&lt;Chicken&gt; listChicken = farm.getListChickens();</b>
+<b class="nc">&nbsp;        List&lt;Chicken&gt; listChickenAEliminar = new ArrayList&lt;&gt;();</b>
+&nbsp;
+&nbsp;        /*  Verificando Chicken Stock   */
+<b class="nc">&nbsp;        verifyStockSell(cantidad, listChicken.size());</b>
+&nbsp;
+<b class="nc">&nbsp;        logger.info(&quot;Cantidad de pollos a Eliminar: &quot; + listChicken.size());</b>
+&nbsp;        /*  Vendiendo huevos.   */
+<b class="nc">&nbsp;        for (int i = 0; i &lt; cantidad; i++){</b>
+<b class="nc">&nbsp;            logger.info(&quot;Pollo &quot; + (i + 1) + &quot;: &quot; + listChicken.get(i));</b>
+<b class="nc">&nbsp;            Chicken chicken = listChicken.get(i);</b>
+<b class="nc">&nbsp;            listChickenAEliminar.add(chicken);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        chickenRepository.deleteAll(listChickenAEliminar);</b>
+<b class="nc">&nbsp;        farm.getListChickens().removeAll(listChickenAEliminar);</b>
+&nbsp;
+&nbsp;        /*  Actualizando datos de la Farm.  */
+<b class="nc">&nbsp;        farm.setDinero(farm.getDinero() + ((precio/2) * cantidad)); // vendido a mitad de Precio.</b>
+<b class="nc">&nbsp;        farm.setCantPollos(farm.getCantPollos() - cantidad);</b>
+<b class="nc">&nbsp;        logger.info(&quot;Datos de la granja: &quot; + farm);</b>
+<b class="nc">&nbsp;        farmRepository.save(farm);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-09-06 18:06</div>
+</div>
+</body>
+</html>

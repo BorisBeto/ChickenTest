@@ -1,0 +1,599 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > FarmService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.ChickenTest.demoChickenTest.service.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: FarmService (com.ChickenTest.demoChickenTest.service.impl)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FarmService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    8.6%
+  </span>
+  <span class="absValue">
+    (3/35)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    1.7%
+  </span>
+  <span class="absValue">
+    (4/230)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.ChickenTest.demoChickenTest.service.impl;
+&nbsp;
+&nbsp;import com.ChickenTest.demoChickenTest.dto.*;
+&nbsp;import com.ChickenTest.demoChickenTest.entity.*;
+&nbsp;import com.ChickenTest.demoChickenTest.repository.IChickenRepository;
+&nbsp;import com.ChickenTest.demoChickenTest.repository.IEggRepository;
+&nbsp;import com.ChickenTest.demoChickenTest.repository.IFarmRepository;
+&nbsp;import com.ChickenTest.demoChickenTest.response.ApiResponse;
+&nbsp;import com.fasterxml.jackson.databind.ObjectMapper;
+&nbsp;import lombok.AllArgsConstructor;
+&nbsp;import lombok.NoArgsConstructor;
+&nbsp;
+&nbsp;import org.apache.log4j.Logger;
+&nbsp;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;
+&nbsp;import javax.swing.text.html.Option;
+&nbsp;import java.time.LocalDate;
+&nbsp;import java.time.format.DateTimeFormatter;
+&nbsp;import java.util.*;
+&nbsp;
+&nbsp;
+&nbsp;@Service
+<b class="nc">&nbsp;@AllArgsConstructor</b>
+<b class="fc">&nbsp;@NoArgsConstructor</b>
+&nbsp;public class FarmService {
+<b class="fc">&nbsp;    private static final Logger logger = Logger.getLogger(FarmService.class);</b>
+&nbsp;    @Autowired
+&nbsp;    IFarmRepository farmRepository;
+&nbsp;    @Autowired
+&nbsp;    IChickenRepository chickenRepository;
+&nbsp;    @Autowired
+&nbsp;    IEggRepository eggRepository;
+&nbsp;    @Autowired
+&nbsp;    private ChickenService chickenService;
+&nbsp;    @Autowired
+&nbsp;    private EggService eggService;
+&nbsp;    @Autowired
+&nbsp;    ObjectMapper mapper;
+&nbsp;
+<b class="fc">&nbsp;    private int countBreakEggs = 0;</b>
+<b class="fc">&nbsp;    private int countChickenDeads = 0;</b>
+&nbsp;
+&nbsp;    public void save(Farm farm){
+<b class="nc">&nbsp;        farmRepository.save(farm);</b>
+&nbsp;    }
+&nbsp;    public Farm getFarm(Long id){
+&nbsp;
+<b class="nc">&nbsp;        return farmRepository.findById(id).orElse(null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public FarmTableDto getDataTableFarm(){
+<b class="nc">&nbsp;        Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow(()-&gt; new RuntimeException(&quot;Nose encontró ninguna granja registrada&quot;));</b>
+&nbsp;
+<b class="nc">&nbsp;        return mapper.convertValue(farm, FarmTableDto.class);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public SectionCashAvailable getCashAvailable(){
+<b class="nc">&nbsp;        Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow(()-&gt; new RuntimeException(&quot;Nose encontró ninguna granja registrada&quot;));</b>
+<b class="nc">&nbsp;        SectionCashAvailable cashAvailable = mapper.convertValue(farm, SectionCashAvailable.class);</b>
+&nbsp;        /*  Obtener ingresos y gastos, en función de lo comprado y vendido. */
+<b class="nc">&nbsp;        double precioTotalHuevosComprados = farm.getCantHuevos() * Store.PRECIO_COMPRA_EGG;</b>
+<b class="nc">&nbsp;        double precioTotalPollosComprados = farm.getCantPollos() * Store.PRECIO_COMPRA_CHICKEN;</b>
+&nbsp;
+&nbsp;        /*cashAvailable.setNeto(cashAvailable.getDinero() - (precioTotalHuevosComprados + precioTotalPollosComprados));*/
+&nbsp;        /*cashAvailable.setGastos(farm.getDinero() - cashAvailable.getNeto());*/
+<b class="nc">&nbsp;        cashAvailable.setSueldoBase(cashAvailable.getDinero() + farm.getGastos());</b>
+&nbsp;
+<b class="nc">&nbsp;        return cashAvailable;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private int getDayPass(int cantidad){
+&nbsp;
+<b class="nc">&nbsp;        int diasTranscurridos = LifeCycle.DAY_OF_LIFE_FARMER - cantidad;</b>
+&nbsp;
+<b class="nc">&nbsp;        return diasTranscurridos;</b>
+&nbsp;    }
+&nbsp;    private String formatDate(int diasTranscurridos){ /*    Revisar ...*/
+&nbsp;        /*  1. Obtener la fecha actual.    */
+<b class="nc">&nbsp;        LocalDate currentDate = LocalDate.now();</b>
+&nbsp;
+&nbsp;        /*  2. Incrementar dia a la fecha actual. */
+<b class="nc">&nbsp;        LocalDate increasedDate = currentDate.plusDays(diasTranscurridos);</b>
+&nbsp;
+&nbsp;        /*  3. Crear un formateador de fecha con el formato deseado. */
+<b class="nc">&nbsp;        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(&quot;dd &#39;de&#39; MMMM yy&quot;, new Locale(&quot;es&quot;, &quot;ES&quot;));</b>
+&nbsp;        /*  4. Formatear la fecha actual utilizando el formateador.  */
+<b class="nc">&nbsp;        String formattedDate = increasedDate.format(dateFormatter);</b>
+&nbsp;
+<b class="nc">&nbsp;        return formattedDate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public ChickenStatusDto getCardChickenStatus(){
+<b class="nc">&nbsp;        ChickenStatusDto chickenStatusDto = new ChickenStatusDto();</b>
+&nbsp;
+<b class="nc">&nbsp;        chickenStatusDto.setCountChickensDead(countChickenDeads);</b>
+<b class="nc">&nbsp;        chickenStatusDto.setCountBreakEggs(countBreakEggs);</b>
+&nbsp;
+<b class="nc">&nbsp;        return chickenStatusDto;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public SectionBuySellProducts getSectionBuySellProducts(){
+<b class="nc">&nbsp;        Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow( ()-&gt; new RuntimeException(&quot;No hay ninguna granja registrada.&quot;));</b>
+<b class="nc">&nbsp;        SectionBuySellProducts sectionBuySellProducts = mapper.convertValue(farm, SectionBuySellProducts.class);</b>
+&nbsp;
+<b class="nc">&nbsp;        double precioTotalHuevosComprados = farm.getCantHuevos() * Store.PRECIO_COMPRA_EGG;</b>
+<b class="nc">&nbsp;        double precioTotalPollosComprados = farm.getCantPollos() * Store.PRECIO_COMPRA_CHICKEN;</b>
+&nbsp;
+<b class="nc">&nbsp;        double precioTotalHuevosVendidos = farm.getCantHuevosVendidos() * Store.PRECIO_VENTA_EGG;</b>
+<b class="nc">&nbsp;        double precioTotalPollosVendidos = farm.getCantPollosVendidos() * Store.PRECIO_VENTA_CHICKEN;</b>
+&nbsp;
+<b class="nc">&nbsp;        sectionBuySellProducts.setPrecioTotalHuevosComprados(precioTotalHuevosComprados);</b>
+<b class="nc">&nbsp;        sectionBuySellProducts.setPrecioTotalPollosComprados(precioTotalPollosComprados);</b>
+&nbsp;
+<b class="nc">&nbsp;        sectionBuySellProducts.setPrecioTotalHuevosVendidos(precioTotalHuevosVendidos);</b>
+<b class="nc">&nbsp;        sectionBuySellProducts.setPrecioTotalPollosVendidos(precioTotalPollosVendidos);</b>
+&nbsp;
+<b class="nc">&nbsp;        return sectionBuySellProducts;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public FarmProgressDashboard getPropertiesProgressDashboard() {
+&nbsp;        /*  1. Obtener la granaja   */
+<b class="nc">&nbsp;        List&lt;Farm&gt; listFarm = farmRepository.findAll();</b>
+<b class="nc">&nbsp;        Farm farm = listFarm.stream().findFirst().get();</b>
+&nbsp;
+&nbsp;        /*  Serializar clase */
+<b class="nc">&nbsp;        FarmProgressDashboard farmProgressDashboard = mapper.convertValue(farm, FarmProgressDashboard.class);</b>
+&nbsp;
+&nbsp;        /*  3. Guardar los [días Transcurridos] [Cantidad Huevos] [cantidad Pollos]  */
+<b class="nc">&nbsp;        farmProgressDashboard.setDiasTranscurridos(getDayPass(farm.getDias())); //30</b>
+<b class="nc">&nbsp;        farmProgressDashboard.setDiasVida(LifeCycle.DAY_OF_LIFE_FARMER);</b>
+&nbsp;
+&nbsp;        /*  4. Renderizar dashboard.    */
+<b class="nc">&nbsp;        double porcentajeDiasDeVida = ((farmProgressDashboard.getDiasVida() - farmProgressDashboard.getDiasTranscurridos()) * 1.0 / (farmProgressDashboard.getDiasVida())) * 100;</b>
+<b class="nc">&nbsp;        farmProgressDashboard.setPorcentajeDiasVida(porcentajeDiasDeVida);</b>
+&nbsp;
+<b class="nc">&nbsp;        double porcentajeHuevos = farm.getCantHuevos() * 100.0 / farm.getLimiteHuevos();</b>
+<b class="nc">&nbsp;        farmProgressDashboard.setPorcentajeHuevos(porcentajeHuevos);</b>
+&nbsp;
+<b class="nc">&nbsp;        double porcentajePollos = farm.getCantPollos() * 100.0 / farm.getLimitePollos();</b>
+<b class="nc">&nbsp;        farmProgressDashboard.setPorcentajePollos(porcentajePollos);</b>
+&nbsp;
+<b class="nc">&nbsp;        return farmProgressDashboard;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public FarmDashboardDto getPropertiesDashboard(){
+&nbsp;        /*  1. Obtener la granaja   */
+<b class="nc">&nbsp;        Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow( () -&gt; new RuntimeException(&quot;No hay ninguna granja registrada.&quot;));</b>
+&nbsp;
+&nbsp;        /*  2. Obtener la cantidad de Pollos y Huevos que tiene la granja   */
+<b class="nc">&nbsp;        int cantidadHuevos = farm.getListEggs().size();</b>
+<b class="nc">&nbsp;        int cantidadPollos = farm.getListChickens().size();</b>
+&nbsp;
+&nbsp;        /*  3. Asigno, cantidad de Pollos y Huevos a mi Dto FarmDashboardDto.
+&nbsp;         *  Dolverá un objeto Dto para ser mostrado en la vista */
+<b class="nc">&nbsp;        FarmDashboardDto farmDashboardDto = mapper.convertValue(farm, FarmDashboardDto.class);</b>
+&nbsp;
+<b class="nc">&nbsp;        int diasTranscurridos = getDayPass(farm.getDias());</b>
+&nbsp;
+<b class="nc">&nbsp;        String fecha = formatDate(diasTranscurridos);</b>
+&nbsp;
+<b class="nc">&nbsp;        farmDashboardDto.setFecha(fecha);</b>
+&nbsp;
+<b class="nc">&nbsp;        farmDashboardDto.setCantHuevos(cantidadHuevos);</b>
+<b class="nc">&nbsp;        farmDashboardDto.setCantPollos(cantidadPollos);</b>
+&nbsp;
+<b class="nc">&nbsp;        return farmDashboardDto;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public ApiResponse&lt;String&gt; buy(String tipo, int cantidad){
+<b class="nc">&nbsp;            Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow( ()-&gt; new RuntimeException(&quot;No hay ninguna granja registrada.&quot;));</b>
+&nbsp;        try{
+<b class="nc">&nbsp;            if (tipo.equals(&quot;chicken&quot;)){</b>
+<b class="nc">&nbsp;                chickenService.buy(farm, cantidad);</b>
+<b class="nc">&nbsp;            } else if (tipo.equals(&quot;egg&quot;)) {</b>
+<b class="nc">&nbsp;                eggService.buy(farm, cantidad);</b>
+&nbsp;            }else {
+<b class="nc">&nbsp;                throw new IllegalArgumentException(&quot;Solicitud denegada. Debe seleccionar  &#39;chicken&#39; o &#39;egg&#39;&quot;);</b>
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;            return new ApiResponse&lt;&gt;(200, tipo + &quot; comprado correctamente&quot;, &quot;success&quot;);</b>
+<b class="nc">&nbsp;        }catch (Exception e){</b>
+<b class="nc">&nbsp;            return new ApiResponse&lt;&gt;(500, &quot;No se pudo realizar la compra: &quot; + e.getMessage(), &quot;danger&quot;);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public ApiResponse&lt;String&gt; sell(String tipo, int cantidad){
+<b class="nc">&nbsp;        Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow( () -&gt; new RuntimeException(&quot;No hay ninguna granja registrada.&quot;));</b>
+&nbsp;
+&nbsp;        try{
+<b class="nc">&nbsp;            if (tipo.equals(&quot;chicken&quot;)){</b>
+<b class="nc">&nbsp;                chickenService.sell(farm, cantidad);</b>
+<b class="nc">&nbsp;            } else if (tipo.equals(&quot;egg&quot;)) {</b>
+<b class="nc">&nbsp;                eggService.sell(farm, cantidad);</b>
+&nbsp;            }else {
+<b class="nc">&nbsp;                throw new IllegalArgumentException(&quot;Solicitud denegada. Debe seleccionar &#39;chicken&#39; o &#39;egg&#39;.&quot;);</b>
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;            return new ApiResponse&lt;&gt;(200, &quot;Se vendieron &quot; + cantidad + &quot; &quot; + tipo + &quot; correctamente&quot;, &quot;success&quot;);</b>
+<b class="nc">&nbsp;        }catch (Exception e){</b>
+<b class="nc">&nbsp;            return new ApiResponse&lt;&gt;(500, &quot;No se pudo vender &quot; + tipo + &quot;: &quot; + e.getMessage(), &quot;danger&quot;);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    private boolean isGranjaExpirada(Farm farm, int cantidad){
+<b class="nc">&nbsp;        return cantidad &gt; farm.getDias();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void updateChickenStatus(List&lt;Chicken&gt; listChicken, Farm farm){
+<b class="nc">&nbsp;        for (Chicken chicken : listChicken){</b>
+<b class="nc">&nbsp;            chicken.setDiasDeVida(chicken.getDiasDeVida() - 1);</b>
+&nbsp;
+<b class="nc">&nbsp;            if (chicken.getDiasDeVida() &lt; LifeCycle.DAY_OF_LIFE_CHICKEN &amp;&amp; (chicken.getDiasDeVida() % chicken.getDiasParaPonerHuevos()) == 0){</b>
+<b class="nc">&nbsp;                eggRepository.save(new Egg(null, (LifeCycle.DAY_BECOME_CHICKEN + 1), Store.PRECIO_COMPRA_EGG, chicken, farm));</b>
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void removeDeadChickens(List&lt;Chicken&gt; listChicken, Farm farm){
+<b class="nc">&nbsp;        List&lt;Chicken&gt; pollosAEliminar = new ArrayList&lt;&gt;();</b>
+&nbsp;
+<b class="nc">&nbsp;        for (Chicken chicken : listChicken){</b>
+<b class="nc">&nbsp;            if (chicken.getDiasDeVida() &lt;= 0){</b>
+<b class="nc">&nbsp;                chicken.getListEggs().forEach( egg -&gt; {</b>
+<b class="nc">&nbsp;                    egg.setChicken(null);</b>
+&nbsp;                    /*  Desvinculando Huevo de Pollo.   */
+&nbsp;                });
+&nbsp;
+<b class="nc">&nbsp;                eggRepository.saveAll(chicken.getListEggs());</b>
+<b class="nc">&nbsp;                pollosAEliminar.add(chicken);</b>
+&nbsp;                /*  Chicken ha muerto   */
+&nbsp;            }
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+<b class="nc">&nbsp;        for (Chicken chicken : pollosAEliminar){</b>
+<b class="nc">&nbsp;            farm.getListChickens().remove(chicken);</b>
+<b class="nc">&nbsp;            chickenRepository.delete(chicken);</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+<b class="nc">&nbsp;        countChickenDeads = pollosAEliminar.size();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void updateFarmData(Farm farm, int diasDeVidaGranja, int cantidad){
+&nbsp;        /*  Actualizando los datos de la Farm.  */
+<b class="nc">&nbsp;        farm.setCantHuevos(eggRepository.findAll().size());</b>
+<b class="nc">&nbsp;        farm.setDias(diasDeVidaGranja - cantidad);</b>
+<b class="nc">&nbsp;        farm.setCantPollos(chickenRepository.findAll().size());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void verifyExcess(int cantidad, Farm farm){
+<b class="nc">&nbsp;        boolean isChickenStock = chickenService.isLimiteStock(cantidad, farm.getCantPollos(), farm.getLimitePollos());  //  Reemplazar cantidad (dias) por cantidad a vender</b>
+<b class="nc">&nbsp;        boolean isEggStock = eggService.isLimiteSotck(cantidad, farm.getCantHuevos(), farm.getLimiteHuevos());    //  [TEST]</b>
+&nbsp;
+<b class="nc">&nbsp;        if (isChickenStock &amp;&amp; isEggStock){</b>
+<b class="nc">&nbsp;            logger.info(&quot;Superó la cantidad Máxima de Pollos y Huevos disponibles en la granaja.&quot;);</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;Superó la cantidad Máxima de Pollos y Huevos disponibles en la granaja.&quot;);</b>
+<b class="nc">&nbsp;        } else if (isChickenStock) {</b>
+<b class="nc">&nbsp;            logger.info(&quot;Superó la cantidad Máxima de Pollos disponibles en la granja.&quot;);</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;Superó la cantidad Máxima de Pollos disponibles en la granja.&quot;);</b>
+<b class="nc">&nbsp;        } else if (isEggStock) {</b>
+<b class="nc">&nbsp;            logger.info(&quot;Superó la cantidad Máxima de Huevos disponibles en la granja.&quot;);</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;Superó la cantidad Máxima de Huevos disponibles en la granja.&quot;);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    private void venderConDescuento(Farm farm, int cantidad){
+<b class="nc">&nbsp;        int option = 0; //verifyExcess(cantidad, farm.getListChickens().size(), farm.getLimitePollos(), farm.getListEggs().size(), farm.getLimiteHuevos()); // [TEST]</b>
+&nbsp;
+<b class="nc">&nbsp;        if (option == 2){</b>
+<b class="nc">&nbsp;            chickenService.sellExcedent(farm, cantidad, Store.PRECIO_VENTA_CHICKEN);</b>
+<b class="nc">&nbsp;            eggService.sellExcedent(farm, cantidad, Store.PRECIO_VENTA_EGG);</b>
+<b class="nc">&nbsp;        }else if (option == 1){</b>
+<b class="nc">&nbsp;            chickenService.sellExcedent(farm, cantidad, Store.PRECIO_VENTA_CHICKEN);</b>
+<b class="nc">&nbsp;        } else if (option == -1) {</b>
+<b class="nc">&nbsp;            eggService.sellExcedent(farm, (farm.getCantHuevos() + farm.getCantPollos()) - farm.getLimiteHuevos(), Store.PRECIO_VENTA_EGG);  // Disponibilizar Stock y vender.</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    private void saveListEgg(List&lt;Egg&gt; listEgg){
+<b class="nc">&nbsp;        for (Egg egg : listEgg){</b>
+<b class="nc">&nbsp;            egg.setFarm(null);</b>
+<b class="nc">&nbsp;            eggRepository.save(egg);</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void saveListChicken(List&lt;Chicken&gt; listChicken){
+<b class="nc">&nbsp;        for (Chicken chicken : listChicken){</b>
+<b class="nc">&nbsp;            chicken.setFarm(null);</b>
+<b class="nc">&nbsp;            chickenRepository.save(chicken);</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void verifyCantidadPositiva(int cantidad){
+<b class="nc">&nbsp;        if (cantidad &lt;= 0){</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;Los días ingresados deben ser Enteros Positivos.&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void verifyStock(Farm farm, int cantidad){
+&nbsp;        /*  1.  Obtener la lista de Chickens y Eggs de mi Granja.   */
+<b class="nc">&nbsp;        List&lt;Chicken&gt; listChicken = farm.getListChickens();</b>
+<b class="nc">&nbsp;        List&lt;Egg&gt; listEgg = farm.getListEggs();</b>
+<b class="nc">&nbsp;        int breakEggsCount = 0;</b>
+<b class="nc">&nbsp;        int newEggsCount = 0;</b>
+&nbsp;
+&nbsp;        /*  2. Contar cuantos Huevos pasaron a ser Pollo.   */
+<b class="nc">&nbsp;        for(Egg egg : listEgg){</b>
+<b class="nc">&nbsp;            if (egg.getDiasEnConvertirseEnPollo() &lt;= cantidad){ //3 &lt;= //5</b>
+<b class="nc">&nbsp;                breakEggsCount++;</b>
+&nbsp;            }
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+&nbsp;        /*  3. Contar cuantos Pollos pusieron Huevos.   */
+<b class="nc">&nbsp;        for (Chicken chicken : listChicken){</b>
+<b class="nc">&nbsp;            if (chicken.getDiasParaPonerHuevos() &lt;= cantidad){   // 5 &lt;= //15</b>
+<b class="nc">&nbsp;                newEggsCount += (cantidad / chicken.getDiasParaPonerHuevos()); /*  Int(Cantidad / diasParaPonerHuevos)*/</b>
+&nbsp;            }
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+&nbsp;        /*  4. Calcular cuantos Huevos y Pollos tengo en mi granaja. */
+<b class="nc">&nbsp;        int countEggs = listEgg.size();</b>
+<b class="nc">&nbsp;        int countChickens = listChicken.size();</b>
+&nbsp;
+<b class="nc">&nbsp;        int stockEggs = ( countEggs - breakEggsCount) + newEggsCount; // (2 - 0) + 15</b>
+<b class="nc">&nbsp;        int stockChickens = (countChickens + breakEggsCount);</b>
+&nbsp;
+&nbsp;        /*  5. Verificar si supero el Limite de Stock para Huevos.  */
+<b class="nc">&nbsp;        if (stockEggs &gt; farm.getLimiteHuevos()){</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;En el transcurso de los &quot; + cantidad +&quot; días se ha superado la capacidad Máxima de Huevos. Chickens han puesto &quot; + newEggsCount + &quot; nuevos Huevos.&quot;);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;
+&nbsp;        /*  6. Verificar si supero el Limite de Stock para Pollos.  */
+<b class="nc">&nbsp;        if (stockChickens &gt; farm.getLimitePollos()){</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;En el transcurso de los &quot; + cantidad +&quot; días se ha superado la capacidad Máxima de Pollos. Acaban de nacer &quot; + newEggsCount + &quot; Pollos.&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        countBreakEggs = breakEggsCount;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public ApiResponse&lt;String&gt; updateUserName(String name){
+<b class="nc">&nbsp;        Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow(()-&gt; new RuntimeException(&quot;Nose encontró ninguna granja registrada&quot;));</b>
+&nbsp;
+&nbsp;        try{
+<b class="nc">&nbsp;                validateUserName(name);</b>
+<b class="nc">&nbsp;                farm.setGranjero(name);</b>
+<b class="nc">&nbsp;                farmRepository.save(farm);</b>
+<b class="nc">&nbsp;                return new ApiResponse&lt;&gt;(200, &quot;Se ha actualizado el nombre de usuario a &#39;&quot; + name + &quot;&#39;.&quot;, &quot;success&quot;);</b>
+<b class="nc">&nbsp;        }catch (Exception e){</b>
+<b class="nc">&nbsp;            return new ApiResponse&lt;&gt;(500, e.getMessage(), &quot;danger&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public ApiResponse&lt;String&gt; updateFarmName(String name){
+<b class="nc">&nbsp;        Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow(()-&gt; new RuntimeException(&quot;Nose encontró ninguna granja registrada&quot;));</b>
+&nbsp;
+&nbsp;        try {
+<b class="nc">&nbsp;                validateFarmName(name);</b>
+<b class="nc">&nbsp;                farm.setNombre(name);</b>
+<b class="nc">&nbsp;                farmRepository.save(farm);</b>
+<b class="nc">&nbsp;                return new ApiResponse&lt;&gt;(200, &quot;Se ha actualizado el nombre de la app a  &#39;&quot; + name + &quot;&#39;.&quot;, &quot;success&quot;);</b>
+<b class="nc">&nbsp;        }catch (Exception e){</b>
+<b class="nc">&nbsp;            return new ApiResponse&lt;&gt;(500, e.getMessage(), &quot;danger&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public ApiResponse&lt;String&gt;  updatePrices(String accion,String tipo, double precio){
+&nbsp;        try {
+<b class="nc">&nbsp;            if (precio &gt;= 1){</b>
+<b class="nc">&nbsp;                if (accion.equals(&quot;buy&quot;)){</b>
+<b class="nc">&nbsp;                    if (tipo.equals(&quot;chicken&quot;)){</b>
+<b class="nc">&nbsp;                        Store.PRECIO_COMPRA_CHICKEN = precio;</b>
+<b class="nc">&nbsp;                    }else if (tipo.equals(&quot;egg&quot;)){</b>
+<b class="nc">&nbsp;                        Store.PRECIO_COMPRA_EGG = precio;</b>
+&nbsp;                    }else{
+<b class="nc">&nbsp;                        throw new RuntimeException(&quot;Por favor ingrese tipo correcto. &#39;chicken&#39; or &#39;egg&#39;.&quot;);</b>
+&nbsp;                    }
+<b class="nc">&nbsp;                } else if (accion.equals(&quot;sell&quot;)) {</b>
+<b class="nc">&nbsp;                    if (tipo.equals(&quot;chicken&quot;)){</b>
+<b class="nc">&nbsp;                        Store.PRECIO_VENTA_CHICKEN = precio;</b>
+<b class="nc">&nbsp;                    }else if (tipo.equals(&quot;egg&quot;)){</b>
+<b class="nc">&nbsp;                        Store.PRECIO_VENTA_EGG = precio;</b>
+&nbsp;                    }else{
+<b class="nc">&nbsp;                        throw new RuntimeException(&quot;Por favor ingrese tipo correcto. &#39;chicken&#39; or &#39;egg&#39;.&quot;);</b>
+&nbsp;                    }
+&nbsp;                }else {
+<b class="nc">&nbsp;                    throw new RuntimeException(&quot;Por favor ingrese la accion requerida. &#39;buy&#39; or &#39;sell&#39;.&quot;);</b>
+&nbsp;                }
+&nbsp;
+<b class="nc">&nbsp;                return new ApiResponse&lt;&gt;(200, &quot;Se ha actualizado el precio del &quot; + tipo + &quot; a $&quot; + precio + &quot;.&quot;, &quot;success&quot;);</b>
+&nbsp;            }else {
+<b class="nc">&nbsp;                throw new RuntimeException(&quot;El precio debe ser positivo. Por favor, intente nuevamente.&quot;);</b>
+&nbsp;            }
+<b class="nc">&nbsp;        }catch (Exception e){</b>
+<b class="nc">&nbsp;            return new ApiResponse&lt;&gt;(500, e.getMessage(), &quot;danger&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void validateUserName(String userName){
+<b class="nc">&nbsp;        if (userName.length() &lt; 3){</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;El valor ingresado no parece ser un nombre. Por favor, intente nuevamente. La cantidad de digitos debe ser mayor o igual a 3.&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void validateFarmName(String farmName){
+<b class="nc">&nbsp;        if (farmName.length() &lt; 3){</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;El valor ingresado no parece ser un nombre. Por favor, intente nuevamente. La cantidad de digitos debe ser mayor o igual a 3.&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void validateDayOfLife(int dayOfLife){
+<b class="nc">&nbsp;        if (dayOfLife &lt;= 0){</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;Dias de vida inválidos. El valor ingresado debe ser Positivo. Por favor, intente nuevamente. &quot;);</b>
+<b class="nc">&nbsp;        } else if (dayOfLife &lt; 10) {</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;Por favor, intente nuevamente. El valor ingresado debe ser mayor o igual a 10.&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void validateChickensEggsCapacity(int amount){
+<b class="nc">&nbsp;        if (amount &lt;= 0){</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;El valor ingresado debe ser Positivo. Por favor, intente nuevamente.&quot;);</b>
+<b class="nc">&nbsp;        } else if (amount &lt; 10) {</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;Por favor, intente nuevamente. Se recomienda tener tener una capacidad de 10 o más.&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;    public ApiResponse&lt;String&gt; updatePerfil(String userName, String farmName, int dayOfLife, int eggsCapacity, int chickensCapacity) {
+<b class="nc">&nbsp;        Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow(()-&gt; new RuntimeException(&quot;Nose encontró ninguna granja registrada&quot;));</b>
+&nbsp;
+&nbsp;        try{
+<b class="nc">&nbsp;            validateUserName(userName);</b>
+<b class="nc">&nbsp;            validateFarmName(farmName);</b>
+<b class="nc">&nbsp;            validateDayOfLife(dayOfLife);</b>
+<b class="nc">&nbsp;            validateChickensEggsCapacity(chickensCapacity);</b>
+<b class="nc">&nbsp;            validateChickensEggsCapacity(eggsCapacity);</b>
+&nbsp;
+<b class="nc">&nbsp;            farm.setGranjero(userName);</b>
+<b class="nc">&nbsp;            farm.setNombre(farmName);</b>
+<b class="nc">&nbsp;            LifeCycle.DAY_OF_LIFE_FARMER = dayOfLife;</b>
+<b class="nc">&nbsp;            farm.setDias(LifeCycle.DAY_OF_LIFE_FARMER);</b>
+<b class="nc">&nbsp;            farm.setLimiteHuevos(eggsCapacity);</b>
+<b class="nc">&nbsp;            farm.setLimitePollos(chickensCapacity);</b>
+&nbsp;
+<b class="nc">&nbsp;            farmRepository.save(farm);</b>
+<b class="nc">&nbsp;            return new ApiResponse&lt;&gt;(200, &quot;Se ha actualizado el perfil exitosamente.&quot;, &quot;success&quot;);</b>
+<b class="nc">&nbsp;        }catch (Exception e){</b>
+<b class="nc">&nbsp;            return new ApiResponse&lt;&gt;(500, e.getMessage(), &quot;danger&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public ApiResponse&lt;String&gt; pasarDias(int cantidad){
+<b class="nc">&nbsp;        Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow(()-&gt; new RuntimeException(&quot;Nose encontró ninguna granja registrada&quot;));</b>
+<b class="nc">&nbsp;        List&lt;Chicken&gt; listChicken = farm.getListChickens();</b>
+<b class="nc">&nbsp;        List&lt;Egg&gt; listEgg = farm.getListEggs();</b>
+<b class="nc">&nbsp;        int diasDeVidaGranja = farm.getDias();</b>
+&nbsp;
+&nbsp;        try{
+&nbsp;            //venderConDescuento(farm, cantidad); //  Vendiendo excedente con descuento...[TEST]
+<b class="nc">&nbsp;            verifyStock(farm, cantidad);</b>
+&nbsp;            /*  Velidación de Cantidad positiva   */
+<b class="nc">&nbsp;            verifyCantidadPositiva(cantidad);</b>
+&nbsp;
+&nbsp;            /*  Verificar Stock */
+&nbsp;
+<b class="nc">&nbsp;            for (int i=0; i &lt; cantidad; i++){</b>
+<b class="nc">&nbsp;                if (!isGranjaExpirada(farm, cantidad)){</b>
+<b class="nc">&nbsp;                    updateChickenStatus(listChicken, farm);</b>
+<b class="nc">&nbsp;                    removeDeadChickens(listChicken, farm);</b>
+&nbsp;                }else {
+<b class="nc">&nbsp;                    saveListEgg(listEgg);</b>
+<b class="nc">&nbsp;                    saveListChicken(listChicken);</b>
+<b class="nc">&nbsp;                    farm.setDias(0);</b>
+<b class="nc">&nbsp;                    farmRepository.save(farm);</b>
+<b class="nc">&nbsp;                    throw new RuntimeException(&quot;El dueño de la granja acaba de irse.&quot;);</b>
+&nbsp;                }
+<b class="nc">&nbsp;                eggService.diasEnConvertirseEnPollo(i, farm);</b>
+&nbsp;            }
+<b class="nc">&nbsp;            updateFarmData(farm, diasDeVidaGranja, cantidad);</b>
+<b class="nc">&nbsp;            farmRepository.save(farm);</b>
+&nbsp;
+<b class="nc">&nbsp;            return new ApiResponse&lt;&gt;(200, &quot;Acaban de pasar &quot; + cantidad + &quot; días.&quot;, &quot;success&quot;);</b>
+<b class="nc">&nbsp;        }catch (Exception e){</b>
+&nbsp;            
+<b class="nc">&nbsp;            return new ApiResponse&lt;&gt;(500, e.getMessage(), &quot;danger&quot;);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-09-06 18:06</div>
+</div>
+</body>
+</html>

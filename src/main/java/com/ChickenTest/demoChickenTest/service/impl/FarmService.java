@@ -13,18 +13,13 @@ import lombok.NoArgsConstructor;
 import org.apache.log4j.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
-import org.springframework.data.repository.Repository;
 import org.springframework.stereotype.Service;
 
 
+import javax.swing.text.html.Option;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Locale;
-import java.util.concurrent.ExecutionException;
+import java.util.*;
 
 
 @Service
@@ -48,12 +43,18 @@ public class FarmService {
     private int countBreakEggs = 0;
     private int countChickenDeads = 0;
 
+    public void save(Farm farm){
+        farmRepository.save(farm);
+    }
+    public Farm getFarm(Long id){
+
+        return farmRepository.findById(id).orElse(null);
+    }
+
     public FarmTableDto getDataTableFarm(){
         Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow(()-> new RuntimeException("Nose encontró ninguna granja registrada"));
 
-        FarmTableDto farmTableDto = mapper.convertValue(farm, FarmTableDto.class);
-
-        return farmTableDto;
+        return mapper.convertValue(farm, FarmTableDto.class);
     }
 
     public SectionCashAvailable getCashAvailable(){
@@ -169,7 +170,7 @@ public class FarmService {
     }
 
     public ApiResponse<String> buy(String tipo, int cantidad){
-        Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow( ()-> new RuntimeException("No hay ninguna granja registrada."));
+            Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow( ()-> new RuntimeException("No hay ninguna granja registrada."));
         try{
             if (tipo.equals("chicken")){
                 chickenService.buy(farm, cantidad);
@@ -185,6 +186,7 @@ public class FarmService {
         }
 
     }
+
 
     public ApiResponse<String> sell(String tipo, int cantidad){
         Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow( () -> new RuntimeException("No hay ninguna granja registrada."));

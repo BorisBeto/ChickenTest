@@ -12,6 +12,7 @@ import java.util.List;
 @Table(name = "POLLOS")
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
+@ToString(exclude = {"farm"})
 public class Chicken {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +28,4 @@ public class Chicken {
     @ManyToOne
     @JoinColumn(name = "farm_id")
     private Farm farm;
-
-
 }
