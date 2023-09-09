@@ -160,7 +160,6 @@ public class FarmController {
             @RequestParam double price,
             RedirectAttributes attributes){
         try {
-
             ApiResponse<String> response = farmService.updatePrices(accion,tipo,price);
             attributes.addFlashAttribute("apiResponse", response);
         }catch (Exception e){

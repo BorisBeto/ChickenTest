@@ -20,6 +20,7 @@ public class Chicken {
     private int diasDeVida;
     private int diasParaPonerHuevos;
     private double precio;
+    private double precioComprado;
 
     @OneToMany(mappedBy = "chicken")
     @JsonIgnore

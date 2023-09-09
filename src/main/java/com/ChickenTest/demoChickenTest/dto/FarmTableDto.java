@@ -17,4 +17,5 @@ public class FarmTableDto {
     private int cantPollos;
     private int cantHuevosVendidos;
     private int cantPollosVendidos;
+    private String fecha;
 }

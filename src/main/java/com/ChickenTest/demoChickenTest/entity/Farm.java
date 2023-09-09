@@ -24,6 +24,7 @@ public class Farm {
     private double dinero;
     private double gastos;
     private int dias;
+    private String fecha;
     private int limiteHuevos;
     private int limitePollos;
     private int cantHuevos;

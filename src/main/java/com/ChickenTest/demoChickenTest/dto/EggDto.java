@@ -10,6 +10,7 @@ public class EggDto {
     private Long id;
     private int diasEnConvertirseEnPollo;
     private double precio;
+    private double precioComprado;
     private Chicken chicken;
     private Farm farm;
 }

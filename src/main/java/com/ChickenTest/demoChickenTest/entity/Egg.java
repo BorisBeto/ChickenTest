@@ -15,6 +15,7 @@ public class Egg {
     private Long id;
     private int diasEnConvertirseEnPollo;
     private double precio;
+    private double precioComprado;
 
     @ManyToOne
     @JoinColumn(name = "chiken_id")

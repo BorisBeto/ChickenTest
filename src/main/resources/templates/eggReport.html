@@ -37,6 +37,7 @@
       <th>Id</th>
       <th>Break Egg</th>
       <th>precio</th>
+      <th>Valor Comprado</th>
       <th>Chicken Id</th>
       <th>Granja Id</th>
     </tr>
@@ -46,6 +47,7 @@
       <td th:text="${egg.id}"></td>
       <td th:text="${egg.diasEnConvertirseEnPollo}"></td>
       <td th:text="${egg.precio}"></td>
+      <td th:text="${egg.precioComprado}"></td>
       <td th:text="${egg.chicken?.id}"></td>
       <td th:text="${egg.farm?.id}"></td>
     </tbody>

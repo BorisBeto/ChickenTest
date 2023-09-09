@@ -38,6 +38,7 @@
             <th>Dias de Vida</th>
             <th>Dias de Gestación</th>
             <th>Precio</th>
+            <th>Valor Comprado</th>
             <th>Granja Id</th>
         </tr>
         </thead>
@@ -47,6 +48,7 @@
             <td th:text="${chicken.diasDeVida}"></td>
             <td th:text="${chicken.diasParaPonerHuevos}"></td>
             <td th:text="${chicken.precio}"></td>
+            <td th:text="${chicken.precioComprado}"></td>
             <td th:text="${chicken.farm?.id}"></td>
         </tbody>
     </table>

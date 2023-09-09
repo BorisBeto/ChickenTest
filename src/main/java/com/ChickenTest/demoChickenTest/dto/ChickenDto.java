@@ -12,5 +12,6 @@ public class ChickenDto {
     private int diasDeVida;
     private int diasParaPonerHuevos;
     private double precio;
+    private double precioComprado;
     private Farm farm;
 }
