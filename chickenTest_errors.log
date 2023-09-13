@@ -1,210 +1,173 @@
-[2023-09-0814:28:28] [ INFO ] [FarmService:307] Acaban de nacer 9 pollos. Cantidad de Pollos en mi granja: 8. Limite de Pollos permitidos: 17
-[2023-09-0814:28:28] [ INFO ] [FarmService:308] Pollos acaban de poner 32. Cantidad de Huevos en mi granja: 9. Limite de Huevos permitidos: 32
-[2023-09-0814:28:39] [ INFO ] [FarmService:307] Acaban de nacer 32 pollos. Cantidad de Pollos en mi granja: 9. Limite de Pollos permitidos: 41
-[2023-09-0814:28:39] [ INFO ] [FarmService:308] Pollos acaban de poner 36. Cantidad de Huevos en mi granja: 32. Limite de Huevos permitidos: 36
-[2023-09-0814:28:43] [ INFO ] [FarmService:307] Acaban de nacer 36 pollos. Cantidad de Pollos en mi granja: 32. Limite de Pollos permitidos: 68
-[2023-09-0814:28:43] [ INFO ] [FarmService:308] Pollos acaban de poner 128. Cantidad de Huevos en mi granja: 36. Limite de Huevos permitidos: 128
-[2023-09-0814:28:43] [ ERROR] [FarmService:312] En el transcurso de los 20 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 128 nuevos Huevos.
-[2023-09-0814:28:43] [ ERROR] [FarmService:476] Hubo un problema al pasar los 20dias. Detail: En el transcurso de los 20 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 128 nuevos Huevos.
-[2023-09-0814:28:47] [ INFO ] [FarmService:307] Acaban de nacer 18 pollos. Cantidad de Pollos en mi granja: 32. Limite de Pollos permitidos: 50
-[2023-09-0814:28:47] [ INFO ] [FarmService:308] Pollos acaban de poner 64. Cantidad de Huevos en mi granja: 36. Limite de Huevos permitidos: 82
-[2023-09-0814:28:47] [ ERROR] [FarmService:312] En el transcurso de los 10 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 64 nuevos Huevos.
-[2023-09-0814:28:47] [ ERROR] [FarmService:476] Hubo un problema al pasar los 10dias. Detail: En el transcurso de los 10 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 64 nuevos Huevos.
-[2023-09-0814:28:51] [ INFO ] [FarmService:307] Acaban de nacer 9 pollos. Cantidad de Pollos en mi granja: 32. Limite de Pollos permitidos: 41
-[2023-09-0814:28:51] [ INFO ] [FarmService:308] Pollos acaban de poner 32. Cantidad de Huevos en mi granja: 36. Limite de Huevos permitidos: 59
-[2023-09-0814:28:51] [ ERROR] [FarmService:312] En el transcurso de los 5 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 32 nuevos Huevos.
-[2023-09-0814:28:51] [ ERROR] [FarmService:476] Hubo un problema al pasar los 5dias. Detail: En el transcurso de los 5 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 32 nuevos Huevos.
-[2023-09-0814:29:02] [ INFO ] [FarmService:307] Acaban de nacer 5 pollos. Cantidad de Pollos en mi granja: 32. Limite de Pollos permitidos: 37
-[2023-09-0814:29:02] [ INFO ] [FarmService:308] Pollos acaban de poner 64. Cantidad de Huevos en mi granja: 23. Limite de Huevos permitidos: 82
-[2023-09-0814:29:02] [ ERROR] [FarmService:312] En el transcurso de los 10 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 64 nuevos Huevos.
-[2023-09-0814:29:02] [ ERROR] [FarmService:476] Hubo un problema al pasar los 10dias. Detail: En el transcurso de los 10 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 64 nuevos Huevos.
-[2023-09-0814:29:09] [ INFO ] [FarmService:307] Acaban de nacer 10 pollos. Cantidad de Pollos en mi granja: 32. Limite de Pollos permitidos: 42
-[2023-09-0814:29:09] [ INFO ] [FarmService:308] Pollos acaban de poner 128. Cantidad de Huevos en mi granja: 10. Limite de Huevos permitidos: 128
-[2023-09-0814:29:09] [ ERROR] [FarmService:312] En el transcurso de los 20 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 128 nuevos Huevos.
-[2023-09-0814:29:09] [ ERROR] [FarmService:476] Hubo un problema al pasar los 20dias. Detail: En el transcurso de los 20 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 128 nuevos Huevos.
-[2023-09-0814:29:11] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 32. Limite de Pollos permitidos: 32
-[2023-09-0814:29:11] [ INFO ] [FarmService:308] Pollos acaban de poner 64. Cantidad de Huevos en mi granja: 10. Limite de Huevos permitidos: 74
-[2023-09-0814:29:11] [ ERROR] [FarmService:312] En el transcurso de los 10 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 64 nuevos Huevos.
-[2023-09-0814:29:11] [ ERROR] [FarmService:476] Hubo un problema al pasar los 10dias. Detail: En el transcurso de los 10 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 64 nuevos Huevos.
-[2023-09-0814:29:24] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 32. Limite de Pollos permitidos: 32
-[2023-09-0814:29:24] [ INFO ] [FarmService:308] Pollos acaban de poner 64. Cantidad de Huevos en mi granja: 5. Limite de Huevos permitidos: 69
-[2023-09-0814:29:24] [ ERROR] [FarmService:312] En el transcurso de los 10 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 64 nuevos Huevos.
-[2023-09-0814:29:24] [ ERROR] [FarmService:476] Hubo un problema al pasar los 10dias. Detail: En el transcurso de los 10 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 64 nuevos Huevos.
-[2023-09-0814:29:26] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 32. Limite de Pollos permitidos: 32
-[2023-09-0814:29:26] [ INFO ] [FarmService:308] Pollos acaban de poner 32. Cantidad de Huevos en mi granja: 5. Limite de Huevos permitidos: 37
-[2023-09-0814:29:40] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 32. Limite de Pollos permitidos: 32
-[2023-09-0814:29:40] [ INFO ] [FarmService:308] Pollos acaban de poner 32. Cantidad de Huevos en mi granja: 37. Limite de Huevos permitidos: 69
-[2023-09-0814:29:40] [ ERROR] [FarmService:312] En el transcurso de los 5 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 32 nuevos Huevos.
-[2023-09-0814:29:40] [ ERROR] [FarmService:476] Hubo un problema al pasar los 5dias. Detail: En el transcurso de los 5 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 32 nuevos Huevos.
-[2023-09-0814:29:51] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 32. Limite de Pollos permitidos: 32
-[2023-09-0814:29:51] [ INFO ] [FarmService:308] Pollos acaban de poner 32. Cantidad de Huevos en mi granja: 22. Limite de Huevos permitidos: 54
-[2023-09-0814:29:51] [ ERROR] [FarmService:312] En el transcurso de los 5 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 32 nuevos Huevos.
-[2023-09-0814:29:51] [ ERROR] [FarmService:476] Hubo un problema al pasar los 5dias. Detail: En el transcurso de los 5 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 32 nuevos Huevos.
-[2023-09-0814:29:58] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 32. Limite de Pollos permitidos: 32
-[2023-09-0814:29:58] [ INFO ] [FarmService:308] Pollos acaban de poner 64. Cantidad de Huevos en mi granja: 2. Limite de Huevos permitidos: 66
-[2023-09-0814:29:58] [ ERROR] [FarmService:312] En el transcurso de los 10 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 64 nuevos Huevos.
-[2023-09-0814:29:58] [ ERROR] [FarmService:476] Hubo un problema al pasar los 10dias. Detail: En el transcurso de los 10 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 64 nuevos Huevos.
-[2023-09-0814:30:43] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 32. Limite de Pollos permitidos: 32
-[2023-09-0814:30:43] [ INFO ] [FarmService:308] Pollos acaban de poner 32. Cantidad de Huevos en mi granja: 2. Limite de Huevos permitidos: 34
-[2023-09-0814:30:50] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 32. Limite de Pollos permitidos: 32
-[2023-09-0814:30:50] [ INFO ] [FarmService:308] Pollos acaban de poner 32. Cantidad de Huevos en mi granja: 34. Limite de Huevos permitidos: 66
-[2023-09-0814:30:50] [ ERROR] [FarmService:312] En el transcurso de los 5 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 32 nuevos Huevos.
-[2023-09-0814:30:50] [ ERROR] [FarmService:476] Hubo un problema al pasar los 5dias. Detail: En el transcurso de los 5 días se ha superado la capacidad Máxima de Huevos. Chickens han puesto 32 nuevos Huevos.
-[2023-09-0815:01:59] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:01:59] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:07:40] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:07:40] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:07:49] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:07:49] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:07:59] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:07:59] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:08:08] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:08:08] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:10:31] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:10:31] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:10:44] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:10:44] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:10:52] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:10:52] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:10:57] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:10:57] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:11:12] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:11:12] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:11:21] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:11:21] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:12:27] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:12:27] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:18:18] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:18:18] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:19:21] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:19:21] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:19:30] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:19:30] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:20:18] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:20:18] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:36:15] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:36:15] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:36:21] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:36:21] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:36:29] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:36:29] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:36:34] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:36:34] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:36:41] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:36:41] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:36:41] [ ERROR] [FarmService:275] Error, la cantidad ingresada de ser Entero positivo. Numero ingresado: -10
-[2023-09-0815:36:41] [ ERROR] [FarmService:478] Hubo un problema al pasar los -10dias. Detail: Los días ingresados deben ser Enteros Positivos.
-[2023-09-0815:36:46] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0815:36:46] [ INFO ] [FarmService:308] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 0
-[2023-09-0815:36:46] [ ERROR] [FarmService:275] Error, la cantidad ingresada de ser Entero positivo. Numero ingresado: 0
-[2023-09-0815:36:46] [ ERROR] [FarmService:478] Hubo un problema al pasar los 0dias. Detail: Los días ingresados deben ser Enteros Positivos.
-[2023-09-0815:44:45] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 2. Limite de Pollos permitidos: 2
-[2023-09-0815:44:45] [ INFO ] [FarmService:308] Pollos acaban de poner 4. Cantidad de Huevos en mi granja: 2. Limite de Huevos permitidos: 6
-[2023-09-0815:45:47] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 3. Limite de Pollos permitidos: 3
-[2023-09-0815:45:47] [ INFO ] [FarmService:308] Pollos acaban de poner 3. Cantidad de Huevos en mi granja: 6. Limite de Huevos permitidos: 9
-[2023-09-0816:05:55] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 2. Limite de Pollos permitidos: 2
-[2023-09-0816:05:55] [ INFO ] [FarmService:308] Pollos acaban de poner 2. Cantidad de Huevos en mi granja: 2. Limite de Huevos permitidos: 4
-[2023-09-0816:06:36] [ INFO ] [FarmService:307] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 2. Limite de Pollos permitidos: 2
-[2023-09-0816:06:36] [ INFO ] [FarmService:308] Pollos acaban de poner 2. Cantidad de Huevos en mi granja: 4. Limite de Huevos permitidos: 6
-[2023-09-0816:10:42] [ INFO ] [FarmService:306] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 2. Limite de Pollos permitidos: 2
-[2023-09-0816:10:42] [ INFO ] [FarmService:307] Pollos acaban de poner 2. Cantidad de Huevos en mi granja: 2. Limite de Huevos permitidos: 4
-[2023-09-0817:52:54] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 3. Limite de Pollos permitidos: 3
-[2023-09-0817:52:54] [ INFO ] [FarmService:313] Pollos acaban de poner 3. Cantidad de Huevos en mi granja: 2. Limite de Huevos permitidos: 5
-[2023-09-0817:58:26] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 3. Limite de Pollos permitidos: 3
-[2023-09-0817:58:26] [ INFO ] [FarmService:313] Pollos acaban de poner 3. Cantidad de Huevos en mi granja: 5. Limite de Huevos permitidos: 8
-[2023-09-0818:00:13] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 4. Limite de Pollos permitidos: 4
-[2023-09-0818:00:13] [ INFO ] [FarmService:313] Pollos acaban de poner 4. Cantidad de Huevos en mi granja: 1. Limite de Huevos permitidos: 5
-[2023-09-0818:01:47] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 5. Limite de Pollos permitidos: 5
-[2023-09-0818:01:47] [ INFO ] [FarmService:313] Pollos acaban de poner 5. Cantidad de Huevos en mi granja: 3. Limite de Huevos permitidos: 8
-[2023-09-0818:02:56] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 5. Limite de Pollos permitidos: 5
-[2023-09-0818:02:56] [ INFO ] [FarmService:313] Pollos acaban de poner 5. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 5
-[2023-09-0818:07:02] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 3. Limite de Pollos permitidos: 3
-[2023-09-0818:07:02] [ INFO ] [FarmService:313] Pollos acaban de poner 3. Cantidad de Huevos en mi granja: 5. Limite de Huevos permitidos: 8
-[2023-09-0818:17:24] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 4. Limite de Pollos permitidos: 4
-[2023-09-0818:17:24] [ INFO ] [FarmService:313] Pollos acaban de poner 4. Cantidad de Huevos en mi granja: 3. Limite de Huevos permitidos: 7
-[2023-09-0818:26:11] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 4. Limite de Pollos permitidos: 4
-[2023-09-0818:26:11] [ INFO ] [FarmService:313] Pollos acaban de poner 4. Cantidad de Huevos en mi granja: 2. Limite de Huevos permitidos: 6
-[2023-09-0818:28:23] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 4. Limite de Pollos permitidos: 4
-[2023-09-0818:28:23] [ INFO ] [FarmService:313] Pollos acaban de poner 4. Cantidad de Huevos en mi granja: 2. Limite de Huevos permitidos: 6
-[2023-09-0818:29:57] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 4. Limite de Pollos permitidos: 4
-[2023-09-0818:29:57] [ INFO ] [FarmService:313] Pollos acaban de poner 4. Cantidad de Huevos en mi granja: 2. Limite de Huevos permitidos: 6
-[2023-09-0818:37:07] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 3. Limite de Pollos permitidos: 3
-[2023-09-0818:37:07] [ INFO ] [FarmService:313] Pollos acaban de poner 3. Cantidad de Huevos en mi granja: 2. Limite de Huevos permitidos: 5
-[2023-09-0818:47:34] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 4. Limite de Pollos permitidos: 4
-[2023-09-0818:47:34] [ INFO ] [FarmService:313] Pollos acaban de poner 4. Cantidad de Huevos en mi granja: 2. Limite de Huevos permitidos: 6
-[2023-09-0818:54:29] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 4. Limite de Pollos permitidos: 4
-[2023-09-0818:54:29] [ INFO ] [FarmService:313] Pollos acaban de poner 4. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 4
-[2023-09-0818:57:45] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 2. Limite de Pollos permitidos: 2
-[2023-09-0818:57:45] [ INFO ] [FarmService:313] Pollos acaban de poner 2. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 2
-[2023-09-0819:00:16] [ ERROR] [EggService:68] Actualmente no contiene Huevos en su granja. Stock actual: 0
-[2023-09-0819:00:16] [ ERROR] [FarmService:187] No se pudo vender: Actualmente no posee Huevos en su granja.
-[2023-09-0819:01:06] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 4. Limite de Pollos permitidos: 4
-[2023-09-0819:01:06] [ INFO ] [FarmService:313] Pollos acaban de poner 4. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 4
-[2023-09-0819:04:00] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 2. Limite de Pollos permitidos: 2
-[2023-09-0819:04:00] [ INFO ] [FarmService:313] Pollos acaban de poner 2. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 2
-[2023-09-0819:05:45] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 4. Limite de Pollos permitidos: 4
-[2023-09-0819:05:45] [ INFO ] [FarmService:313] Pollos acaban de poner 4. Cantidad de Huevos en mi granja: 2. Limite de Huevos permitidos: 6
-[2023-09-0819:08:09] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 6. Limite de Pollos permitidos: 6
-[2023-09-0819:08:09] [ INFO ] [FarmService:313] Pollos acaban de poner 6. Cantidad de Huevos en mi granja: 2. Limite de Huevos permitidos: 8
-[2023-09-0819:22:02] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 1. Limite de Pollos permitidos: 1
-[2023-09-0819:22:02] [ INFO ] [FarmService:313] Pollos acaban de poner 1. Cantidad de Huevos en mi granja: 1. Limite de Huevos permitidos: 2
-[2023-09-0819:24:15] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 1. Limite de Pollos permitidos: 1
-[2023-09-0819:24:15] [ INFO ] [FarmService:313] Pollos acaban de poner 1. Cantidad de Huevos en mi granja: 3. Limite de Huevos permitidos: 4
-[2023-09-0819:25:35] [ ERROR] [EggService:68] Actualmente no contiene Huevos en su granja. Stock actual: 0
-[2023-09-0819:25:35] [ ERROR] [FarmService:187] No se pudo vender: Actualmente no posee Huevos en su granja.
-[2023-09-0819:26:47] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 3. Limite de Pollos permitidos: 3
-[2023-09-0819:26:47] [ INFO ] [FarmService:313] Pollos acaban de poner 3. Cantidad de Huevos en mi granja: 2. Limite de Huevos permitidos: 5
-[2023-09-0819:29:54] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 4. Limite de Pollos permitidos: 4
-[2023-09-0819:29:54] [ INFO ] [FarmService:313] Pollos acaban de poner 4. Cantidad de Huevos en mi granja: 5. Limite de Huevos permitidos: 9
-[2023-09-0819:31:06] [ INFO ] [FarmService:312] Acaban de nacer 2 pollos. Cantidad de Pollos en mi granja: 7. Limite de Pollos permitidos: 9
-[2023-09-0819:31:06] [ INFO ] [FarmService:313] Pollos acaban de poner 14. Cantidad de Huevos en mi granja: 9. Limite de Huevos permitidos: 21
-[2023-09-0819:31:21] [ INFO ] [FarmService:312] Acaban de nacer 21 pollos. Cantidad de Pollos en mi granja: 8. Limite de Pollos permitidos: 29
-[2023-09-0819:31:21] [ INFO ] [FarmService:313] Pollos acaban de poner 32. Cantidad de Huevos en mi granja: 21. Limite de Huevos permitidos: 32
-[2023-09-0819:33:06] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0819:33:06] [ INFO ] [FarmService:313] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 10. Limite de Huevos permitidos: 10
-[2023-09-0819:34:24] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0819:34:24] [ INFO ] [FarmService:313] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 13. Limite de Huevos permitidos: 13
-[2023-09-0819:41:47] [ ERROR] [ChickenService:48] Supero el Limite de Stock de Pollos. Cantidad: 15. Stock actual de Pollos: 0 .Limite de Stock de Pollos: 10
-[2023-09-0819:41:47] [ ERROR] [FarmService:168] No se pudo realizar la compra: Supero la cantidad Máxima de Pollos.
-[2023-09-0819:42:04] [ ERROR] [ChickenService:48] Supero el Limite de Stock de Pollos. Cantidad: 1. Stock actual de Pollos: 10 .Limite de Stock de Pollos: 10
-[2023-09-0819:42:04] [ ERROR] [FarmService:168] No se pudo realizar la compra: Supero la cantidad Máxima de Pollos.
-[2023-09-0819:43:52] [ INFO ] [FarmService:337] Se acaba de actualizar el nombre de usuario a  'Brian'.
-[2023-09-0819:44:00] [ INFO ] [FarmService:352] Se acaba de actualizar el nombre de la App a 'ChickenTest'.
-[2023-09-0819:46:34] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 20. Limite de Pollos permitidos: 20
-[2023-09-0819:46:34] [ INFO ] [FarmService:313] Pollos acaban de poner 20. Cantidad de Huevos en mi granja: 15. Limite de Huevos permitidos: 35
-[2023-09-0819:48:49] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 15. Limite de Pollos permitidos: 15
-[2023-09-0819:48:49] [ INFO ] [FarmService:313] Pollos acaban de poner 15. Cantidad de Huevos en mi granja: 35. Limite de Huevos permitidos: 50
-[2023-09-0820:14:38] [ INFO ] [FarmService:312] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 10. Limite de Pollos permitidos: 10
-[2023-09-0820:14:38] [ INFO ] [FarmService:313] Pollos acaban de poner 10. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 10
-[2023-09-0820:37:23] [ INFO ] [FarmService:314] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 10. Limite de Pollos permitidos: 10
-[2023-09-0820:37:23] [ INFO ] [FarmService:315] Pollos acaban de poner 10. Cantidad de Huevos en mi granja: 0. Limite de Huevos permitidos: 10
-[2023-09-0820:40:52] [ INFO ] [FarmService:314] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 13. Limite de Pollos permitidos: 13
-[2023-09-0820:40:52] [ INFO ] [FarmService:315] Pollos acaban de poner 13. Cantidad de Huevos en mi granja: 10. Limite de Huevos permitidos: 23
-[2023-09-0821:30:54] [ INFO ] [FarmService:316] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 5. Limite de Pollos permitidos: 5
-[2023-09-0821:30:54] [ INFO ] [FarmService:317] Pollos acaban de poner 5. Cantidad de Huevos en mi granja: 5. Limite de Huevos permitidos: 10
-[2023-09-0821:32:28] [ ERROR] [ChickenService:73] Actualmente no contiene Pollos en su granja. Stock actual: 0
-[2023-09-0821:32:28] [ ERROR] [FarmService:191] No se pudo vender: Actualmente no posee Pollos en su granja.
-[2023-09-0821:33:56] [ INFO ] [FarmService:316] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 10. Limite de Pollos permitidos: 10
-[2023-09-0821:33:56] [ INFO ] [FarmService:317] Pollos acaban de poner 10. Cantidad de Huevos en mi granja: 10. Limite de Huevos permitidos: 20
-[2023-09-0821:35:46] [ ERROR] [ChickenService:52] Supero el Limite de Stock de Pollos. Cantidad: 101. Stock actual de Pollos: 0 .Limite de Stock de Pollos: 10
-[2023-09-0821:35:46] [ ERROR] [FarmService:172] No se pudo realizar la compra: Supero la cantidad Máxima de Pollos.
-[2023-09-0821:36:52] [ INFO ] [FarmService:316] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 10. Limite de Pollos permitidos: 10
-[2023-09-0821:36:52] [ INFO ] [FarmService:317] Pollos acaban de poner 10. Cantidad de Huevos en mi granja: 10. Limite de Huevos permitidos: 20
-[2023-09-0821:38:20] [ INFO ] [FarmService:316] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 10. Limite de Pollos permitidos: 10
-[2023-09-0821:38:20] [ INFO ] [FarmService:317] Pollos acaban de poner 10. Cantidad de Huevos en mi granja: 10. Limite de Huevos permitidos: 20
-[2023-09-0821:39:12] [ INFO ] [FarmService:316] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 10. Limite de Pollos permitidos: 10
-[2023-09-0821:39:12] [ INFO ] [FarmService:317] Pollos acaban de poner 10. Cantidad de Huevos en mi granja: 20. Limite de Huevos permitidos: 30
-[2023-09-0821:39:55] [ ERROR] [ChickenService:73] Actualmente no contiene Pollos en su granja. Stock actual: 0
-[2023-09-0821:39:55] [ ERROR] [FarmService:191] No se pudo vender: Actualmente no posee Pollos en su granja.
-[2023-09-0821:42:06] [ INFO ] [FarmService:316] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0821:42:06] [ INFO ] [FarmService:317] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 20. Limite de Huevos permitidos: 20
-[2023-09-0821:42:47] [ INFO ] [FarmService:316] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 0
-[2023-09-0821:42:47] [ INFO ] [FarmService:317] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 20. Limite de Huevos permitidos: 20
-[2023-09-0821:43:11] [ INFO ] [FarmService:316] Acaban de nacer 5 pollos. Cantidad de Pollos en mi granja: 0. Limite de Pollos permitidos: 5
-[2023-09-0821:43:11] [ INFO ] [FarmService:317] Pollos acaban de poner 0. Cantidad de Huevos en mi granja: 20. Limite de Huevos permitidos: 15
-[2023-09-0821:44:06] [ INFO ] [FarmService:316] Acaban de nacer 15 pollos. Cantidad de Pollos en mi granja: 10. Limite de Pollos permitidos: 25
-[2023-09-0821:44:06] [ INFO ] [FarmService:317] Pollos acaban de poner 10. Cantidad de Huevos en mi granja: 15. Limite de Huevos permitidos: 10
-[2023-09-0821:44:36] [ INFO ] [FarmService:316] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 25. Limite de Pollos permitidos: 25
-[2023-09-0821:44:36] [ INFO ] [FarmService:317] Pollos acaban de poner 25. Cantidad de Huevos en mi granja: 10. Limite de Huevos permitidos: 35
-[2023-09-0821:45:05] [ INFO ] [FarmService:316] Acaban de nacer 0 pollos. Cantidad de Pollos en mi granja: 25. Limite de Pollos permitidos: 25
-[2023-09-0821:45:05] [ INFO ] [FarmService:317] Pollos acaban de poner 25. Cantidad de Huevos en mi granja: 35. Limite de Huevos permitidos: 60
+
+[2023-09-1313:38:27] [ INFO ] [FarmService:526] Stock Disponible ...
+[2023-09-1313:38:27] [ INFO ] [FarmService:495] Stock disponible. Entro al default del switch
+[2023-09-1313:38:51] [ INFO ] [FarmService:519] :::Supero el Stock de Pollos:::
+[2023-09-1313:38:51] [ INFO ] [FarmService:520] Stock actual de Pollos: 4 . 
+[2023-09-1313:38:51] [ INFO ] [FarmService:521] Stock final de Pollos: 14 de 10
+[2023-09-1313:38:51] [ INFO ] [FarmService:522] Se guardaran 6 pollos. Y se venderan 4
+[2023-09-1313:38:51] [ INFO ] [ChickenService:197] Exceso de Pollos: 4 se venderan a un precio total de $200.0
+[2023-09-1313:42:11] [ INFO ] [FarmService:512] Supero el Stock de Huevos
+[2023-09-1313:42:11] [ INFO ] [FarmService:513] Stock actual de Huevos: 10 . Los 10 Pollos acaban de poner 4 nuevos huevos.
+[2023-09-1313:42:11] [ INFO ] [FarmService:514] Stock final de Huevos: 14 de 10
+[2023-09-1313:42:11] [ INFO ] [FarmService:515] Se guardaran 0 huevos. Y se venderan 4
+[2023-09-1313:42:11] [ INFO ] [EggService:169] Exceso de Huevos: 4 se venderan a un precio total de $20.0
+[2023-09-1313:43:09] [ INFO ] [FarmService:512] Supero el Stock de Huevos
+[2023-09-1313:43:09] [ INFO ] [FarmService:513] Stock actual de Huevos: 10 . Los 10 Pollos acaban de poner 10 nuevos huevos.
+[2023-09-1313:43:09] [ INFO ] [FarmService:514] Stock final de Huevos: 20 de 10
+[2023-09-1313:43:09] [ INFO ] [FarmService:515] Se guardaran 0 huevos. Y se venderan 10
+[2023-09-1313:43:09] [ INFO ] [EggService:169] Exceso de Huevos: 10 se venderan a un precio total de $50.0
+[2023-09-1313:44:44] [ INFO ] [FarmService:526] Stock Disponible ...
+[2023-09-1313:44:44] [ INFO ] [FarmService:495] Stock disponible. Entro al default del switch
+[2023-09-1313:46:50] [ INFO ] [FarmService:519] :::Supero el Stock de Pollos:::
+[2023-09-1313:46:50] [ INFO ] [FarmService:520] Stock actual de Pollos: 4 . 
+[2023-09-1313:46:50] [ INFO ] [FarmService:521] Stock final de Pollos: 14 de 10
+[2023-09-1313:46:50] [ INFO ] [FarmService:522] Se guardaran 6 pollos. Y se venderan 4
+[2023-09-1313:46:50] [ INFO ] [ChickenService:197] Exceso de Pollos: 4 se venderan a un precio total de $200.0
+[2023-09-1313:48:10] [ INFO ] [FarmService:512] Supero el Stock de Huevos
+[2023-09-1313:48:10] [ INFO ] [FarmService:513] Stock actual de Huevos: 10 . Los 10 Pollos acaban de poner 4 nuevos huevos.
+[2023-09-1313:48:10] [ INFO ] [FarmService:514] Stock final de Huevos: 14 de 10
+[2023-09-1313:48:10] [ INFO ] [FarmService:515] Se guardaran 0 huevos. Y se venderan 4
+[2023-09-1313:48:10] [ INFO ] [EggService:169] Exceso de Huevos: 4 se venderan a un precio total de $20.0
+[2023-09-1313:48:58] [ INFO ] [FarmService:512] Supero el Stock de Huevos
+[2023-09-1313:48:58] [ INFO ] [FarmService:513] Stock actual de Huevos: 10 . Los 10 Pollos acaban de poner 10 nuevos huevos.
+[2023-09-1313:48:58] [ INFO ] [FarmService:514] Stock final de Huevos: 20 de 10
+[2023-09-1313:48:58] [ INFO ] [FarmService:515] Se guardaran 0 huevos. Y se venderan 10
+[2023-09-1313:48:58] [ INFO ] [EggService:169] Exceso de Huevos: 10 se venderan a un precio total de $50.0
+[2023-09-1313:49:49] [ INFO ] [FarmService:512] Supero el Stock de Huevos
+[2023-09-1313:49:49] [ INFO ] [FarmService:513] Stock actual de Huevos: 10 . Los 10 Pollos acaban de poner 20 nuevos huevos.
+[2023-09-1313:49:49] [ INFO ] [FarmService:514] Stock final de Huevos: 30 de 10
+[2023-09-1313:49:49] [ INFO ] [FarmService:515] Se guardaran 0 huevos. Y se venderan 20
+[2023-09-1313:49:49] [ INFO ] [EggService:169] Exceso de Huevos: 20 se venderan a un precio total de $100.0
+[2023-09-1313:50:29] [ INFO ] [FarmService:526] Stock Disponible ...
+[2023-09-1313:50:29] [ INFO ] [FarmService:495] Stock disponible. Entro al default del switch
+[2023-09-1313:52:15] [ INFO ] [FarmService:519] :::Supero el Stock de Pollos:::
+[2023-09-1313:52:15] [ INFO ] [FarmService:520] Stock actual de Pollos: 2 . 
+[2023-09-1313:52:15] [ INFO ] [FarmService:521] Stock final de Pollos: 12 de 10
+[2023-09-1313:52:15] [ INFO ] [FarmService:522] Se guardaran 8 pollos. Y se venderan 2
+[2023-09-1313:52:15] [ INFO ] [ChickenService:197] Exceso de Pollos: 2 se venderan a un precio total de $100.0
+[2023-09-1313:53:03] [ ERROR] [EggService:56] Supero el limite de Stock de Huevos. Cantidad: 2 . Stock actual de Huevos: 10 .Limite Stock de Huevos: 10
+[2023-09-1313:53:03] [ ERROR] [FarmService:174] No se pudo realizar la compra: Supero la capacidad Máxima de Huevos
+[2023-09-1313:58:23] [ INFO ] [FarmService:526] Stock Disponible ...
+[2023-09-1313:58:23] [ INFO ] [FarmService:495] Stock disponible. Entro al default del switch
+[2023-09-1313:58:44] [ INFO ] [FarmService:519] :::Supero el Stock de Pollos:::
+[2023-09-1313:58:44] [ INFO ] [FarmService:520] Stock actual de Pollos: 2 . 
+[2023-09-1313:58:44] [ INFO ] [FarmService:521] Stock final de Pollos: 12 de 10
+[2023-09-1313:58:44] [ INFO ] [FarmService:522] Se guardaran 8 pollos. Y se venderan 2
+[2023-09-1313:58:44] [ INFO ] [ChickenService:197] Exceso de Pollos: 2 se venderan a un precio total de $100.0
+[2023-09-1314:00:44] [ INFO ] [FarmService:526] Stock Disponible ...
+[2023-09-1314:00:44] [ INFO ] [FarmService:495] Stock disponible. Entro al default del switch
+[2023-09-1314:00:51] [ INFO ] [FarmService:526] Stock Disponible ...
+[2023-09-1314:00:51] [ INFO ] [FarmService:495] Stock disponible. Entro al default del switch
+[2023-09-1314:01:00] [ INFO ] [FarmService:519] :::Supero el Stock de Pollos:::
+[2023-09-1314:01:00] [ INFO ] [FarmService:520] Stock actual de Pollos: 3 . 
+[2023-09-1314:01:00] [ INFO ] [FarmService:521] Stock final de Pollos: 13 de 10
+[2023-09-1314:01:00] [ INFO ] [FarmService:522] Se guardaran 7 pollos. Y se venderan 3
+[2023-09-1314:01:00] [ INFO ] [ChickenService:197] Exceso de Pollos: 3 se venderan a un precio total de $150.0
+[2023-09-1314:09:38] [ INFO ] [FarmService:526] Stock Disponible ...
+[2023-09-1314:09:38] [ INFO ] [FarmService:495] Stock disponible. Entro al default del switch
+[2023-09-1314:09:56] [ INFO ] [FarmService:526] Stock Disponible ...
+[2023-09-1314:09:56] [ INFO ] [FarmService:495] Stock disponible. Entro al default del switch
+[2023-09-1314:10:44] [ INFO ] [FarmService:519] :::Supero el Stock de Pollos:::
+[2023-09-1314:10:44] [ INFO ] [FarmService:520] Stock actual de Pollos: 3 . 
+[2023-09-1314:10:44] [ INFO ] [FarmService:521] Stock final de Pollos: 13 de 10
+[2023-09-1314:10:44] [ INFO ] [FarmService:522] Se guardaran 7 pollos. Y se venderan 3
+[2023-09-1314:10:44] [ INFO ] [ChickenService:197] Exceso de Pollos: 3 se venderan a un precio total de $150.0
+[2023-09-1314:12:31] [ INFO ] [FarmService:526] Stock Disponible ...
+[2023-09-1314:12:31] [ INFO ] [FarmService:495] Stock disponible. Entro al default del switch
+[2023-09-1314:13:48] [ INFO ] [FarmService:519] :::Supero el Stock de Pollos:::
+[2023-09-1314:13:49] [ INFO ] [FarmService:520] Stock actual de Pollos: 3 . 
+[2023-09-1314:13:49] [ INFO ] [FarmService:521] Stock final de Pollos: 13 de 10
+[2023-09-1314:13:50] [ INFO ] [FarmService:522] Se guardaran 7 pollos. Y se venderan 3
+[2023-09-1314:16:35] [ INFO ] [ChickenService:197] Exceso de Pollos: 3 se venderan a un precio total de $150.0
+[2023-09-1314:18:39] [ INFO ] [FarmService:526] Stock Disponible ...
+[2023-09-1314:18:39] [ INFO ] [FarmService:495] Stock disponible. Entro al default del switch
+[2023-09-1314:20:15] [ INFO ] [FarmService:519] :::Supero el Stock de Pollos:::
+[2023-09-1314:20:15] [ INFO ] [FarmService:520] Stock actual de Pollos: 3 . 
+[2023-09-1314:20:15] [ INFO ] [FarmService:521] Stock final de Pollos: 13 de 10
+[2023-09-1314:20:15] [ INFO ] [FarmService:522] Se guardaran 7 pollos. Y se venderan 3
+[2023-09-1314:20:15] [ INFO ] [ChickenService:197] Exceso de Pollos: 3 se venderan a un precio total de $150.0
+[2023-09-1314:21:46] [ INFO ] [FarmService:512] Supero el Stock de Huevos
+[2023-09-1314:21:46] [ INFO ] [FarmService:513] Stock actual de Huevos: 3 . Los 10 Pollos acaban de poner 10 nuevos huevos.
+[2023-09-1314:21:46] [ INFO ] [FarmService:514] Stock final de Huevos: 13 de 10
+[2023-09-1314:21:46] [ INFO ] [FarmService:515] Se guardaran 7 huevos. Y se venderan 3
+[2023-09-1314:21:46] [ INFO ] [EggService:169] Exceso de Huevos: 3 se venderan a un precio total de $15.0
+[2023-09-1314:23:23] [ INFO ] [FarmService:512] Supero el Stock de Huevos
+[2023-09-1314:23:23] [ INFO ] [FarmService:513] Stock actual de Huevos: 10 . Los 10 Pollos acaban de poner 20 nuevos huevos.
+[2023-09-1314:23:23] [ INFO ] [FarmService:514] Stock final de Huevos: 30 de 10
+[2023-09-1314:23:23] [ INFO ] [FarmService:515] Se guardaran 0 huevos. Y se venderan 20
+[2023-09-1314:23:23] [ INFO ] [EggService:169] Exceso de Huevos: 20 se venderan a un precio total de $100.0
+[2023-09-1314:25:29] [ INFO ] [FarmService:512] Supero el Stock de Huevos
+[2023-09-1314:25:29] [ INFO ] [FarmService:513] Stock actual de Huevos: 10 . Los 10 Pollos acaban de poner 10 nuevos huevos.
+[2023-09-1314:25:29] [ INFO ] [FarmService:514] Stock final de Huevos: 20 de 10
+[2023-09-1314:25:29] [ INFO ] [FarmService:515] Se guardaran 0 huevos. Y se venderan 10
+[2023-09-1314:25:30] [ INFO ] [EggService:169] Exceso de Huevos: 10 se venderan a un precio total de $50.0
+[2023-09-1314:26:05] [ WARN ] [FarmService:542] El dueño de la granja no se encuentra con vidas.
+[2023-09-1314:26:05] [ INFO ] [FarmService:526] Stock Disponible ...
+[2023-09-1314:26:05] [ INFO ] [FarmService:495] Stock disponible. Entro al default del switch
+[2023-09-1314:27:25] [ WARN ] [FarmService:542] El dueño de la granja no se encuentra con vidas.
+[2023-09-1314:27:25] [ INFO ] [FarmService:526] Stock Disponible ...
+[2023-09-1314:27:25] [ INFO ] [FarmService:495] Stock disponible. Entro al default del switch
+[2023-09-1314:27:47] [ WARN ] [FarmService:542] El dueño de la granja no se encuentra con vidas.
+[2023-09-1314:27:47] [ INFO ] [FarmService:526] Stock Disponible ...
+[2023-09-1314:27:47] [ INFO ] [FarmService:495] Stock disponible. Entro al default del switch
+[2023-09-1314:52:13] [ INFO ] [FarmService:526] Stock Disponible ...
+[2023-09-1314:52:13] [ INFO ] [FarmService:495] Stock disponible. Entro al default del switch
+[2023-09-1314:54:01] [ INFO ] [FarmService:519] :::Supero el Stock de Pollos:::
+[2023-09-1314:54:01] [ INFO ] [FarmService:520] Stock actual de Pollos: 2 . 
+[2023-09-1314:54:01] [ INFO ] [FarmService:521] Stock final de Pollos: 12 de 10
+[2023-09-1314:54:01] [ INFO ] [FarmService:522] Se guardaran 8 pollos. Y se venderan 2
+[2023-09-1314:54:02] [ INFO ] [ChickenService:198] Exceso de Pollos: 2 se venderan a un precio total de $100.0
+[2023-09-1315:06:35] [ INFO ] [FarmService:526] Stock Disponible ...
+[2023-09-1315:06:35] [ INFO ] [FarmService:495] Stock disponible. Entro al default del switch
+[2023-09-1315:06:57] [ INFO ] [FarmService:519] :::Supero el Stock de Pollos:::
+[2023-09-1315:06:57] [ INFO ] [FarmService:520] Stock actual de Pollos: 3 . 
+[2023-09-1315:06:57] [ INFO ] [FarmService:521] Stock final de Pollos: 13 de 10
+[2023-09-1315:06:57] [ INFO ] [FarmService:522] Se guardaran 7 pollos. Y se venderan 3
+[2023-09-1315:06:57] [ INFO ] [ChickenService:200] Exceso de Pollos: 3 se venderan a un precio total de $150.0
+[2023-09-1315:08:46] [ INFO ] [FarmService:512] Supero el Stock de Huevos
+[2023-09-1315:08:46] [ INFO ] [FarmService:513] Stock actual de Huevos: 3 . Los 10 Pollos acaban de poner 10 nuevos huevos.
+[2023-09-1315:08:46] [ INFO ] [FarmService:514] Stock final de Huevos: 13 de 10
+[2023-09-1315:08:46] [ INFO ] [FarmService:515] Se guardaran 7 huevos. Y se venderan 3
+[2023-09-1315:08:46] [ INFO ] [EggService:172] Exceso de Huevos: 3 se venderan a un precio total de $15.0
+[2023-09-1315:10:12] [ INFO ] [FarmService:512] Supero el Stock de Huevos
+[2023-09-1315:10:12] [ INFO ] [FarmService:513] Stock actual de Huevos: 10 . Los 10 Pollos acaban de poner 10 nuevos huevos.
+[2023-09-1315:10:12] [ INFO ] [FarmService:514] Stock final de Huevos: 20 de 10
+[2023-09-1315:10:12] [ INFO ] [FarmService:515] Se guardaran 0 huevos. Y se venderan 10
+[2023-09-1315:10:12] [ INFO ] [EggService:172] Exceso de Huevos: 10 se venderan a un precio total de $50.0
+[2023-09-1315:12:09] [ ERROR] [ChickenService:52] Supero el Limite de Stock de Pollos. Cantidad: 3. Stock actual de Pollos: 9 .Limite de Stock de Pollos: 10
+[2023-09-1315:12:09] [ ERROR] [FarmService:174] No se pudo realizar la compra: Supero la cantidad Máxima de Pollos.
+[2023-09-1315:13:33] [ INFO ] [FarmService:383] Se acaba de actualizar el nombre de la App a 'ChickenTest'.
+[2023-09-1315:13:44] [ INFO ] [FarmService:368] Se acaba de actualizar el nombre de usuario a  'Brian'.
+[2023-09-1315:18:01] [ INFO ] [FarmService:512] Supero el Stock de Huevos
+[2023-09-1315:18:01] [ INFO ] [FarmService:513] Stock actual de Huevos: 8 . Los 7 Pollos acaban de poner 7 nuevos huevos.
+[2023-09-1315:18:01] [ INFO ] [FarmService:514] Stock final de Huevos: 15 de 10
+[2023-09-1315:18:01] [ INFO ] [FarmService:515] Se guardaran 2 huevos. Y se venderan 5
+[2023-09-1315:18:01] [ INFO ] [EggService:172] Exceso de Huevos: 5 se venderan a un precio total de $25.0
+[2023-09-1315:36:13] [ ERROR] [FarmService:262] Error, la cantidad ingresada de ser Entero positivo. Numero ingresado: -11
+[2023-09-1315:36:33] [ INFO ] [FarmService:432] Stock Disponible ...
+[2023-09-1315:36:33] [ INFO ] [FarmService:401] Stock disponible. Entro al default del switch
+[2023-09-1315:37:56] [ INFO ] [FarmService:425] :::Supero el Stock de Pollos:::
+[2023-09-1315:37:56] [ INFO ] [FarmService:426] Stock actual de Pollos: 1 . 
+[2023-09-1315:37:56] [ INFO ] [FarmService:427] Stock final de Pollos: 11 de 10
+[2023-09-1315:37:56] [ INFO ] [FarmService:428] Se guardaran 9 pollos. Y se venderan 1
+[2023-09-1315:37:56] [ INFO ] [ChickenService:200] Exceso de Pollos: 1 se venderan a un precio total de $100.0
+[2023-09-1315:40:23] [ INFO ] [FarmService:418] Supero el Stock de Huevos
+[2023-09-1315:40:23] [ INFO ] [FarmService:419] Stock actual de Huevos: 1 . Los 10 Pollos acaban de poner 10 nuevos huevos.
+[2023-09-1315:40:23] [ INFO ] [FarmService:420] Stock final de Huevos: 11 de 10
+[2023-09-1315:40:23] [ INFO ] [FarmService:421] Se guardaran 9 huevos. Y se venderan 1
+[2023-09-1315:40:23] [ INFO ] [EggService:174] Exceso de Huevos: 1 se venderan a un precio total de $25.0
+[2023-09-1315:43:18] [ INFO ] [FarmService:418] Supero el Stock de Huevos
+[2023-09-1315:43:18] [ INFO ] [FarmService:419] Stock actual de Huevos: 10 . Los 6 Pollos acaban de poner 6 nuevos huevos.
+[2023-09-1315:43:18] [ INFO ] [FarmService:420] Stock final de Huevos: 16 de 10
+[2023-09-1315:43:18] [ INFO ] [FarmService:421] Se guardaran 0 huevos. Y se venderan 6
+[2023-09-1315:43:18] [ INFO ] [EggService:174] Exceso de Huevos: 6 se venderan a un precio total de $150.0
+[2023-09-1315:49:21] [ INFO ] [FarmService:432] Stock Disponible ...
+[2023-09-1315:49:21] [ INFO ] [FarmService:401] Stock disponible. Entro al default del switch
+[2023-09-1315:49:44] [ INFO ] [FarmService:418] Supero el Stock de Huevos
+[2023-09-1315:49:44] [ INFO ] [FarmService:419] Stock actual de Huevos: 9 . Los 4 Pollos acaban de poner 4 nuevos huevos.
+[2023-09-1315:49:44] [ INFO ] [FarmService:420] Stock final de Huevos: 13 de 10
+[2023-09-1315:49:44] [ INFO ] [FarmService:421] Se guardaran 1 huevos. Y se venderan 3
+[2023-09-1315:49:44] [ INFO ] [EggService:174] Exceso de Huevos: 3 se venderan a un precio total de $75.0
+[2023-09-1315:50:09] [ INFO ] [FarmService:432] Stock Disponible ...
+[2023-09-1315:50:09] [ INFO ] [FarmService:401] Stock disponible. Entro al default del switch
+[2023-09-1315:50:19] [ WARN ] [FarmService:257] El dueño de la granja no se encuentra con vidas.

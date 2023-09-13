@@ -7,6 +7,7 @@ import com.ChickenTest.demoChickenTest.repository.IEggRepository;
 import com.ChickenTest.demoChickenTest.repository.IFarmRepository;
 import com.ChickenTest.demoChickenTest.response.ApiResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.apache.log4j.Logger;
@@ -34,6 +35,7 @@ public class FarmService {
     @Autowired
     ObjectMapper mapper;
 
+    private Farm myFarm;
     private int countBreakEggs = 0;
     private int countChickenDeads = 0;
 
@@ -196,76 +198,44 @@ public class FarmService {
     private boolean isGranjaExpirada(Farm farm, int cantidad){
         return cantidad > farm.getDias();
     }
-    private void updateChickenStatus(List<Chicken> listChicken, Farm farm){
-        for (Chicken chicken : listChicken){
+    private void updateChickenStatus(Farm farm){
+
+        for (Chicken chicken : farm.getListChickens()){
+
             chicken.setDiasDeVida(chicken.getDiasDeVida() - 1);
 
             if (chicken.getDiasDeVida() < LifeCycle.DAY_OF_LIFE_CHICKEN && (chicken.getDiasDeVida() % chicken.getDiasParaPonerHuevos()) == 0){
-                eggRepository.save(new Egg(null, (LifeCycle.DAY_BECOME_CHICKEN + 1), Store.PRECIO_VENTA_EGG, Store.PRECIO_COMPRA_EGG, chicken, farm));
+                Egg egg = new Egg(null, (LifeCycle.DAY_BECOME_CHICKEN + 1), Store.PRECIO_VENTA_EGG, 0, chicken, farm);
+                farm.getListEggs().add(egg);
+                eggRepository.save(egg);
             }
-
         }
+
     }
-    private void removeDeadChickens(List<Chicken> listChicken, Farm farm){
+    private void removeDeadChickens( Farm farm){
         List<Chicken> pollosAEliminar = new ArrayList<>();
 
-        for (Chicken chicken : listChicken){
+        for (Chicken chicken : farm.getListChickens()){
             if (chicken.getDiasDeVida() <= 0){
-                chicken.getListEggs().forEach( egg -> {
-                    egg.setChicken(null);
-                    /*  Desvinculando Huevo de Pollo.   */
-                });
+                for (Egg egg : chicken.getListEggs()){
+                    egg.setChicken(null); // Desvincula el huevo del pollo
+                }
 
                 eggRepository.saveAll(chicken.getListEggs());
-                pollosAEliminar.add(chicken);
-                /*  Chicken ha muerto   */
+                pollosAEliminar.add(chicken); // Agrega el pollo a la lista de pollos a eliminar
             }
         }
 
-        for (Chicken chicken : pollosAEliminar){
-            farm.getListChickens().remove(chicken);
-            chickenRepository.delete(chicken);
-        }
+        farm.getListChickens().removeAll(pollosAEliminar);
+        chickenRepository.deleteAll(pollosAEliminar);
 
         countChickenDeads = pollosAEliminar.size();
     }
-    private void updateFarmData(Farm farm, int diasDeVidaGranja, int cantidad){
-        /*  Actualizando los datos de la Farm.  */
-        farm.setCantHuevos(eggRepository.findAll().size());
-        farm.setDias(diasDeVidaGranja - cantidad);
-        farm.setCantPollos(chickenRepository.findAll().size());
-    }
-
-    /*  [TEST]  */
-    private void verifyExcess(int cantidad, Farm farm){
-        boolean isChickenStock = chickenService.isLimiteStock(cantidad, farm.getCantPollos(), farm.getLimitePollos());  //  Reemplazar cantidad (dias) por cantidad a vender
-        boolean isEggStock = eggService.isLimiteSotck(cantidad, farm.getCantHuevos(), farm.getLimiteHuevos());    //  [TEST]
-
-        if (isChickenStock && isEggStock){
-            logger.info("Superó la cantidad Máxima de Pollos y Huevos disponibles en la granaja.");
-            throw new RuntimeException("Superó la cantidad Máxima de Pollos y Huevos disponibles en la granaja.");
-        } else if (isChickenStock) {
-            logger.info("Superó la cantidad Máxima de Pollos disponibles en la granja.");
-            throw new RuntimeException("Superó la cantidad Máxima de Pollos disponibles en la granja.");
-        } else if (isEggStock) {
-            logger.info("Superó la cantidad Máxima de Huevos disponibles en la granja.");
-            throw new RuntimeException("Superó la cantidad Máxima de Huevos disponibles en la granja.");
-        }
-
-    }
-    /*  [TEST]  */
-    private void venderConDescuento(Farm farm, int cantidad){
-        int option = 0; //verifyExcess(cantidad, farm.getListChickens().size(), farm.getLimitePollos(), farm.getListEggs().size(), farm.getLimiteHuevos()); // [TEST]
-
-        if (option == 2){
-            chickenService.sellExcedent(farm, cantidad, Store.PRECIO_VENTA_CHICKEN);
-            eggService.sellExcedent(farm, cantidad, Store.PRECIO_VENTA_EGG);
-        }else if (option == 1){
-            chickenService.sellExcedent(farm, cantidad, Store.PRECIO_VENTA_CHICKEN);
-        } else if (option == -1) {
-            eggService.sellExcedent(farm, (farm.getCantHuevos() + farm.getCantPollos()) - farm.getLimiteHuevos(), Store.PRECIO_VENTA_EGG);  // Disponibilizar Stock y vender.
-        }
-
+    private void updateFarmData(Farm farm, int cantidad){
+        /*  Obtener la cantidad de dias Transcurridos   */
+        int diasTranscurridos = getDayPass(cantidad);
+        farm.setFecha(getDayWithformatDate(diasTranscurridos, "dd/MM/yyyy"));
+        farm.setDias(farm.getDias() - cantidad);
     }
     private void saveListEgg(List<Egg> listEgg){
         for (Egg egg : listEgg){
@@ -279,56 +249,19 @@ public class FarmService {
             chickenRepository.save(chicken);
         }
     }
+    private void ownerlessFarm(){
+        saveListEgg(myFarm.getListEggs());
+        saveListChicken(myFarm.getListChickens());
+        myFarm.setDias(0);
+        farmRepository.save(myFarm);
+        logger.warn("El dueño de la granja no se encuentra con vidas.");
+        throw new RuntimeException("El dueño de la granja ya no cuenta con vidas. Pollos y Huevos sin dueño.");
+    }
     private void verifyCantidadPositiva(int cantidad){
         if (cantidad <= 0){
             logger.error("Error, la cantidad ingresada de ser Entero positivo. Numero ingresado: " + cantidad);
             throw new RuntimeException("Los días ingresados deben ser Enteros Positivos.");
         }
-    }
-    private void verifyStock(Farm farm, int cantidad){
-        /*  1.  Obtener la lista de Chickens y Eggs de mi Granja.   */
-        List<Chicken> listChicken = farm.getListChickens();
-        List<Egg> listEgg = farm.getListEggs();
-        int breakEggsCount = 0;
-        int newEggsCount = 0;
-
-        /*  2. Contar cuantos Huevos pasaron a ser Pollo.   */
-        for(Egg egg : listEgg){
-            if (egg.getDiasEnConvertirseEnPollo() <= cantidad){ //3 <= //5
-                breakEggsCount++;
-            }
-        }
-
-        /*  3. Contar cuantos Pollos pusieron Huevos.   */
-        for (Chicken chicken : listChicken){
-            if (chicken.getDiasParaPonerHuevos() <= cantidad){   // 5 <= //15
-                newEggsCount += (cantidad / chicken.getDiasParaPonerHuevos()); /*  Int(Cantidad / diasParaPonerHuevos)*/
-            }
-        }
-
-        /*  4. Calcular cuantos Huevos y Pollos tengo en mi granaja. */
-        int countEggs = listEgg.size();
-        int countChickens = listChicken.size();
-
-        int stockEggs = ( countEggs - breakEggsCount) + newEggsCount; // (2 - 0) + 15
-        int stockChickens = (countChickens + breakEggsCount);
-
-        logger.info("Acaban de nacer " + breakEggsCount + " pollos. Cantidad de Pollos en mi granja: " + countChickens + ". Limite de Pollos permitidos: " + stockChickens);
-        logger.info("Pollos acaban de poner " + newEggsCount + ". Cantidad de Huevos en mi granja: " + countEggs + ". Limite de Huevos permitidos: " + stockEggs);
-
-        /*  5. Verificar si supero el Limite de Stock para Huevos.  */
-        if (stockEggs > farm.getLimiteHuevos()){
-            logger.error("En el transcurso de los " + cantidad +" días se ha superado la capacidad Máxima de Huevos. Chickens han puesto " + newEggsCount + " nuevos Huevos.");
-            throw new RuntimeException("En el transcurso de los " + cantidad +" días se ha superado la capacidad Máxima de Huevos. Chickens han puesto " + newEggsCount + " nuevos Huevos.");
-        }
-
-        /*  6. Verificar si supero el Limite de Stock para Pollos.  */
-        if (stockChickens > farm.getLimitePollos()){
-            logger.error("En el transcurso de los " + cantidad +" días se ha superado la capacidad Máxima de Pollos. Acaban de nacer " + newEggsCount + " Pollos.");
-            throw new RuntimeException("En el transcurso de los " + cantidad +" días se ha superado la capacidad Máxima de Pollos. Acaban de nacer " + newEggsCount + " Pollos.");
-        }
-
-        countBreakEggs = breakEggsCount;
     }
     public ApiResponse<String> updateUserName(String name){
         Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow(()-> new RuntimeException("Nose encontró ninguna granja registrada"));
@@ -449,44 +382,119 @@ public class FarmService {
         }
     }
 
-    public ApiResponse<String> pasarDias(int cantidad){
-        Farm farm = farmRepository.findAll().stream().findFirst().orElseThrow(()-> new RuntimeException("Nose encontró ninguna granja registrada"));
-        List<Chicken> listChicken = farm.getListChickens();
-        List<Egg> listEgg = farm.getListEggs();
-        int diasDeVidaGranja = farm.getDias();
+    public void sellExcedent(Farm farm, int cantidad){
+        switch (verifyExcess(farm)){
+            case "Both":
+                System.out.printf("Desarrollar logica");
+                break;
+            case "Eggs":
+                int newEggs = (farm.getLimiteHuevos() - farm.getCantHuevos());
+                int excedentEggs = farm.getListEggs().size() - farm.getLimiteHuevos();
+                eggService.sellExcedent(farm, newEggs, excedentEggs); /* Revisar Stock Actual disponible aún + los nuevos huevos agregados a la granja*/
+                break;
+            case "Chickens":
+                int newChickens = (farm.getLimitePollos() - farm.getCantPollos());
+                int excedentChickens = farm.getListChickens().size() - farm.getLimitePollos();
+                chickenService.sellExcedent(farm, newChickens, excedentChickens);
+                break;
+            default:
+                logger.info("Stock disponible. Entro al default del switch");
+                /*  Actualizando la cantidad de Huevos y Pollos. */
+                farm.setCantHuevos(eggRepository.findAll().size());
+                farm.setCantPollos(chickenRepository.findAll().size());
+                break;
+        }
 
+
+    }
+    public String verifyExcess (Farm farm){
+        if (farm.getCantHuevos() > farm.getLimiteHuevos() && farm.getCantPollos() > farm.getLimitePollos()){
+            logger.info("Supero el Stock de Huevos y Pollos");
+            logger.info("Stock actual de Huevos: " + farm.getCantHuevos() + " de " + farm.getLimiteHuevos());
+            logger.info("Stock actual de Pollos: " + farm.getCantPollos() + " de " + farm.getLimitePollos());
+
+            return "Both";
+        }else if (farm.getCantHuevos() + (farm.getListEggs().size() - farm.getCantHuevos() ) > farm.getLimiteHuevos()){
+            logger.info("Supero el Stock de Huevos");
+            logger.info("Stock actual de Huevos: " + farm.getCantHuevos() + " . Los " + farm.getCantPollos() + " Pollos acaban de poner " + (farm.getListEggs().size() - farm.getCantHuevos()) + " nuevos huevos.");
+            logger.info("Stock final de Huevos: " + farm.getListEggs().size() + " de " + farm.getLimiteHuevos());
+            logger.info("Se guardaran " + (farm.getLimiteHuevos() - farm.getCantHuevos()) + " huevos. Y se venderan " + (farm.getListEggs().size() - farm.getLimiteHuevos()));
+
+            return "Eggs";
+        } else if (farm.getCantPollos() + (farm.getListChickens().size() - farm.getCantPollos()) > farm.getLimitePollos()) {
+            logger.info(":::Supero el Stock de Pollos:::");
+            logger.info("Stock actual de Pollos: " + farm.getCantPollos() + " . ");
+            logger.info("Stock final de Pollos: " + farm.getListChickens().size() + " de " + farm.getLimitePollos());
+            logger.info("Se guardaran " + (farm.getLimitePollos() - farm.getCantPollos()) + " pollos. Y se venderan " + (farm.getListChickens().size() - farm.getLimitePollos()));
+
+            return "Chickens";
+        }else {
+            logger.info("Stock Disponible ...");
+            return "None";
+        }
+    }
+    public ApiResponse<String> pasarDias(int cantidad){
+        myFarm = getFarm(1L);
         try{
-            //venderConDescuento(farm, cantidad); //  Vendiendo excedente con descuento...[TEST]
-            verifyStock(farm, cantidad);
             verifyCantidadPositiva(cantidad);
 
-            for (int i=0; i < cantidad; i++){
-                if (!isGranjaExpirada(farm, cantidad)){
-                    updateChickenStatus(listChicken, farm);
-                    removeDeadChickens(listChicken, farm);
-                }else {
-                    saveListEgg(listEgg);   // persisten para poder visualizarlos en el reporte.
-                    saveListChicken(listChicken);   // persisten para poder visualizarlos en el reporte.
-                    farm.setDias(0);
-                    farmRepository.save(farm);
-                    logger.warn("El dueño de la granja acaba de irse.");
-                    throw new RuntimeException("El dueño de la granja acaba de irse.");
+            if (!isGranjaExpirada(myFarm, cantidad)){
+                for (int i = 0; i < cantidad; i++){
+                    updateChickenStatus(myFarm);
+                    removeDeadChickens(myFarm);
+                    eggService.diasEnConvertirseEnPollo(myFarm);
                 }
-                eggService.diasEnConvertirseEnPollo(i, farm);
+            } else{
+                ownerlessFarm();
             }
-            updateFarmData(farm, diasDeVidaGranja, cantidad);
-            int diasTranscurridos = getDayPass(farm.getDias());
-            farm.setFecha(getDayWithformatDate(diasTranscurridos, "dd/MM/yyyy"));
+            updateFarmData(myFarm, cantidad);
 
             chickenService.updatePrice(chickenPriceToBuy, chickenPriceToSell);
             eggService.updatePrice(eggPriceToSell, eggPriceToBuy);
 
+            sellExcedent(myFarm,cantidad);  // revisar si usar el getCanPollos o el getListChickens.size()
 
-            farmRepository.save(farm);
+            farmRepository.save(myFarm);
+
             return new ApiResponse<>(200, "Acaban de pasar " + cantidad + " días.", "success");
         }catch (Exception e){
-            logger.error("Hubo un problema al pasar los " + cantidad + "dias. Detail: " + e.getMessage());
             return new ApiResponse<>(500, e.getMessage(), "danger");
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

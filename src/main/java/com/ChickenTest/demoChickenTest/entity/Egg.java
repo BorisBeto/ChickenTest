@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 @Table(name = "HUEVOS")
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
-@ToString(exclude = {"farm"})
+@ToString(exclude = {"farm","chicken"})
 public class Egg {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

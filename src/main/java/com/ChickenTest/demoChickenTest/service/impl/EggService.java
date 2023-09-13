@@ -150,44 +150,59 @@ public class EggService implements ITransaction {
         farmRepository.save(farm);
     }
     @Override
-    public void sellExcedent(Farm farm, int cantidad, double precio) {
-        List<Egg> listEgg = farm.getListEggs();
+    public void sellExcedent(Farm farm, int newEggs, int excedent) {
+        double sellPrice = (Store.PRECIO_VENTA_EGG/2);
         List<Egg> listEggAEliminar = new ArrayList<>();
+        int i = 0;
 
-        /*  Verificando Egg Stock   */
-        verifyStockForSell(cantidad, listEgg.size());
-
-        /*  Vendiendo huevos.   */
-        for (int i = 0; i < cantidad; i++){
-            Egg egg = listEgg.get(i);
-            listEggAEliminar.add(egg);
-            //eggRepository.deleteById(egg.getId());
-            //farm.getListEggs().remove(egg);
+        for (Egg egg : farm.getListEggs()){
+            if (i < excedent){
+                egg.setPrecio(sellPrice);
+                listEggAEliminar.add(egg);
+                eggRepository.delete(egg);
+            }
+            i++;
         }
-
-        eggRepository.deleteAll(listEggAEliminar);
-        farm.getListEggs().removeAll(listEggAEliminar);
+        getPrecioTotalVendido(listEggAEliminar);
 
         /*  Actualizando los datos de la Farm.  */
-        farm.setDinero(farm.getDinero() + (cantidad * (precio/2))); //  Vendido a mitad de Precio.
-        farm.setCantHuevos(farm.getCantHuevos() - cantidad);
-        farmRepository.save(farm);
+        farm.setCantHuevos(eggRepository.findAll().size()); //farm.setCantHuevos(eggRepository.findAll().size() + newEggs);
+        farm.setCantHuevosVendidos(farm.getCantHuevosVendidos() + excedent);
+        farm.setDinero(farm.getDinero() + (excedent * sellPrice));
+        farm.setListEggs(eggRepository.findAll());
+        farm.setCantPollos(chickenRepository.findAll().size());
+        logger.info("Exceso de Huevos: " + excedent + " se venderan a un precio total de $" + (excedent * sellPrice));
     }
-    public void diasEnConvertirseEnPollo(int dias, Farm farm){
-        List<Egg> listEgg = eggRepository.findAll();
-        List<Egg> listEggAEliminar = new ArrayList<>();
-        int contadorPollos = 1;
+    public void diasEnConvertirseEnPollo(Farm farm){
+        List<Egg> eggsToConvert = new ArrayList<>();
+        int contadorPollos = 0;
 
-        for (Egg egg : listEgg){
+        for (Egg egg : farm.getListEggs()){
             if (egg.getDiasEnConvertirseEnPollo() <= 1){
-                listEggAEliminar.add(egg);
-                chickenRepository.save(new Chicken(null, LifeCycle.DAY_OF_LIFE_CHICKEN, LifeCycle.DAY_TO_LAY_EGGS, Store.PRECIO_VENTA_CHICKEN, Store.PRECIO_COMPRA_CHICKEN, null, farm));
-                farm.getListEggs().remove(egg);
+                eggsToConvert.add(egg);
                 contadorPollos++;
             }
             egg.setDiasEnConvertirseEnPollo(egg.getDiasEnConvertirseEnPollo() - 1);
         }
 
-        eggRepository.deleteAll(listEggAEliminar);
+        // Crear nuevos Pollos
+        for (int i = 0; i < contadorPollos; i++){
+            Chicken chicken = new Chicken(null, LifeCycle.DAY_OF_LIFE_CHICKEN, LifeCycle.DAY_TO_LAY_EGGS, Store.PRECIO_VENTA_CHICKEN, Store.PRECIO_COMPRA_CHICKEN, null, farm);
+            farm.getListChickens().add(chicken);
+            chickenRepository.save(chicken);
+        }
+        // Eliminar los huevos convertidos
+        for (Egg egg : eggsToConvert) {
+            // Primero, elimina el huevo de la lista de huevos del pollo
+            Chicken chicken = egg.getChicken();
+            if (chicken != null) {
+                chicken.getListEggs().remove(egg);
+            }
+            // Luego, elimina el huevo de la granja
+            farm.getListEggs().remove(egg);
+            // Finalmente, elimina el huevo de la base de datos
+            eggRepository.delete(egg);
+        }
+
     }
 }
