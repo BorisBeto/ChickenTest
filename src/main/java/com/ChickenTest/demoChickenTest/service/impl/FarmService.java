@@ -7,7 +7,6 @@ import com.ChickenTest.demoChickenTest.repository.IEggRepository;
 import com.ChickenTest.demoChickenTest.repository.IFarmRepository;
 import com.ChickenTest.demoChickenTest.response.ApiResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.apache.log4j.Logger;
@@ -199,6 +198,7 @@ public class FarmService {
         return cantidad > farm.getDias();
     }
     private void updateChickenStatus(Farm farm){
+        List<Egg> listEggs = new ArrayList<>(); // TESTEANDO ...
 
         for (Chicken chicken : farm.getListChickens()){
 
@@ -207,21 +207,32 @@ public class FarmService {
             if (chicken.getDiasDeVida() < LifeCycle.DAY_OF_LIFE_CHICKEN && (chicken.getDiasDeVida() % chicken.getDiasParaPonerHuevos()) == 0){
                 Egg egg = new Egg(null, (LifeCycle.DAY_BECOME_CHICKEN + 1), Store.PRECIO_VENTA_EGG, 0, chicken, farm);
                 farm.getListEggs().add(egg);
+                listEggs.add(egg);
                 eggRepository.save(egg);
             }
+            chicken.setListEggs(listEggs);  // testeando ...
+
         }
 
     }
+
+
+
     private void removeDeadChickens( Farm farm){
         List<Chicken> pollosAEliminar = new ArrayList<>();
 
         for (Chicken chicken : farm.getListChickens()){
             if (chicken.getDiasDeVida() <= 0){
-                for (Egg egg : chicken.getListEggs()){
-                    egg.setChicken(null); // Desvincula el huevo del pollo
+                for (Egg egg : farm.getListEggs()){ /*   !! Falla aquí, porque chicken.getListEggs() es siempre null */
+                    /*Probando*/
+                    if (chicken.equals(egg.getChicken())){
+                        egg.setChicken(null);
+                    }
+                    /*end prueba*/
+                    //egg.setChicken(null); // Desvincula el huevo del pollo
                 }
 
-                eggRepository.saveAll(chicken.getListEggs());
+                eggRepository.saveAll(chicken.getListEggs());/*Aqui deberia probar con farm.getListEggs()*/
                 pollosAEliminar.add(chicken); // Agrega el pollo a la lista de pollos a eliminar
             }
         }
@@ -386,6 +397,7 @@ public class FarmService {
         switch (verifyExcess(farm)){
             case "Both":
                 System.out.printf("Desarrollar logica");
+                logger.info("Se debe vender Pollos y Huevos para controlar el exceso de su ganado. Pendiente de desarrollar");
                 break;
             case "Eggs":
                 int newEggs = (farm.getLimiteHuevos() - farm.getCantHuevos());
@@ -458,43 +470,8 @@ public class FarmService {
 
             return new ApiResponse<>(200, "Acaban de pasar " + cantidad + " días.", "success");
         }catch (Exception e){
+            logger.error("Ocurrio un error al pasar días: " + e.getMessage());
             return new ApiResponse<>(500, e.getMessage(), "danger");
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
