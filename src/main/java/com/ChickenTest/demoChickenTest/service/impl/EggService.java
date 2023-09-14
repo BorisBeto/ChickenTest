@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -155,7 +157,12 @@ public class EggService implements ITransaction {
         List<Egg> listEggAEliminar = new ArrayList<>();
         int i = 0;
 
-        for (Egg egg : farm.getListEggs()){
+        /*Agregado para probar eliminando los huevos más recientes, evitando que se eliminen los huevos viejos.*/
+        List<Egg> listEggs = farm.getListEggs();
+        // Ordenar la lista por el campo 'id' de manera descendente
+        listEggs.sort(Comparator.comparing(Egg::getId).reversed());
+
+        for (Egg egg : listEggs){ //farm.getListEggs()
             if (i < excedent){
                 egg.setPrecio(sellPrice);
                 listEggAEliminar.add(egg);

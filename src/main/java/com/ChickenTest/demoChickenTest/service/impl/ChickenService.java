@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -162,8 +163,12 @@ public class ChickenService implements ITransaction{
         int i = 0;
         double sellPrice = Store.PRECIO_VENTA_CHICKEN/2;
         List<Chicken> listChickensRemove = new ArrayList<>();
+        /*  Agregado para probar los chickens mas recientes, evitando que se eliminen los Pollos viejos*/
+        List<Chicken> listChickens = farm.getListChickens();
+        // Ordenar la lista por el campo 'id' de manera descendente
+        listChickens.sort(Comparator.comparing(Chicken::getId).reversed());
 
-        for (Chicken chicken : farm.getListChickens()){
+        for (Chicken chicken : listChickens){ //farm.getListChickens()
             if (i < excedent){
                 for (Egg egg : farm.getListEggs()){
                     egg.setChicken(null);
@@ -179,17 +184,6 @@ public class ChickenService implements ITransaction{
 
         getPrecioTotalVendido(listChickensRemove);
         farm.getListChickens().removeAll(listChickensRemove);
-        /*
-        if (excedent > 0) {
-            for (Chicken chicken : farm.getListChickens()){
-                for (Egg egg : chicken.getListEggs()){
-                    egg.setChicken(null);
-                    eggRepository.save(egg);
-                }
-                farm.getListChickens().remove(chicken);
-                chickenRepository.delete(chicken);
-            }
-        }*/
 
         /*  Actualizando los datos de la Farm.  */
         farm.setCantHuevos(eggRepository.findAll().size());
