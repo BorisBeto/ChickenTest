@@ -1,1 +1,193 @@
 
+[2023-09-1718:15:13] [ INFO ] [FarmService:452] :::Supero el Stock de Pollos:::
+[2023-09-1718:15:13] [ INFO ] [FarmService:453] Stock actual de Pollos: 10 de 18
+[2023-09-1718:15:13] [ INFO ] [FarmService:454] Se guardaran 2 Pollos. Y se venderan 8
+[2023-09-1718:15:13] [ INFO ] [FarmService:455] [Huevos]: Se guardaran 10 huevos. Y se venderan 0
+[2023-09-1718:15:14] [ INFO ] [FarmService:456] Cantidad de Pollos totales: 10 . Cantidad de Huevos totales: 10
+[2023-09-1718:15:14] [ INFO ] [ChickenService:194] Exceso de Pollos: 8 se venderan a un precio total de $400.0
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::[2023-09-1718:35:36] [ INFO ] [FarmService:445]
+ ---Supero el Stock de Huevos---
+[2023-09-1719:05:16] [ INFO ] [FarmService:460] Stock Disponible ...
+[2023-09-1719:05:16] [ INFO ] [FarmService:428] Stock disponible. Entro al default del switch
+[2023-09-1719:05:26] [ ERROR] [EggService:63] Supero el limite de Stock de Huevos. Cantidad: 9 . Stock actual de Huevos: 8 .Limite Stock de Huevos: 10
+[2023-09-1719:05:26] [ ERROR] [FarmService:177] No se pudo realizar la compra: Supero la capacidad Máxima de Huevos
+[2023-09-1719:18:19] [ INFO ] [FarmService:452] :::Supero el Stock de Pollos:::
+[2023-09-1719:20:20] [ INFO ] [FarmService:453] Stock actual de Pollos: 10 de 17
+[2023-09-1719:20:23] [ INFO ] [FarmService:454] Se guardaran 3 Pollos. Y se venderan 7
+[2023-09-1719:21:30] [ INFO ] [FarmService:455] [Huevos]: Se guardaran 9 huevos. Y se venderan 0
+[2023-09-1719:21:30] [ INFO ] [FarmService:456] Cantidad de Pollos totales: 10 . Cantidad de Huevos totales: 9
+[2023-09-1719:24:23] [ INFO ] [ChickenService:194] Exceso de Pollos: 7 se venderan a un precio total de $350.0
+[2023-09-1719:36:25] [ INFO ] [FarmService:460] Stock Disponible ...
+[2023-09-1719:36:25] [ INFO ] [FarmService:428] Stock disponible. Entro al default del switch
+[2023-09-1719:36:35] [ INFO ] [FarmService:452] :::Supero el Stock de Pollos:::
+[2023-09-1719:36:35] [ INFO ] [FarmService:453] Stock actual de Pollos: 10 de 17
+[2023-09-1719:36:35] [ INFO ] [FarmService:454] Se guardaran 0 Pollos. Y se venderan 7
+[2023-09-1719:36:35] [ INFO ] [FarmService:455] [Huevos]: Se guardaran 9 huevos. Y se venderan 0
+[2023-09-1719:36:35] [ INFO ] [FarmService:456] Cantidad de Pollos totales: 10 . Cantidad de Huevos totales: 9
+[2023-09-1719:36:35] [ INFO ] [ChickenService:195] Exceso de Pollos: 7 se venderan a un precio total de $350.0
+[2023-09-1719:37:02] [ INFO ] [FarmService:445] ---Supero el Stock de Huevos---
+[2023-09-1719:37:02] [ INFO ] [FarmService:446] Stock actual de Huevos: 10 de 19
+[2023-09-1719:37:02] [ INFO ] [FarmService:447] Se guardaran 1 huevos. Y se venderan 9
+[2023-09-1719:37:02] [ INFO ] [FarmService:448] [Chicken]: Se guardaran 10 chicken. Y se venderan 0
+[2023-09-1719:37:02] [ INFO ] [FarmService:449] Cantidad de Huevos totales: 10 . Cantidad de Pollos totales: 10
+[2023-09-1719:37:02] [ INFO ] [EggService:161] Stock actual Chicken: 10 . Chickens a eliminar: 0
+[2023-09-1719:37:02] [ INFO ] [EggService:162] Stock actual Huevos: 10 . Huevos a eliminar: 9
+[2023-09-1719:37:02] [ INFO ] [EggService:163] Total chickens en mi granja: 10 . [countChickens] = 10 . [countChickenSell] = 0
+[2023-09-1719:37:02] [ INFO ] [EggService:164] Total Huevos en mi granja: 10 . [countEggs] = 10 . [countEggsSell] = 9
+[2023-09-1719:37:02] [ INFO ] [EggService:184] Exceso de Huevos: 9 se venderan a un precio total de $45.0
+[2023-09-1719:37:02] [ INFO ] [EggService:186] Total Chickens: 10. Se deben eliminar 0
+[2023-09-1719:37:11] [ INFO ] [FarmService:445] ---Supero el Stock de Huevos---
+[2023-09-1719:37:11] [ INFO ] [FarmService:446] Stock actual de Huevos: 10 de 20
+[2023-09-1719:37:11] [ INFO ] [FarmService:447] Se guardaran 0 huevos. Y se venderan 10
+[2023-09-1719:37:11] [ INFO ] [FarmService:448] [Chicken]: Se guardaran 10 chicken. Y se venderan 0
+[2023-09-1719:37:11] [ INFO ] [FarmService:449] Cantidad de Huevos totales: 10 . Cantidad de Pollos totales: 10
+[2023-09-1719:37:11] [ INFO ] [EggService:161] Stock actual Chicken: 10 . Chickens a eliminar: 0
+[2023-09-1719:37:11] [ INFO ] [EggService:162] Stock actual Huevos: 10 . Huevos a eliminar: 10
+[2023-09-1719:37:11] [ INFO ] [EggService:163] Total chickens en mi granja: 10 . [countChickens] = 10 . [countChickenSell] = 0
+[2023-09-1719:37:11] [ INFO ] [EggService:164] Total Huevos en mi granja: 10 . [countEggs] = 10 . [countEggsSell] = 10
+[2023-09-1719:37:11] [ INFO ] [EggService:184] Exceso de Huevos: 10 se venderan a un precio total de $50.0
+[2023-09-1719:37:11] [ INFO ] [EggService:186] Total Chickens: 10. Se deben eliminar 0
+[2023-09-1719:37:27] [ INFO ] [FarmService:445] ---Supero el Stock de Huevos---
+[2023-09-1719:37:27] [ INFO ] [FarmService:446] Stock actual de Huevos: 10 de 20
+[2023-09-1719:37:27] [ INFO ] [FarmService:447] Se guardaran 0 huevos. Y se venderan 10
+[2023-09-1719:37:27] [ INFO ] [FarmService:448] [Chicken]: Se guardaran 1 chicken. Y se venderan 0
+[2023-09-1719:37:27] [ INFO ] [FarmService:449] Cantidad de Huevos totales: 10 . Cantidad de Pollos totales: 1
+[2023-09-1719:37:27] [ INFO ] [EggService:161] Stock actual Chicken: 1 . Chickens a eliminar: 0
+[2023-09-1719:37:27] [ INFO ] [EggService:162] Stock actual Huevos: 10 . Huevos a eliminar: 10
+[2023-09-1719:37:27] [ INFO ] [EggService:163] Total chickens en mi granja: 1 . [countChickens] = 1 . [countChickenSell] = 0
+[2023-09-1719:37:27] [ INFO ] [EggService:164] Total Huevos en mi granja: 10 . [countEggs] = 10 . [countEggsSell] = 10
+[2023-09-1719:37:27] [ INFO ] [EggService:184] Exceso de Huevos: 10 se venderan a un precio total de $50.0
+[2023-09-1719:37:27] [ INFO ] [EggService:186] Total Chickens: 1. Se deben eliminar 0
+[2023-09-1719:41:11] [ INFO ] [FarmService:452] :::Supero el Stock de Pollos:::
+[2023-09-1719:41:11] [ INFO ] [FarmService:453] Stock actual de Pollos: 9 de 12
+[2023-09-1719:41:11] [ INFO ] [FarmService:454] Se guardaran 1 Pollos. Y se venderan 3
+[2023-09-1719:41:11] [ INFO ] [FarmService:455] [Huevos]: Se guardaran 5 huevos. Y se venderan 0
+[2023-09-1719:41:11] [ INFO ] [FarmService:456] Cantidad de Pollos totales: 9 . Cantidad de Huevos totales: 5
+[2023-09-1719:41:11] [ INFO ] [ChickenService:195] Exceso de Pollos: 3 se venderan a un precio total de $150.0
+[2023-09-1719:46:24] [ INFO ] [FarmService:319] Se acaba de actualizar el nombre de la App a 'Super Pollo'.
+[2023-09-1719:47:51] [ INFO ] [FarmService:460] Stock Disponible ...
+[2023-09-1719:47:51] [ INFO ] [FarmService:428] Stock disponible. Entro al default del switch
+[2023-09-1719:48:07] [ INFO ] [FarmService:460] Stock Disponible ...
+[2023-09-1719:48:07] [ INFO ] [FarmService:428] Stock disponible. Entro al default del switch
+[2023-09-1719:48:11] [ INFO ] [FarmService:460] Stock Disponible ...
+[2023-09-1719:48:11] [ INFO ] [FarmService:428] Stock disponible. Entro al default del switch
+[2023-09-1719:49:25] [ ERROR] [EggService:63] Supero el limite de Stock de Huevos. Cantidad: 1 . Stock actual de Huevos: 10 .Limite Stock de Huevos: 10
+[2023-09-1719:49:25] [ ERROR] [FarmService:177] No se pudo realizar la compra: Supero la capacidad Máxima de Huevos
+[2023-09-1719:51:53] [ INFO ] [FarmService:445] ---Supero el Stock de Huevos---
+[2023-09-1719:51:53] [ INFO ] [FarmService:446] Stock actual de Huevos: 10 de 13
+[2023-09-1719:51:53] [ INFO ] [FarmService:447] Se guardaran 7 huevos. Y se venderan 3
+[2023-09-1719:51:53] [ INFO ] [FarmService:448] [Chicken]: Se guardaran 0 chicken. Y se venderan 0
+[2023-09-1719:51:53] [ INFO ] [FarmService:449] Cantidad de Huevos totales: 10 . Cantidad de Pollos totales: 0
+[2023-09-1719:51:53] [ INFO ] [EggService:161] Stock actual Chicken: 0 . Chickens a eliminar: 0
+[2023-09-1719:51:53] [ INFO ] [EggService:162] Stock actual Huevos: 10 . Huevos a eliminar: 3
+[2023-09-1719:51:53] [ INFO ] [EggService:163] Total chickens en mi granja: 0 . [countChickens] = 0 . [countChickenSell] = 0
+[2023-09-1719:51:53] [ INFO ] [EggService:164] Total Huevos en mi granja: 10 . [countEggs] = 10 . [countEggsSell] = 3
+[2023-09-1719:51:53] [ INFO ] [EggService:184] Exceso de Huevos: 3 se venderan a un precio total de $15.0
+[2023-09-1719:51:53] [ INFO ] [EggService:186] Total Chickens: 0. Se deben eliminar 0
+[2023-09-1719:52:31] [ WARN ] [FarmService:287] El dueño de la granja no se encuentra con vidas.
+[2023-09-1719:52:31] [ ERROR] [FarmService:497] Ocurrio un error al pasar días: El dueño de la granja ya no cuenta con vidas. Pollos y Huevos sin dueño.
+[2023-09-1719:59:22] [ INFO ] [FarmService:445] ---Supero el Stock de Huevos---
+[2023-09-1719:59:22] [ INFO ] [FarmService:446] Stock actual de Huevos: 10 de 36
+[2023-09-1719:59:22] [ INFO ] [FarmService:447] Se guardaran -16 huevos. Y se venderan 26
+[2023-09-1719:59:22] [ INFO ] [FarmService:448] [Chicken]: Se guardaran 1 chicken. Y se venderan 6
+[2023-09-1719:59:22] [ INFO ] [FarmService:449] Cantidad de Huevos totales: 10 . Cantidad de Pollos totales: 1
+[2023-09-1719:59:22] [ INFO ] [EggService:161] Stock actual Chicken: 1 . Chickens a eliminar: 6
+[2023-09-1719:59:22] [ INFO ] [EggService:162] Stock actual Huevos: 10 . Huevos a eliminar: 26
+[2023-09-1719:59:22] [ INFO ] [EggService:163] Total chickens en mi granja: 1 . [countChickens] = 1 . [countChickenSell] = 6
+[2023-09-1719:59:22] [ INFO ] [EggService:164] Total Huevos en mi granja: 10 . [countEggs] = 10 . [countEggsSell] = 26
+[2023-09-1719:59:22] [ INFO ] [EggService:184] Exceso de Huevos: 26 se venderan a un precio total de $130.0
+[2023-09-1719:59:22] [ INFO ] [EggService:186] Total Chickens: 1. Se deben eliminar 6
+[2023-09-1719:59:48] [ INFO ] [FarmService:445] ---Supero el Stock de Huevos---
+[2023-09-1719:59:48] [ INFO ] [FarmService:446] Stock actual de Huevos: 7 de 28
+[2023-09-1719:59:48] [ INFO ] [FarmService:447] Se guardaran -11 huevos. Y se venderan 21
+[2023-09-1719:59:48] [ INFO ] [FarmService:448] [Chicken]: Se guardaran 9 chicken. Y se venderan 6
+[2023-09-1719:59:48] [ INFO ] [FarmService:449] Cantidad de Huevos totales: 7 . Cantidad de Pollos totales: 9
+[2023-09-1719:59:48] [ INFO ] [EggService:161] Stock actual Chicken: 9 . Chickens a eliminar: 6
+[2023-09-1719:59:48] [ INFO ] [EggService:162] Stock actual Huevos: 7 . Huevos a eliminar: 21
+[2023-09-1719:59:48] [ INFO ] [EggService:163] Total chickens en mi granja: 9 . [countChickens] = 9 . [countChickenSell] = 6
+[2023-09-1719:59:48] [ INFO ] [EggService:164] Total Huevos en mi granja: 7 . [countEggs] = 7 . [countEggsSell] = 21
+[2023-09-1719:59:48] [ INFO ] [EggService:184] Exceso de Huevos: 21 se venderan a un precio total de $105.0
+[2023-09-1719:59:48] [ INFO ] [EggService:186] Total Chickens: 9. Se deben eliminar 6
+[2023-09-1720:00:21] [ INFO ] [FarmService:460] Stock Disponible ...
+[2023-09-1720:00:21] [ INFO ] [FarmService:428] Stock disponible. Entro al default del switch
+[2023-09-1720:00:39] [ INFO ] [FarmService:445] ---Supero el Stock de Huevos---
+[2023-09-1720:00:39] [ INFO ] [FarmService:446] Stock actual de Huevos: 50 de 52
+[2023-09-1720:00:39] [ INFO ] [FarmService:447] Se guardaran 48 huevos. Y se venderan 2
+[2023-09-1720:00:39] [ INFO ] [FarmService:448] [Chicken]: Se guardaran 16 chicken. Y se venderan 0
+[2023-09-1720:00:39] [ INFO ] [FarmService:449] Cantidad de Huevos totales: 50 . Cantidad de Pollos totales: 16
+[2023-09-1720:00:39] [ INFO ] [EggService:161] Stock actual Chicken: 16 . Chickens a eliminar: 0
+[2023-09-1720:00:39] [ INFO ] [EggService:162] Stock actual Huevos: 50 . Huevos a eliminar: 2
+[2023-09-1720:00:39] [ INFO ] [EggService:163] Total chickens en mi granja: 16 . [countChickens] = 16 . [countChickenSell] = 0
+[2023-09-1720:00:39] [ INFO ] [EggService:164] Total Huevos en mi granja: 50 . [countEggs] = 50 . [countEggsSell] = 2
+[2023-09-1720:00:39] [ INFO ] [EggService:184] Exceso de Huevos: 2 se venderan a un precio total de $10.0
+[2023-09-1720:00:39] [ INFO ] [EggService:186] Total Chickens: 16. Se deben eliminar 0
+[2023-09-1720:00:48] [ INFO ] [FarmService:445] ---Supero el Stock de Huevos---
+[2023-09-1720:00:48] [ INFO ] [FarmService:446] Stock actual de Huevos: 50 de 195
+[2023-09-1720:00:48] [ INFO ] [FarmService:447] Se guardaran -95 huevos. Y se venderan 145
+[2023-09-1720:00:48] [ INFO ] [FarmService:448] [Chicken]: Se guardaran 50 chicken. Y se venderan 0
+[2023-09-1720:00:48] [ INFO ] [FarmService:449] Cantidad de Huevos totales: 50 . Cantidad de Pollos totales: 50
+[2023-09-1720:00:48] [ INFO ] [EggService:161] Stock actual Chicken: 50 . Chickens a eliminar: 0
+[2023-09-1720:00:48] [ INFO ] [EggService:162] Stock actual Huevos: 50 . Huevos a eliminar: 145
+[2023-09-1720:00:48] [ INFO ] [EggService:163] Total chickens en mi granja: 50 . [countChickens] = 50 . [countChickenSell] = 0
+[2023-09-1720:00:48] [ INFO ] [EggService:164] Total Huevos en mi granja: 50 . [countEggs] = 50 . [countEggsSell] = 145
+[2023-09-1720:00:48] [ INFO ] [EggService:184] Exceso de Huevos: 145 se venderan a un precio total de $725.0
+[2023-09-1720:00:48] [ INFO ] [EggService:186] Total Chickens: 50. Se deben eliminar 0
+[2023-09-1720:01:03] [ INFO ] [FarmService:445] ---Supero el Stock de Huevos---
+[2023-09-1720:01:03] [ INFO ] [FarmService:446] Stock actual de Huevos: 50 de 84
+[2023-09-1720:01:03] [ INFO ] [FarmService:447] Se guardaran 16 huevos. Y se venderan 34
+[2023-09-1720:01:03] [ INFO ] [FarmService:448] [Chicken]: Se guardaran 50 chicken. Y se venderan 0
+[2023-09-1720:01:03] [ INFO ] [FarmService:449] Cantidad de Huevos totales: 50 . Cantidad de Pollos totales: 50
+[2023-09-1720:01:03] [ INFO ] [EggService:161] Stock actual Chicken: 50 . Chickens a eliminar: 0
+[2023-09-1720:01:03] [ INFO ] [EggService:162] Stock actual Huevos: 50 . Huevos a eliminar: 34
+[2023-09-1720:01:03] [ INFO ] [EggService:163] Total chickens en mi granja: 50 . [countChickens] = 50 . [countChickenSell] = 0
+[2023-09-1720:01:03] [ INFO ] [EggService:164] Total Huevos en mi granja: 50 . [countEggs] = 50 . [countEggsSell] = 34
+[2023-09-1720:01:03] [ INFO ] [EggService:184] Exceso de Huevos: 34 se venderan a un precio total de $170.0
+[2023-09-1720:01:03] [ INFO ] [EggService:186] Total Chickens: 50. Se deben eliminar 0
+[2023-09-1720:01:24] [ INFO ] [FarmService:445] ---Supero el Stock de Huevos---
+[2023-09-1720:01:24] [ INFO ] [FarmService:446] Stock actual de Huevos: 50 de 127
+[2023-09-1720:01:24] [ INFO ] [FarmService:447] Se guardaran -27 huevos. Y se venderan 77
+[2023-09-1720:01:24] [ INFO ] [FarmService:448] [Chicken]: Se guardaran 50 chicken. Y se venderan 0
+[2023-09-1720:01:24] [ INFO ] [FarmService:449] Cantidad de Huevos totales: 50 . Cantidad de Pollos totales: 50
+[2023-09-1720:01:24] [ INFO ] [EggService:161] Stock actual Chicken: 50 . Chickens a eliminar: 0
+[2023-09-1720:01:24] [ INFO ] [EggService:162] Stock actual Huevos: 50 . Huevos a eliminar: 77
+[2023-09-1720:01:24] [ INFO ] [EggService:163] Total chickens en mi granja: 50 . [countChickens] = 50 . [countChickenSell] = 0
+[2023-09-1720:01:24] [ INFO ] [EggService:164] Total Huevos en mi granja: 50 . [countEggs] = 50 . [countEggsSell] = 77
+[2023-09-1720:01:24] [ INFO ] [EggService:184] Exceso de Huevos: 77 se venderan a un precio total de $385.0
+[2023-09-1720:01:24] [ INFO ] [EggService:186] Total Chickens: 50. Se deben eliminar 0
+[2023-09-1720:01:28] [ WARN ] [FarmService:287] El dueño de la granja no se encuentra con vidas.
+[2023-09-1720:01:28] [ ERROR] [FarmService:497] Ocurrio un error al pasar días: El dueño de la granja ya no cuenta con vidas. Pollos y Huevos sin dueño.
+[2023-09-1810:31:41] [ INFO ] [FarmService:445] ---Supero el Stock de Huevos---
+[2023-09-1810:31:41] [ INFO ] [FarmService:446] Stock actual de Huevos: 10 de 12
+[2023-09-1810:31:41] [ INFO ] [FarmService:447] Se guardaran 8 huevos. Y se venderan 2
+[2023-09-1810:31:41] [ INFO ] [FarmService:448] [Chicken]: Se guardaran 3 chicken. Y se venderan 0
+[2023-09-1810:31:41] [ INFO ] [FarmService:449] Cantidad de Huevos totales: 10 . Cantidad de Pollos totales: 3
+[2023-09-1810:31:41] [ INFO ] [EggService:161] Stock actual Chicken: 3 . Chickens a eliminar: 0
+[2023-09-1810:31:41] [ INFO ] [EggService:162] Stock actual Huevos: 10 . Huevos a eliminar: 2
+[2023-09-1810:31:41] [ INFO ] [EggService:163] Total chickens en mi granja: 3 . [countChickens] = 3 . [countChickenSell] = 0
+[2023-09-1810:31:41] [ INFO ] [EggService:164] Total Huevos en mi granja: 10 . [countEggs] = 10 . [countEggsSell] = 2
+[2023-09-1810:31:41] [ INFO ] [EggService:184] Exceso de Huevos: 2 se venderan a un precio total de $10.0
+[2023-09-1810:31:41] [ INFO ] [EggService:186] Total Chickens: 3. Se deben eliminar 0
+[2023-09-1810:34:52] [ INFO ] [FarmService:460] Stock Disponible ...
+[2023-09-1810:34:52] [ INFO ] [FarmService:428] Stock disponible. Entro al default del switch
+[2023-09-1810:38:34] [ INFO ] [FarmService:445] ---Supero el Stock de Huevos---
+[2023-09-1810:38:34] [ INFO ] [FarmService:446] Stock actual de Huevos: 10 de 17
+[2023-09-1810:38:34] [ INFO ] [FarmService:447] Se guardaran 3 huevos. Y se venderan 7
+[2023-09-1810:38:34] [ INFO ] [FarmService:448] [Chicken]: Se guardaran 7 chicken. Y se venderan 0
+[2023-09-1810:38:34] [ INFO ] [FarmService:449] Cantidad de Huevos totales: 10 . Cantidad de Pollos totales: 7
+[2023-09-1810:38:34] [ INFO ] [EggService:161] Stock actual Chicken: 7 . Chickens a eliminar: 0
+[2023-09-1810:38:34] [ INFO ] [EggService:162] Stock actual Huevos: 10 . Huevos a eliminar: 7
+[2023-09-1810:38:34] [ INFO ] [EggService:163] Total chickens en mi granja: 7 . [countChickens] = 7 . [countChickenSell] = 0
+[2023-09-1810:38:34] [ INFO ] [EggService:164] Total Huevos en mi granja: 10 . [countEggs] = 10 . [countEggsSell] = 7
+[2023-09-1810:38:34] [ INFO ] [EggService:184] Exceso de Huevos: 7 se venderan a un precio total de $35.0
+[2023-09-1810:38:34] [ INFO ] [EggService:186] Total Chickens: 7. Se deben eliminar 0
+[2023-09-1810:38:59] [ INFO ] [FarmService:445] ---Supero el Stock de Huevos---
+[2023-09-1810:38:59] [ INFO ] [FarmService:446] Stock actual de Huevos: 10 de 23
+[2023-09-1810:38:59] [ INFO ] [FarmService:447] Se guardaran -3 huevos. Y se venderan 13
+[2023-09-1810:38:59] [ INFO ] [FarmService:448] [Chicken]: Se guardaran 9 chicken. Y se venderan 1
+[2023-09-1810:38:59] [ INFO ] [FarmService:449] Cantidad de Huevos totales: 10 . Cantidad de Pollos totales: 9
+[2023-09-1810:38:59] [ INFO ] [EggService:161] Stock actual Chicken: 9 . Chickens a eliminar: 1
+[2023-09-1810:38:59] [ INFO ] [EggService:162] Stock actual Huevos: 10 . Huevos a eliminar: 13
+[2023-09-1810:38:59] [ INFO ] [EggService:163] Total chickens en mi granja: 9 . [countChickens] = 9 . [countChickenSell] = 1
+[2023-09-1810:38:59] [ INFO ] [EggService:164] Total Huevos en mi granja: 10 . [countEggs] = 10 . [countEggsSell] = 13
+[2023-09-1810:38:59] [ INFO ] [EggService:184] Exceso de Huevos: 13 se venderan a un precio total de $65.0
+[2023-09-1810:38:59] [ INFO ] [EggService:186] Total Chickens: 9. Se deben eliminar 1
