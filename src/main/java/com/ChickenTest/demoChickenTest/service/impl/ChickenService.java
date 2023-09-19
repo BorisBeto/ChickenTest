@@ -33,6 +33,7 @@ public class ChickenService implements ITransaction{
     private IFarmRepository farmRepository;
     @Autowired
     ObjectMapper mapper;
+
     double precioTotalVendido = 0.0;
     int cantidadVendidos = 0;
     double precioTotalComprado = 0.0;
@@ -166,7 +167,7 @@ public class ChickenService implements ITransaction{
         double sellPrice = Store.PRECIO_VENTA_CHICKEN/2;
         double sellPriceEggs = Store.PRECIO_VENTA_EGG/2;
 
-        for (Chicken chicken : listChickensToSell){ //farm.getListChickens()
+        for (Chicken chicken : listChickensToSell){
                 for (Egg egg : farm.getListEggs()){
                     egg.setChicken(null);
                     eggRepository.save(egg);
@@ -181,9 +182,12 @@ public class ChickenService implements ITransaction{
         farm.getListChickens().removeAll(listChickensRemove);
 
         /*  Actualizando los datos de la Farm.  */
-        farm.setCantHuevos(countEggs); //farm.setCantHuevos(eggRepository.findAll().size());
-        farm.setCantHuevosVendidos(farm.getCantHuevosVendidos() + countEggsSell);
-        farm.setDinero(farm.getDinero() + (countEggsSell * sellPriceEggs));
+        if (!isExccessEggs){
+            farm.setCantHuevos(countEggs);
+            farm.setCantHuevosVendidos(farm.getCantHuevosVendidos() + countEggsSell);
+            farm.setDinero(farm.getDinero() + (countEggsSell * sellPriceEggs));
+        }
+
 
         farm.setCantPollos(newChickens);
         farm.setCantPollosVendidos(farm.getCantPollosVendidos() + excedent);

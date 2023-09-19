@@ -32,6 +32,7 @@ public class FarmController {
     EggService eggService;
     @Autowired
     Store store;
+
     @GetMapping
     public String getDashboardProperties(Model model){
         FarmDashboardDto farmDashboardDto = farmService.getPropertiesDashboard();
@@ -242,7 +243,7 @@ public class FarmController {
         return "redirect:/";
     }
 
-    @PostMapping("/dias")    //url:/dias/{cantidad}
+    @PostMapping("/dias")
     public String pasarDias(@RequestParam int cantidad, RedirectAttributes attributes){
 
         try {
@@ -256,7 +257,5 @@ public class FarmController {
 
         return "redirect:/";
     }
-
-
 
 }

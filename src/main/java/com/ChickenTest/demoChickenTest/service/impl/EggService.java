@@ -36,11 +36,13 @@ public class EggService implements ITransaction {
     IFarmRepository farmRepository;
     @Autowired
     ObjectMapper mapper;
+
     double precioTotalVendido = 0.0;
     double precioTotalComprado = 0.0;
     int cantidadComprados = 0;
     int cantidadVendidos = 0;
     int excesoHuevos = 0;
+
     public List<EggDto> getDataTableEgg(){
         List<Egg> eggs = eggRepository.findAll();
         List<EggDto> eggDtos = new ArrayList<>();
@@ -52,27 +54,32 @@ public class EggService implements ITransaction {
 
         return eggDtos;
     }
+
     private void verifyCantidadPositiva(int cantidad){
         if (cantidad <= 0){
             logger.error("La cantidad ingresada debe ser Entero positivo. El valor ingresado fue: " + cantidad);
             throw new RuntimeException("La cantidad ingresada debe ser Entero positivo.");
         }
     }
+
     public void verifyStock(int cantidad, int stockActual, int limiteStock){
         if ((stockActual + cantidad) > limiteStock){
             logger.error("Supero el limite de Stock de Huevos. Cantidad: " + cantidad + " . Stock actual de Huevos: " + stockActual + " .Limite Stock de Huevos: " + limiteStock);
             throw new RuntimeException("Supero la capacidad Máxima de Huevos");
         }
     }
+
     public boolean isLimiteSotck(int cantidad, int stockActual, int limiteStock){
         return (stockActual + cantidad) > limiteStock;
     }
+
     private void verifyDineroDisponible(double dineroDisponible, double costoTotal){
         if (dineroDisponible < costoTotal){
             logger.error("Saldo insuficiente. Monto total: $" + costoTotal + ". Dinero disponible: $" + dineroDisponible);
             throw new RuntimeException("Dinero disponible insuficiente.");
         }
     }
+
     private void verifyStockForSell(int cantidad, int stockActual){
         if (stockActual <= 0){
             logger.error("Actualmente no contiene Huevos en su granja. Stock actual: " + stockActual);
@@ -82,6 +89,7 @@ public class EggService implements ITransaction {
             throw new RuntimeException("No tiene suficientes huevos para vender.");
         }
     }
+
     public void getPrecioTotalComprado(List<Egg> listEggsBuy){
         for (Egg egg : listEggsBuy){
             precioTotalComprado += egg.getPrecioComprado();
@@ -89,6 +97,7 @@ public class EggService implements ITransaction {
         cantidadComprados += listEggsBuy.size();
 
     }
+
     public void getPrecioTotalVendido(List<Egg> listEggsASell){
         for (Egg egg : listEggsASell){
             precioTotalVendido += egg.getPrecio();
@@ -96,6 +105,7 @@ public class EggService implements ITransaction {
 
         cantidadVendidos += listEggsASell.size();
     }
+
     public void updatePrice(double newPriceForBuy, double newPriceForSell){
         List<Egg> updatePriceEggs = eggRepository.findAll();
         for (Egg egg : updatePriceEggs){
@@ -132,6 +142,7 @@ public class EggService implements ITransaction {
 
         farmRepository.save(farm);
     }
+
     @Override
     public void sell(Farm farm, int cantidad) {
         List<Egg> listEgg = farm.getListEggs();
@@ -156,12 +167,9 @@ public class EggService implements ITransaction {
         farm.setCantHuevosVendidos(farm.getCantHuevosVendidos() + cantidad);
         farmRepository.save(farm);
     }
+
     @Override
     public void sellExcedent(Farm farm, int newEggs, int excedent) {
-        logger.info("Stock actual Chicken: " + countChicken + " . Chickens a eliminar: " + countChickensSell);
-        logger.info("Stock actual Huevos: " + countEggs + " . Huevos a eliminar: " + countEggsSell);
-        logger.info("Total chickens en mi granja: " + chickenRepository.findAll().size() + " . [countChickens] = " + countChicken + " . [countChickenSell] = " + countChickensSell);
-        logger.info("Total Huevos en mi granja: " + eggRepository.findAll().size() + " . [countEggs] = " + countEggs + " . [countEggsSell] = " + countEggsSell);
         double sellPrice = (Store.PRECIO_VENTA_EGG/2);
 
         List<Egg> listEggs = farm.getListEggs();
@@ -196,11 +204,11 @@ public class EggService implements ITransaction {
         farm.setCantPollos(chickenRepository.findAll().size());
         farm.setDinero(farm.getDinero() + (countChickensSell * sellPriceChicken));
     }
+
     public void diasEnConvertirseEnPollo(Farm farm){
         List<Egg> eggsToConvert = new ArrayList<>();
         int contadorPollos = 0;
 
-        //loopear los huevos que no se deben vender. countEggs debe loopearse y no farm.getListEggs()
         for (Egg egg : farm.getListEggs()){//
             if (egg.getDiasEnConvertirseEnPollo() <= 1){
                 eggsToConvert.add(egg);
@@ -214,7 +222,6 @@ public class EggService implements ITransaction {
             Chicken chicken = new Chicken(null, LifeCycle.DAY_OF_LIFE_CHICKEN, LifeCycle.DAY_TO_LAY_EGGS, Store.PRECIO_VENTA_CHICKEN, Store.PRECIO_COMPRA_CHICKEN, null, farm);
             farm.getListChickens().add(chicken);
             chickenRepository.save(chicken);
-            //:::::>>>>> Si el huevo se convierte en pollo entonces guardar los pollos recien nacidos en una nueva lista. [TESTEAR]
             if (farm.getCantPollos() + countChicken >= farm.getLimitePollos()){
                 listChickensToSell.add(chicken);//TESTANDO
                 countChickensSell +=1;
@@ -225,14 +232,11 @@ public class EggService implements ITransaction {
 
         // Eliminar los huevos convertidos
         for (Egg egg : eggsToConvert) {
-            // Primero, elimina el huevo de la lista de huevos del pollo
             Chicken chicken = egg.getChicken();
             if (chicken != null) {
                 chicken.getListEggs().remove(egg);
             }
-            // Luego, elimina el huevo de la granja
             farm.getListEggs().remove(egg);
-            // Finalmente, elimina el huevo de la base de datos
             eggRepository.delete(egg);
             TemporalVariables.countEggs -= 1;
         }
@@ -241,7 +245,7 @@ public class EggService implements ITransaction {
         for (Chicken chicken : listChickensToSell){
             farm.getListChickens().remove(chicken);
             chickenRepository.delete(chicken);
+            //countChicken -=1; // [test]
         }
-
     }
 }
