@@ -38,7 +38,7 @@ public class FarmService {
     ObjectMapper mapper;
 
     private Farm myFarm;
-    private int countBreakEggs = 0;
+    public static int countBreakEggs = 0;
     private int countChickenDeads = 0;
 
     private double chickenPriceToSell = Store.PRECIO_VENTA_CHICKEN;
@@ -260,7 +260,7 @@ public class FarmService {
         farm.getListChickens().removeAll(pollosAEliminar);
         chickenRepository.deleteAll(pollosAEliminar);
         countChicken -=pollosAEliminar.size();
-        countChickenDeads = pollosAEliminar.size();
+        countChickenDeads += pollosAEliminar.size();
     }
 
     private void updateFarmData(Farm farm, int cantidad){
@@ -536,6 +536,7 @@ public class FarmService {
                 countChickenAvailable = countChicken;
             }
         }
+        FarmService.countBreakEggs += countBreakEggs; // agregado para testear
 
         // Identificar cuantos pollos moriran
         for (Chicken chicken : farm.getListChickens()){
