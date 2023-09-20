@@ -22,10 +22,10 @@ El proyecto "ChickenTest" es una aplicación web que te permite llevar un regist
 1. Clona este repositorio en tu máquina local.
 2. Abre una terminal y navega a la carpeta raíz del proyecto.
 3. Ejecuta el siguiente comando para levantar la aplicación y la base de datos:
-   C:\user\myDesktop> cd /ruta/al/proyecto/chickenTest
-   C:\user\myDesktop\ruta\al\proyecto\chickenTest> docker-compose up -d
+   `C:\user\myDesktop> cd /ruta/al/proyecto/chickenTest`
+   `C:\user\myDesktop\ruta\al\proyecto\chickenTest> docker-compose up -d`
 4. Abre un navegador web y navega a `http://localhost:8080` para acceder a la aplicación.
-5. Para acceder a la base de datos, ejecutar el siguiente comando: docker exec -it chickenTest_db mysql -u brian -p
+5. Para acceder a la base de datos, ejecutar el siguiente comando: `docker exec -it chickenTest_db mysql -u brian -p`
 6. password a ingresar: brian
 
 ## Endpoints de la API
