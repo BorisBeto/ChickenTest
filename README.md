@@ -30,7 +30,7 @@ El proyecto "ChickenTest" es una aplicación web que te permite llevar un regist
 
 ## Endpoints de la API
 
-Endpoint para Chicken
+-- ENDPOINT PARA CHICKEN --
 
 Obtener todos los pollos registrados en la granja:
 http://localhost:8080/api/chicken
@@ -38,7 +38,7 @@ http://localhost:8080/api/chicken
 Obtener un pollo por ID:
 http://localhost:8080/api/chicken/{id}
 
-Endpoint para Egg
+-- ENDPOINT PARA EGG --
 
 Obtener todos los huevos registrados en la granja:
 http://localhost:8080/api/egg
@@ -46,7 +46,7 @@ http://localhost:8080/api/egg
 Obtener un huevo por ID:
 http://localhost:8080/api/egg/{id}
 
-Endpoint para Farm
+-- ENDPOINT PARA FARM --
 
 Obtener los datos de la granja:
 http://localhost:8080/api/farm
