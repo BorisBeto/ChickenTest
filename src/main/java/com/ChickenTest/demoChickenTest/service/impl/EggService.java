@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -219,7 +218,7 @@ public class EggService implements ITransaction {
 
         // Crear nuevos Pollos
         for (int i = 0; i < contadorPollos; i++){
-            Chicken chicken = new Chicken(null, LifeCycle.DAY_OF_LIFE_CHICKEN, LifeCycle.DAY_TO_LAY_EGGS, Store.PRECIO_VENTA_CHICKEN, Store.PRECIO_COMPRA_CHICKEN, null, farm);
+            Chicken chicken = new Chicken(null, LifeCycle.DAY_OF_LIFE_CHICKEN, LifeCycle.DAY_TO_LAY_EGGS, Store.PRECIO_VENTA_CHICKEN,0, null, farm);
             farm.getListChickens().add(chicken);
             chickenRepository.save(chicken);
             if (farm.getCantPollos() + countChicken >= farm.getLimitePollos()){

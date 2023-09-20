@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  chickenTest_app:
+    container_name: chickenTest_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: chickentest:1.0.0
+    ports:
+      - "8080:8080"
+    environment:
+      - spring.jpa.hibernate.ddl-auto=create-drop
+      - spring.datasource.url=jdbc:mysql://chickenTest_db:3306/db_chickentest
+      - spring.datasource.username=root
+      - spring.datasource.password=admin
+    networks:
+      - chickentest-net
+    depends_on:
+      - chickenTest_db
+
+  chickenTest_db:
+    container_name: chickenTest_db
+    image: mysql
+    ports:
+      - "3303:3306"
+    environment:
+      MYSQL_USER: brian
+      MYSQL_PASSWORD: brian
+      MYSQL_DATABASE: db_chickentest
+      MYSQL_ROOT_PASSWORD: admin
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    networks:
+      - chickentest-net
+
+networks:
+  chickentest-net:

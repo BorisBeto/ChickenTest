@@ -544,3 +544,70 @@ Total sold price of eggs: $50.0
 Total sold price of chickens: $0.0
 [2023-09-1921:05:16] [ ERROR] [GlobalExceptionHandler:15] Chicken not found by Id: 3
 [2023-09-1921:05:21] [ ERROR] [GlobalExceptionHandler:15] Chicken not found by Id: 5
+[2023-09-1921:38:44] [ INFO ] [FarmService:482] Stock Disponible ...
+[2023-09-1921:38:44] [ INFO ] [FarmService:450] Stock disponible. Entro al default del switch
+[2023-09-1921:38:46] [ ERROR] [EggService:67] Supero el limite de Stock de Huevos. Cantidad: 8 . Stock actual de Huevos: 4 .Limite Stock de Huevos: 10
+[2023-09-1921:38:46] [ ERROR] [FarmService:182] No se pudo realizar la compra: Supero la capacidad Máxima de Huevos
+[2023-09-1921:38:51] [ INFO ] [FarmService:482] Stock Disponible ...
+[2023-09-1921:38:51] [ INFO ] [FarmService:450] Stock disponible. Entro al default del switch
+[2023-09-1921:38:53] [ INFO ] [FarmService:467] ----------Supero el Stock de Huevos--------
+[2023-09-1921:38:53] [ INFO ] [FarmService:468] Stock actual Chicken: 3 . Chickens a eliminar: 0
+[2023-09-1921:38:53] [ INFO ] [FarmService:469] Stock actual Huevos: 10 . Huevos a eliminar: 3
+[2023-09-1921:38:53] [ INFO ] [FarmService:470] Total chickens en mi granja: 3 . [countChickens] = 3 . [countChickenSell] = 0
+[2023-09-1921:38:53] [ INFO ] [FarmService:471] Total Huevos en mi granja: 10 . [countEggs] = 10 . [countEggsSell] = 3
+[2023-09-1921:38:53] [ INFO ] [EggService:192] Exceso de Huevos: 3 se venderan a un precio total de $15.0
+[2023-09-1921:38:53] [ INFO ] [EggService:194] Total Chickens: 3. Se deben eliminar 0
+[2023-09-1921:38:53] [ INFO ] [ChickenService:197] Exceso de Pollos: 0 se venderan a un precio total de $0.0
+[2023-09-1921:38:53] [ ERROR] [FarmService:519] Ocurrio un error al pasar días: 3 eggs and 0 chickens have just been sold at a 50% off to control the excess of their livestock
+Total sold price of eggs: $15.0 
+Total sold price of chickens: $0.0
+[2023-09-1921:38:56] [ INFO ] [FarmService:467] ----------Supero el Stock de Huevos--------
+[2023-09-1921:38:56] [ INFO ] [FarmService:468] Stock actual Chicken: 1 . Chickens a eliminar: 0
+[2023-09-1921:38:56] [ INFO ] [FarmService:469] Stock actual Huevos: 10 . Huevos a eliminar: 2
+[2023-09-1921:38:56] [ INFO ] [FarmService:470] Total chickens en mi granja: 1 . [countChickens] = 1 . [countChickenSell] = 0
+[2023-09-1921:38:56] [ INFO ] [FarmService:471] Total Huevos en mi granja: 10 . [countEggs] = 10 . [countEggsSell] = 2
+[2023-09-1921:38:56] [ INFO ] [EggService:192] Exceso de Huevos: 2 se venderan a un precio total de $10.0
+[2023-09-1921:38:56] [ INFO ] [EggService:194] Total Chickens: 1. Se deben eliminar 0
+[2023-09-1921:38:56] [ INFO ] [ChickenService:197] Exceso de Pollos: 0 se venderan a un precio total de $0.0
+[2023-09-1921:38:56] [ ERROR] [FarmService:519] Ocurrio un error al pasar días: 2 eggs and 0 chickens have just been sold at a 50% off to control the excess of their livestock
+Total sold price of eggs: $10.0 
+Total sold price of chickens: $0.0
+[2023-09-1921:39:02] [ INFO ] [FarmService:482] Stock Disponible ...
+[2023-09-1921:39:02] [ INFO ] [FarmService:450] Stock disponible. Entro al default del switch
+[2023-09-1921:39:07] [ INFO ] [FarmService:482] Stock Disponible ...
+[2023-09-1921:39:07] [ INFO ] [FarmService:450] Stock disponible. Entro al default del switch
+[2023-09-1921:39:11] [ INFO ] [FarmService:467] ----------Supero el Stock de Huevos--------
+[2023-09-1921:39:11] [ INFO ] [FarmService:468] Stock actual Chicken: 10 . Chickens a eliminar: 0
+[2023-09-1921:39:11] [ INFO ] [FarmService:469] Stock actual Huevos: 10 . Huevos a eliminar: 9
+[2023-09-1921:39:11] [ INFO ] [FarmService:470] Total chickens en mi granja: 10 . [countChickens] = 10 . [countChickenSell] = 0
+[2023-09-1921:39:11] [ INFO ] [FarmService:471] Total Huevos en mi granja: 10 . [countEggs] = 10 . [countEggsSell] = 9
+[2023-09-1921:39:11] [ INFO ] [EggService:192] Exceso de Huevos: 9 se venderan a un precio total de $45.0
+[2023-09-1921:39:11] [ INFO ] [EggService:194] Total Chickens: 10. Se deben eliminar 0
+[2023-09-1921:39:11] [ INFO ] [ChickenService:197] Exceso de Pollos: 0 se venderan a un precio total de $0.0
+[2023-09-1921:39:11] [ ERROR] [FarmService:519] Ocurrio un error al pasar días: 9 eggs and 0 chickens have just been sold at a 50% off to control the excess of their livestock
+Total sold price of eggs: $45.0 
+Total sold price of chickens: $0.0
+[2023-09-1921:39:16] [ INFO ] [FarmService:467] ----------Supero el Stock de Huevos--------
+[2023-09-1921:39:16] [ INFO ] [FarmService:468] Stock actual Chicken: 10 . Chickens a eliminar: 0
+[2023-09-1921:39:16] [ INFO ] [FarmService:469] Stock actual Huevos: 10 . Huevos a eliminar: 9
+[2023-09-1921:39:16] [ INFO ] [FarmService:470] Total chickens en mi granja: 10 . [countChickens] = 10 . [countChickenSell] = 0
+[2023-09-1921:39:16] [ INFO ] [FarmService:471] Total Huevos en mi granja: 10 . [countEggs] = 10 . [countEggsSell] = 9
+[2023-09-1921:39:16] [ INFO ] [EggService:192] Exceso de Huevos: 9 se venderan a un precio total de $45.0
+[2023-09-1921:39:17] [ INFO ] [EggService:194] Total Chickens: 10. Se deben eliminar 0
+[2023-09-1921:39:17] [ INFO ] [ChickenService:197] Exceso de Pollos: 0 se venderan a un precio total de $0.0
+[2023-09-1921:39:17] [ ERROR] [FarmService:519] Ocurrio un error al pasar días: 9 eggs and 0 chickens have just been sold at a 50% off to control the excess of their livestock
+Total sold price of eggs: $45.0 
+Total sold price of chickens: $0.0
+[2023-09-2002:04:48] [ INFO ] [FarmService:466] ----------Supero el Stock de Huevos--------
+[2023-09-2002:04:48] [ INFO ] [FarmService:467] Stock actual Chicken: 1 . Chickens a eliminar: 0
+[2023-09-2002:04:48] [ INFO ] [FarmService:468] Stock actual Huevos: 10 . Huevos a eliminar: 2
+[2023-09-2002:04:48] [ INFO ] [FarmService:469] Total chickens en mi granja: 1 . [countChickens] = 1 . [countChickenSell] = 0
+[2023-09-2002:04:48] [ INFO ] [FarmService:470] Total Huevos en mi granja: 10 . [countEggs] = 10 . [countEggsSell] = 2
+[2023-09-2002:04:48] [ INFO ] [EggService:191] Exceso de Huevos: 2 se venderan a un precio total de $10.0
+[2023-09-2002:04:48] [ INFO ] [EggService:193] Total Chickens: 1. Se deben eliminar 0
+[2023-09-2002:04:48] [ INFO ] [ChickenService:197] Exceso de Pollos: 0 se venderan a un precio total de $0.0
+[2023-09-2002:04:48] [ ERROR] [FarmService:518] Ocurrio un error al pasar días: 2 eggs and 0 chickens have just been sold at a 50% off to control the excess of their livestock
+Total sold price of eggs: $10.0 
+Total sold price of chickens: $0.0
+[2023-09-2002:05:11] [ INFO ] [FarmService:481] Stock Disponible ...
+[2023-09-2002:05:11] [ INFO ] [FarmService:449] Stock disponible. Entro al default del switch

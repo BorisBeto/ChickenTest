@@ -118,7 +118,7 @@ public class ChickenService implements ITransaction{
         /*  Comprando N Chickens.   */
         List<Chicken> listChickensBuy = new ArrayList<>();
         for (int i = 0; i < cantidad; i++){
-            Chicken chicken = new Chicken(null, LifeCycle.DAY_OF_LIFE_CHICKEN, LifeCycle.DAY_TO_LAY_EGGS, Store.PRECIO_VENTA_CHICKEN, Store.PRECIO_COMPRA_CHICKEN, null, farm);
+            Chicken chicken = new Chicken(null, LifeCycle.DAY_OF_LIFE_CHICKEN, LifeCycle.DAY_TO_LAY_EGGS, Store.PRECIO_VENTA_CHICKEN, Store.PRECIO_COMPRA_CHICKEN,null, farm);
             chickenRepository.save(chicken);
             listChickensBuy.add(chicken);
         }

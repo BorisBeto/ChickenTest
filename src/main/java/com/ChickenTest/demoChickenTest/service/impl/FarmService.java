@@ -1,6 +1,5 @@
 package com.ChickenTest.demoChickenTest.service.impl;
 
-import com.ChickenTest.demoChickenTest.component.TemporalVariables;
 import com.ChickenTest.demoChickenTest.dto.*;
 import com.ChickenTest.demoChickenTest.entity.*;
 import com.ChickenTest.demoChickenTest.repository.IChickenRepository;
@@ -553,7 +552,7 @@ public class FarmService {
 
         // Crear nuevos Pollos
         for (int i = 0; i < countBreakEggs; i++){
-            Chicken chicken = new Chicken(null, (LifeCycle.DAY_OF_LIFE_CHICKEN + 1), LifeCycle.DAY_TO_LAY_EGGS, Store.PRECIO_VENTA_CHICKEN, 0, null, farm);
+            Chicken chicken = new Chicken(null, (LifeCycle.DAY_OF_LIFE_CHICKEN + 1), LifeCycle.DAY_TO_LAY_EGGS, Store.PRECIO_VENTA_CHICKEN, 0,null, farm);
             farm.getListChickens().add(chicken);
             chickenRepository.save(chicken);
             //:::::>>>>> Si el huevo se convierte en pollo entonces guardar los pollos recien nacidos en una nueva lista. [TESTEAR]
