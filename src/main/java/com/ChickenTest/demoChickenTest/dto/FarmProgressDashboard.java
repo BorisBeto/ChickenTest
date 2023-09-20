@@ -6,7 +6,7 @@ import lombok.ToString;
 
 @Getter @Setter
 @ToString
-public class FarmProgressDashboard extends Throwable{
+public class FarmProgressDashboard{ // extends Throwable
     private Long id;
     private int diasVida;
     private int diasTranscurridos;

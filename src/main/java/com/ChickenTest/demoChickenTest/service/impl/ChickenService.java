@@ -1,7 +1,6 @@
 package com.ChickenTest.demoChickenTest.service.impl;
 
 import com.ChickenTest.demoChickenTest.dto.ChickenDto;
-import com.ChickenTest.demoChickenTest.dto.TransaccionDto;
 import com.ChickenTest.demoChickenTest.entity.*;
 import com.ChickenTest.demoChickenTest.repository.IChickenRepository;
 import com.ChickenTest.demoChickenTest.repository.IEggRepository;
@@ -15,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 import static com.ChickenTest.demoChickenTest.component.TemporalVariables.*;
@@ -198,4 +196,5 @@ public class ChickenService implements ITransaction{
 
         logger.info("Exceso de Pollos: " + excedent + " se venderan a un precio total de $" + (excedent * sellPrice));
     }
+
 }
