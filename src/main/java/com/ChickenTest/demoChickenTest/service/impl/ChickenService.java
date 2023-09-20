@@ -176,21 +176,23 @@ public class ChickenService implements ITransaction{
                 chickenRepository.delete(chicken);
         }
 
-        getPrecioTotalVendido(listChickensRemove);
+        //getPrecioTotalVendido(listChickensRemove);
         farm.getListChickens().removeAll(listChickensRemove);
 
         /*  Actualizando los datos de la Farm.  */
+
         if (!isExccessEggs){
+            getPrecioTotalVendido(listChickensRemove);
+
             farm.setCantHuevos(countEggs);
             farm.setCantHuevosVendidos(farm.getCantHuevosVendidos() + countEggsSell);
             farm.setDinero(farm.getDinero() + (countEggsSell * sellPriceEggs));
+
+            farm.setCantPollos(newChickens);
+            farm.setCantPollosVendidos(farm.getCantPollosVendidos() + excedent);
+            farm.setDinero(farm.getDinero() + (excedent * sellPrice));
+
         }
-
-
-        farm.setCantPollos(newChickens);
-        farm.setCantPollosVendidos(farm.getCantPollosVendidos() + excedent);
-        farm.setDinero(farm.getDinero() + (excedent * sellPrice));
-
         farm.setListEggs(eggRepository.findAll());
         farm.setListChickens(chickenRepository.findAll());
 

@@ -129,7 +129,7 @@ public class EggService implements ITransaction {
         List<Egg> listEggsBuy = new ArrayList<>();
         /*  Comprando Huevos.   */
         for (int i = 0; i < cantidad; i++){
-            Egg egg = new Egg(null, LifeCycle.DAY_BECOME_CHICKEN, Store.PRECIO_VENTA_EGG,Store.PRECIO_COMPRA_EGG, null, farm);
+            Egg egg = new Egg(null, LifeCycle.DAY_BECOME_CHICKEN,Store.PRECIO_VENTA_EGG,Store.PRECIO_COMPRA_EGG,null, farm);
             eggRepository.save(egg);
             listEggsBuy.add(egg);
         }
