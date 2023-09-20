@@ -28,42 +28,44 @@ El proyecto "ChickenTest" es una aplicación web que te permite llevar un regist
 5. Para acceder a la base de datos, ejecutar el siguiente comando: docker exec -it chickenTest_db mysql -u brian -p
 6. password a ingresar: brian
 
-##Endpoints de la API
+## Endpoints de la API
 
-Endpoint para Chicken:
+Endpoint para Chicken
+
 Obtener todos los pollos registrados en la granja:
-
 http://localhost:8080/api/chicken
+
 Obtener un pollo por ID:
-
 http://localhost:8080/api/chicken/{id}
-Endpoint para Egg:
+
+Endpoint para Egg
+
 Obtener todos los huevos registrados en la granja:
-
 http://localhost:8080/api/egg
+
 Obtener un huevo por ID:
-
 http://localhost:8080/api/egg/{id}
-Endpoint para Farm:
+
+Endpoint para Farm
+
 Obtener los datos de la granja:
-
 http://localhost:8080/api/farm
+
 Obtener los datos de la granja por ID:
-
 http://localhost:8080/api/farm/{id}
+
 Obtener un resumen de las propiedades de la granja:
-
 http://localhost:8080/api/farm/dashboard/resume
+
 Obtener el progreso y estadísticas de la granja:
+   http://localhost:8080/api/farm/dashboard/progress
 
-http://localhost:8080/api/farm/dashboard/progress
 Obtener las transacciones de la granja:
+   http://localhost:8080/api/farm/dashboard/transactions
 
-http://localhost:8080/api/farm/dashboard/transactions
-Obtener el dinero disponible en la granja:
-
+Obtener el dinero disponible en la granja: 
 http://localhost:8080/api/farm/dashboard/cash-available
-   
+ 
 ## Contribuciones
 
 Las contribuciones son bienvenidas. Si encuentras errores o mejoras, no dudes en abrir un "issue" o enviar un "pull request".
