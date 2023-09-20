@@ -49,27 +49,32 @@ public class ChickenService implements ITransaction{
 
         return chickenDtos;
     }
+
     protected void verifyStock(int cantidad, int stockActual, int limiteStock){
         if ((stockActual + cantidad) > limiteStock){
             logger.error("Supero el Limite de Stock de Pollos. Cantidad: " + cantidad + ". Stock actual de Pollos: " + stockActual + " .Limite de Stock de Pollos: " + limiteStock);
             throw new RuntimeException("Supero la cantidad Máxima de Pollos.");
         }
     }
+
     protected boolean isLimiteStock(int cantidad, int stockActual, int limiteStock){
         return (stockActual + cantidad) > limiteStock;
     }
+
     private void verifyCantidadPositiva(int cantidad){
         if (cantidad <= 0){
             logger.error("Error, la cantidad ingresada de ser Entero positivo. Numero ingresado: " + cantidad);
             throw new RuntimeException("La cantidad ingresada debe ser Entero positivo.");
         }
     }
+
     private void verifyDineroDisponible(double dineroDisponible, double costoTotal){
         if (dineroDisponible < costoTotal){
             logger.error("Saldo insuficiente. Monto total: $" + costoTotal + ". Dinero disponible: $" + dineroDisponible);
             throw new RuntimeException("Dinero disponible insuficiente.");
         }
     }
+
     private void verifyStockSell(int cantidad, int stockActual){
         if (stockActual <= 0){
             logger.error("Actualmente no contiene Pollos en su granja. Stock actual: " + stockActual);
@@ -79,6 +84,7 @@ public class ChickenService implements ITransaction{
             throw new RuntimeException("No tiene suficientes Pollos para vender.");
         }
     }
+
     public void getPrecioTotalComprado(List<Chicken> listChickensBuy){
         for (Chicken chicken : listChickensBuy){
             precioTotalComprado += chicken.getPrecioComprado();
@@ -86,6 +92,7 @@ public class ChickenService implements ITransaction{
 
         cantidadComprados += listChickensBuy.size();
     }
+
     public void getPrecioTotalVendido(List<Chicken> listChickensSell){
         for (Chicken chicken : listChickensSell){
             precioTotalVendido += chicken.getPrecio();
@@ -93,6 +100,7 @@ public class ChickenService implements ITransaction{
 
         cantidadVendidos += listChickensSell.size();
     }
+
     public void updatePrice(double newPriceForBuy, double newPriceForSell){
         List<Chicken> updatePriceChickens = chickenRepository.findAll();
         for (Chicken chicken : updatePriceChickens){
@@ -104,7 +112,6 @@ public class ChickenService implements ITransaction{
             chickenRepository.save(chicken);
         }
     }
-
 
     @Override
     public void buy(Farm farm, int cantidad) {
@@ -130,6 +137,7 @@ public class ChickenService implements ITransaction{
 
         farmRepository.save(farm);
     }
+
     @Override
     public void sell(Farm farm, int cantidad) {
         List<Chicken> listChicken = farm.getListChickens();
@@ -159,6 +167,7 @@ public class ChickenService implements ITransaction{
 
         farmRepository.save(farm);
     }
+
     @Override
     public void sellExcedent(Farm farm, int newChickens, int excedent) {
         List<Chicken> listChickensRemove = new ArrayList<>();
@@ -175,12 +184,9 @@ public class ChickenService implements ITransaction{
                 //farm.getListChickens().remove(chicken);
                 chickenRepository.delete(chicken);
         }
-
-        //getPrecioTotalVendido(listChickensRemove);
         farm.getListChickens().removeAll(listChickensRemove);
 
         /*  Actualizando los datos de la Farm.  */
-
         if (!isExccessEggs){
             getPrecioTotalVendido(listChickensRemove);
 
@@ -195,8 +201,5 @@ public class ChickenService implements ITransaction{
         }
         farm.setListEggs(eggRepository.findAll());
         farm.setListChickens(chickenRepository.findAll());
-
-        logger.info("Exceso de Pollos: " + excedent + " se venderan a un precio total de $" + (excedent * sellPrice));
     }
-
 }

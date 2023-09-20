@@ -1,7 +1,11 @@
 package com.ChickenTest.demoChickenTest.dto;
 
+import com.ChickenTest.demoChickenTest.entity.Chicken;
+import com.ChickenTest.demoChickenTest.entity.Egg;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter @Setter
 public class FarmDto {
@@ -14,4 +18,6 @@ public class FarmDto {
     private int limitePollos = 300;
     //private int cantHuevos;
     //private int cantPollos;
+    private List<ChickenDto> listChickens;
+    private List<EggDto> listEggs;
 }

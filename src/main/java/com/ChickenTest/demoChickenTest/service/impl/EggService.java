@@ -170,7 +170,6 @@ public class EggService implements ITransaction {
     @Override
     public void sellExcedent(Farm farm, int newEggs, int excedent) {
         double sellPrice = (Store.PRECIO_VENTA_EGG/2);
-
         List<Egg> listEggs = farm.getListEggs();
         listEggs.sort(Comparator.comparing(Egg::getId).reversed());
 
@@ -180,17 +179,15 @@ public class EggService implements ITransaction {
         getPrecioTotalVendido(listEggsToSell);
 
         /*  Actualizando los datos de la Farm.  */
-        farm.setCantHuevos(newEggs); //farm.setCantHuevos(farm.getCantHuevos() + newEggs);
+        farm.setCantHuevos(newEggs);
         farm.setCantHuevosVendidos(farm.getCantHuevosVendidos() + excedent);
         farm.setDinero(farm.getDinero() + (excedent * sellPrice));
         farm.setListEggs(eggRepository.findAll());
-        farm.setListChickens(chickenRepository.findAll());//
+        farm.setListChickens(chickenRepository.findAll());
 
-        farm.setCantPollos(farm.getCantPollos() + countChicken); //Revisar countChickens.
+        farm.setCantPollos(farm.getCantPollos() + countChicken);
 
-        logger.info("Exceso de Huevos: " + excedent + " se venderan a un precio total de $" + (excedent * sellPrice));
-        /* --------- [test]---------*/
-        logger.info("Total Chickens: " + chickenRepository.findAll().size() + ". Se deben eliminar " + countChickensSell);
+        /*  ------------ Control Exceso Chickens -----------*/
 
         double sellPriceChicken = Store.PRECIO_VENTA_CHICKEN/2;
         for (Chicken chicken : listChickensToSell){
@@ -208,7 +205,7 @@ public class EggService implements ITransaction {
         List<Egg> eggsToConvert = new ArrayList<>();
         int contadorPollos = 0;
 
-        for (Egg egg : farm.getListEggs()){//
+        for (Egg egg : farm.getListEggs()){
             if (egg.getDiasEnConvertirseEnPollo() <= 1){
                 eggsToConvert.add(egg);
                 contadorPollos++;
@@ -240,11 +237,9 @@ public class EggService implements ITransaction {
             TemporalVariables.countEggs -= 1;
         }
 
-        //[PROBANDO] ...Chickens a vender
         for (Chicken chicken : listChickensToSell){
             farm.getListChickens().remove(chicken);
             chickenRepository.delete(chicken);
-            //countChicken -=1; // [test]
         }
     }
 }

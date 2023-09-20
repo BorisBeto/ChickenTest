@@ -21,6 +21,10 @@ public class FarmApiService {
     @Autowired
     FarmService farmService;
     @Autowired
+    ChickenApiService chickenApiService;
+    @Autowired
+    EggApiService eggApiService;
+    @Autowired
     ObjectMapper mapper;
 
     /*  Reporte Farm    */
@@ -29,6 +33,8 @@ public class FarmApiService {
 
         for (Farm farm : farmRepository.findAll()){
             FarmDto farmDto = mapper.convertValue(farm, FarmDto.class);
+            farmDto.setListChickens(chickenApiService.getDataChickensDto());
+            farmDto.setListEggs(eggApiService.getDataEggsDto());
             listFarmDto.add(farmDto);
         }
 
@@ -43,6 +49,7 @@ public class FarmApiService {
         return mapper.convertValue(farm, FarmDto.class);
     }
 
+    /*  Dashboard Properties    */
     public FarmDashboardDto getDashboardResumen(){
         return farmService.getPropertiesDashboard();
     }
